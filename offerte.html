@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offerte aanvragen — Yalcin Tapijt & Woninginrichting</title>
+<meta name="description" content="Vraag in een paar stappen een vrijblijvende offerte aan voor vloeren, traprenovatie, gordijnen, raamdecoratie of complete woninginrichting.">
+<meta name="theme-color" content="#211d15">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="offerte.css">
+</head>
+<body>
+<div class="q-page">
+
+  <!-- ============ LEFT RAIL ============ -->
+  <aside class="q-rail">
+    <div class="tex"></div>
+    <div class="q-rail-inner">
+      <a href="index.html" class="brand">Yalcin<span class="brand-tag">Den Haag</span></a>
+      <a href="index.html" class="q-back">← Terug naar de website</a>
+
+      <h2>Vraag uw<br>offerte aan</h2>
+      <p class="q-rail-sub">In een paar stappen verzamelen we alles wat we nodig hebben voor een passende, vrijblijvende offerte.</p>
+
+      <ol class="q-steps">
+        <li class="q-step-item active"><span class="si">1</span> Dienst</li>
+        <li class="q-step-item"><span class="si">2</span> Details</li>
+        <li class="q-step-item"><span class="si">3</span> Planning</li>
+        <li class="q-step-item"><span class="si">4</span> Uw gegevens</li>
+        <li class="q-step-item"><span class="si">5</span> Overzicht</li>
+      </ol>
+
+      <!-- mobile progress -->
+      <div class="q-mobilebar">
+        <div class="track"><div class="fill"></div></div>
+        <div class="mlbl">Stap 1 van 5 — Dienst</div>
+      </div>
+
+      <div class="q-rail-foot">
+        <div class="lbl">Liever even bellen?</div>
+        <a href="tel:+31703907020">070 390 7020</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="q-main">
+    <div class="q-main-inner">
+
+      <!-- STEP 0 — DIENST -->
+      <section class="q-step active" data-step="0">
+        <div class="q-eyebrow">Stap 1 · Dienst</div>
+        <h3>Waarmee kunnen we u helpen?</h3>
+        <p class="q-help">Kies één of meerdere diensten. Bij de volgende stap stellen we per dienst een paar gerichte vragen.</p>
+
+        <div class="q-cards">
+          <label class="q-card" data-service="vloeren">
+            <input type="checkbox">
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>
+            <div class="qc-num">01</div><h4>Vloeren</h4><p>PVC, laminaat of tapijt</p>
+          </label>
+          <label class="q-card" data-service="traprenovatie">
+            <input type="checkbox">
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>
+            <div class="qc-num">02</div><h4>Traprenovatie</h4><p>Uw trap als nieuw</p>
+          </label>
+          <label class="q-card" data-service="gordijnen">
+            <input type="checkbox">
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>
+            <div class="qc-num">03</div><h4>Gordijnen</h4><p>Op maat gemaakt</p>
+          </label>
+          <label class="q-card" data-service="raamdecoratie">
+            <input type="checkbox">
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>
+            <div class="qc-num">04</div><h4>Raamdecoratie</h4><p>Jaloezieën, shutters, rolgordijnen</p>
+          </label>
+          <label class="q-card" data-service="woninginrichting">
+            <input type="checkbox">
+            <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span>
+            <div class="qc-num">05</div><h4>Complete woninginrichting</h4><p>Alles onder één dak</p>
+          </label>
+        </div>
+        <div class="q-error-msg" id="svc-error">Kies minimaal één dienst om verder te gaan.</div>
+
+        <div class="q-actions">
+          <span class="spacer"></span>
+          <button class="btn btn-primary btn-lg" data-next>Volgende <span class="arr">→</span></button>
+        </div>
+      </section>
+
+      <!-- STEP 1 — DETAILS -->
+      <section class="q-step" data-step="1">
+        <div class="q-eyebrow">Stap 2 · Details</div>
+        <h3>Vertel ons meer</h3>
+        <p class="q-help">Hoe completer uw antwoorden, hoe nauwkeuriger onze offerte. Weet u iets niet zeker? Sla het gerust over.</p>
+        <div id="detail-panels"></div>
+        <div class="q-actions">
+          <button class="btn btn-ghost btn-lg" data-prev>← Terug</button>
+          <span class="spacer"></span>
+          <button class="btn btn-primary btn-lg" data-next>Volgende <span class="arr">→</span></button>
+        </div>
+      </section>
+
+      <!-- STEP 2 — PLANNING -->
+      <section class="q-step" data-step="2" id="step-planning">
+        <div class="q-eyebrow">Stap 3 · Planning</div>
+        <h3>Wanneer wilt u aan de slag?</h3>
+        <p class="q-help">Zo kunnen we meteen rekening houden met uw wensen rond timing en budget.</p>
+
+        <div class="q-field">
+          <label class="q-label">Gewenste termijn</label>
+          <div class="q-chips" data-chipgroup="planning_termijn" data-multi="0">
+            <label class="q-chip"><input type="radio" name="planning_termijn" value="Zo snel mogelijk">Zo snel mogelijk</label>
+            <label class="q-chip"><input type="radio" name="planning_termijn" value="Binnen 1 maand">Binnen 1 maand</label>
+            <label class="q-chip"><input type="radio" name="planning_termijn" value="1–3 maanden">1–3 maanden</label>
+            <label class="q-chip"><input type="radio" name="planning_termijn" value="Oriënterend">Nog oriënterend</label>
+          </div>
+        </div>
+
+        <div class="q-field">
+          <label class="q-label">Indicatie budget <span class="hint">optioneel</span></label>
+          <div class="q-chips" data-chipgroup="planning_budget" data-multi="0">
+            <label class="q-chip"><input type="radio" name="planning_budget" value="< € 1.000">&lt; € 1.000</label>
+            <label class="q-chip"><input type="radio" name="planning_budget" value="€ 1.000 – 2.500">€ 1.000 – 2.500</label>
+            <label class="q-chip"><input type="radio" name="planning_budget" value="€ 2.500 – 5.000">€ 2.500 – 5.000</label>
+            <label class="q-chip"><input type="radio" name="planning_budget" value="€ 5.000+">€ 5.000+</label>
+            <label class="q-chip"><input type="radio" name="planning_budget" value="Weet ik nog niet">Weet ik nog niet</label>
+          </div>
+        </div>
+
+        <div class="q-field">
+          <label>Opmerkingen <span class="hint">wensen, vragen of bijzonderheden</span></label>
+          <textarea class="q-textarea" name="planning_opm" placeholder="bijv. graag in het weekend inmeten, of: huisdieren aanwezig…"></textarea>
+        </div>
+
+        <div class="q-actions">
+          <button class="btn btn-ghost btn-lg" data-prev>← Terug</button>
+          <span class="spacer"></span>
+          <button class="btn btn-primary btn-lg" data-next>Volgende <span class="arr">→</span></button>
+        </div>
+      </section>
+
+      <!-- STEP 3 — CONTACT -->
+      <section class="q-step" data-step="3">
+        <div class="q-eyebrow">Stap 4 · Uw gegevens</div>
+        <h3>Waar mogen we u bereiken?</h3>
+        <p class="q-help">We nemen binnen één werkdag contact met u op. Uw gegevens gebruiken we uitsluitend voor uw aanvraag.</p>
+
+        <div class="q-row">
+          <div class="q-field"><label>Naam *</label><input class="q-input" type="text" name="naam" autocomplete="name" placeholder="Voor- en achternaam"></div>
+          <div class="q-field"><label>Telefoon *</label><input class="q-input" type="tel" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78"></div>
+        </div>
+        <div class="q-field"><label>E-mailadres *</label><input class="q-input" type="email" name="email" autocomplete="email" placeholder="naam@voorbeeld.nl"></div>
+        <div class="q-field"><label>Adres <span class="hint">optioneel — handig voor het inmeten</span></label><input class="q-input" type="text" name="adres" autocomplete="street-address" placeholder="Straat en huisnummer"></div>
+        <div class="q-row">
+          <div class="q-field"><label>Postcode</label><input class="q-input" type="text" name="postcode" autocomplete="postal-code" placeholder="1234 AB"></div>
+          <div class="q-field"><label>Plaats</label><input class="q-input" type="text" name="plaats" autocomplete="address-level2" placeholder="Den Haag"></div>
+        </div>
+        <div class="q-error-msg" id="contact-error">Vul uw naam, een geldig e-mailadres en telefoonnummer in.</div>
+
+        <div class="q-actions">
+          <button class="btn btn-ghost btn-lg" data-prev>← Terug</button>
+          <span class="spacer"></span>
+          <button class="btn btn-primary btn-lg" data-next>Naar overzicht <span class="arr">→</span></button>
+        </div>
+      </section>
+
+      <!-- STEP 4 — OVERZICHT -->
+      <section class="q-step" data-step="4">
+        <div class="q-eyebrow">Stap 5 · Overzicht</div>
+        <h3>Klopt alles?</h3>
+        <p class="q-help">Controleer uw aanvraag. U kunt elk onderdeel nog aanpassen voordat u verstuurt.</p>
+        <div class="q-summary" id="summary-rows"></div>
+        <div class="q-actions">
+          <button class="btn btn-ghost btn-lg" data-prev>← Terug</button>
+          <span class="spacer"></span>
+          <button class="btn btn-primary btn-lg" id="q-submit">Aanvraag versturen <span class="arr">→</span></button>
+        </div>
+      </section>
+
+      <!-- SUCCESS -->
+      <section class="q-step" id="step-success">
+        <div class="q-success">
+          <div class="mark"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Bedankt voor uw aanvraag</h3>
+          <p>We hebben uw gegevens ontvangen en nemen binnen één werkdag persoonlijk contact met u op. Tot snel!</p>
+          <a href="index.html" class="btn btn-primary btn-lg">Terug naar de website <span class="arr">→</span></a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="offerte.js"></script>
+</body>
+</html>
