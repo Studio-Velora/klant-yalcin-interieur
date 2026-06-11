@@ -15,7 +15,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
 <script type="application/ld+json">
@@ -293,7 +293,7 @@ body { --promo-h: 46px; }
 .cta-banner .hero-actions { justify-content: center; }
 </style>
 </head>
-<body>
+<body class="grain">
 
 <!-- ===================== PROMO BAR ===================== -->
 <div class="promo" data-promo role="region" aria-label="Aanbieding">
@@ -320,6 +320,7 @@ body { --promo-h: 46px; }
         <li><a href="#diensten">Diensten</a></li>
         <li><a href="#projecten">Projecten</a></li>
         <li><a href="#werkwijze">Werkwijze</a></li>
+        <li><a href="#webshop">Webshop</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -649,6 +650,64 @@ body { --promo-h: 46px; }
       <div class="contact-map" data-reveal data-reveal-d="1">
         <iframe title="Locatie Yalcin Tapijt & Woninginrichting" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Apeldoornselaan+243,+3573+LJ+Den+Haag&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WEBSHOP ===================== -->
+<section class="section-pad webshop-section" id="webshop">
+  <div class="wrap">
+    <div class="webshop-grid" data-reveal>
+      <div class="webshop-copy">
+        <span class="eyebrow">Nieuw — online bestellen</span>
+        <h2 class="section-title">Materialen bestellen<br>vanuit uw <em>eigen huis</em></h2>
+        <p class="lead" style="margin-top:1.4rem;max-width:44ch">Binnenkort kunt u onze vloerbekleding, tapijt en accessoires direct online bekijken en bestellen. Alles met dezelfde persoonlijke service — nu ook digitaal.</p>
+        <ul class="webshop-features">
+          <li><span class="wf-dot"></span>Alle collecties online beschikbaar</li>
+          <li><span class="wf-dot"></span>Stalen aanvragen aan huis</li>
+          <li><span class="wf-dot"></span>Vakkundige montage inbegrepen</li>
+          <li><span class="wf-dot"></span>Veilig betalen via iDEAL &amp; creditcard</li>
+        </ul>
+        <div class="webshop-notify">
+          <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:1.2rem">Wil je als eerste weten wanneer de webshop live gaat?</p>
+          <!-- SHOPIFY: vervang onderstaand formulier door het Shopify e-mail capture embed -->
+          <div class="shopify-embed-placeholder">
+            <div class="seph-inner">
+              <form class="notify-form" onsubmit="return false;">
+                <input type="email" placeholder="Uw e-mailadres" class="notify-input" aria-label="E-mailadres voor notificatie">
+                <button type="submit" class="btn btn-primary">Meld mij aan <span class="arr">→</span></button>
+              </form>
+              <p class="notify-note">Geen spam. Uitschrijven kan altijd.</p>
+            </div>
+          </div>
+          <!-- /SHOPIFY -->
+        </div>
+      </div>
+      <div class="webshop-media">
+        <div class="webshop-preview">
+          <!-- SHOPIFY: vervang dit blok door de Shopify Buy Button embed of de koop-knop widget -->
+          <div class="shop-preview-card">
+            <div class="ph shop-ph" data-src="assets/photo/pvc-vloer-woonkamer.jpg" data-label="webshop preview — vloercollectie"></div>
+            <div class="shop-preview-info">
+              <span class="shop-cat">Vloeren · PVC</span>
+              <h4 class="shop-title">Visgraat collectie</h4>
+              <div class="shop-price">Vanaf <strong>€ 24,95 / m²</strong></div>
+              <div class="shop-cta-placeholder">Binnenkort bestelbaar</div>
+            </div>
+          </div>
+          <div class="shop-preview-card">
+            <div class="ph shop-ph" data-src="assets/photo/trap-eiken-open.jpg" data-label="webshop preview — traprenovatie"></div>
+            <div class="shop-preview-info">
+              <span class="shop-cat">Traprenovatie</span>
+              <h4 class="shop-title">Eiken trapbekleding</h4>
+              <div class="shop-price">Vanaf <strong>€ 89,- / tree</strong></div>
+              <div class="shop-cta-placeholder">Binnenkort bestelbaar</div>
+            </div>
+          </div>
+          <!-- /SHOPIFY -->
+        </div>
+        <div class="webshop-badge">Binnenkort live</div>
       </div>
     </div>
   </div>
