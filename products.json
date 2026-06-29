@@ -1,0 +1,1562 @@
+[
+  {
+    "id": 15721453355391,
+    "title": "Agena",
+    "handle": "agena",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 249.0,
+    "variantId": 57750300754303,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Agena1.jpg?v=1781385523",
+        "alt": "Agena"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Agena2.jpg?v=1781386976",
+        "alt": "Agena"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "80% Wol / 20% Polyamide",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "80 × 150 cm",
+      "vorm": "Ovaal",
+      "stijl": "Japandi",
+      "ruimte": "Slaapkamer",
+      "paalType": "Shaggy",
+      "paalHoogte": "7 mm",
+      "gewicht": "2300 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 8,
+      "sku": "YI-AGENA-619"
+    },
+    "tags": [
+      "Japandi",
+      "Slaapkamer",
+      "Crème"
+    ],
+    "slug": "agena"
+  },
+  {
+    "id": 15721453289855,
+    "title": "Alkes",
+    "handle": "alkes",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 319.0,
+    "variantId": 57750300688767,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Alkes_81NX.jpg?v=1781385521",
+        "alt": "Alkes"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Alkes_81NX_-_Matar_63NX1.jpg?v=1781386956",
+        "alt": "Alkes"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Alkes_81NX4.jpg?v=1781386961",
+        "alt": "Alkes"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Alkes_70NX_-_Pollux_60NX3.jpg?v=1781386965",
+        "alt": "Alkes"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% Polyester",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Hal / Gang",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "5 mm",
+      "gewicht": "2100 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-ALKES-472"
+    },
+    "tags": [
+      "Industrieel",
+      "Hal / Gang",
+      "Crème"
+    ],
+    "slug": "alkes"
+  },
+  {
+    "id": 15721453945215,
+    "title": "Babylon",
+    "handle": "babylon",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 189.0,
+    "variantId": 57750301344127,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Babylon12-02nature.jpg?v=1781387106",
+        "alt": "Babylon"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "80% Wol / 20% Polyamide",
+      "kleur": "Zand / Beige",
+      "kleurHex": "#d4bc9a",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Kantoor",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "12 mm",
+      "gewicht": "3400 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-BABYLO-441"
+    },
+    "tags": [
+      "Industrieel",
+      "Kantoor",
+      "Zand"
+    ],
+    "slug": "babylon"
+  },
+  {
+    "id": 15721454043519,
+    "title": "Badour",
+    "handle": "badour",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 279.0,
+    "variantId": 57750301442431,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Badour62.webp?v=1781387125",
+        "alt": "Badour"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Viscose",
+      "kleur": "Natuurbruin",
+      "kleurHex": "#7a6150",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Bohemian",
+      "ruimte": "Kantoor",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "5 mm",
+      "gewicht": "1900 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 7,
+      "sku": "YI-BADOUR-963"
+    },
+    "tags": [
+      "Bohemian",
+      "Kantoor",
+      "Natuurbruin"
+    ],
+    "slug": "badour"
+  },
+  {
+    "id": 15721453683071,
+    "title": "Beach Life",
+    "handle": "beach-life",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 229.0,
+    "variantId": 57750301081983,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Beach_Life_16-02.png?v=1781387061",
+        "alt": "Beach Life"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "80% Wol / 20% Polyamide",
+      "kleur": "Terracotta / Roest",
+      "kleurHex": "#b5613a",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Woonkamer",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "15 mm",
+      "gewicht": "2600 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-BEACH--297"
+    },
+    "tags": [
+      "Japandi",
+      "Woonkamer",
+      "Terracotta"
+    ],
+    "slug": "beach-life"
+  },
+  {
+    "id": 15721454174591,
+    "title": "Bren",
+    "handle": "bren",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 299.0,
+    "variantId": 57750301573503,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Bren23-2.webp?v=1781387140",
+        "alt": "Bren"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "100% Polypropyleen",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rond",
+      "stijl": "Bohemian",
+      "ruimte": "Kantoor",
+      "paalType": "Shaggy",
+      "paalHoogte": "15 mm",
+      "gewicht": "1900 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-BREN-466"
+    },
+    "tags": [
+      "Bohemian",
+      "Kantoor",
+      "Crème"
+    ],
+    "slug": "bren"
+  },
+  {
+    "id": 15721453322623,
+    "title": "Capella",
+    "handle": "capella",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 269.0,
+    "variantId": 57750300721535,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Capella_62NX1.jpg?v=1781385325",
+        "alt": "Capella"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Capella_62NX1_84940a2a-a1cf-463c-9d50-ff9e64db75f1.jpg?v=1781385519",
+        "alt": "Capella"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Capella_62NX2.jpg?v=1781386968",
+        "alt": "Capella"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Capella_62NX5.jpg?v=1781386972",
+        "alt": "Capella"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "120 × 180 cm",
+      "vorm": "Ovaal",
+      "stijl": "Hotel Chic",
+      "ruimte": "Hal / Gang",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "15 mm",
+      "gewicht": "4200 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-CAPELL-942"
+    },
+    "tags": [
+      "Hotel Chic",
+      "Hal / Gang",
+      "Crème"
+    ],
+    "slug": "capella"
+  },
+  {
+    "id": 15721453551999,
+    "title": "Cisco",
+    "handle": "cisco",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 199.0,
+    "variantId": 57750300950911,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Cisco_15-02.png?v=1781387034",
+        "alt": "Cisco"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Cisco_32-02.jpg?v=1781387041",
+        "alt": "Cisco"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/cisco-63-1.jpg?v=1781387046",
+        "alt": "Cisco"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Viscose",
+      "kleur": "Terracotta / Roest",
+      "kleurHex": "#b5613a",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Bohemian",
+      "ruimte": "Slaapkamer",
+      "paalType": "Laagpolig",
+      "paalHoogte": "10 mm",
+      "gewicht": "1900 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 12,
+      "sku": "YI-CISCO-513"
+    },
+    "tags": [
+      "Bohemian",
+      "Slaapkamer",
+      "Terracotta"
+    ],
+    "slug": "cisco"
+  },
+  {
+    "id": 15721454371199,
+    "title": "Connect",
+    "handle": "connect",
+    "collection": "pvc-vloeren",
+    "collectionLabel": "PVC Vloeren",
+    "price": 349.0,
+    "variantId": 57750302949759,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Connect-1.jpg?v=1781387157",
+        "alt": "Connect"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% PVC",
+      "kleur": "Lichtgrijs",
+      "kleurHex": "#c8c4be",
+      "afmetingen": "Planken van 120 × 20 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Hal / Gang",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 5,
+      "sku": "YI-CONNEC-677"
+    },
+    "tags": [
+      "Japandi",
+      "Hal / Gang",
+      "Lichtgrijs"
+    ],
+    "slug": "connect"
+  },
+  {
+    "id": 15721454469503,
+    "title": "Dahlia",
+    "handle": "dahlia",
+    "collection": "pvc-vloeren",
+    "collectionLabel": "PVC Vloeren",
+    "price": 289.0,
+    "variantId": 57750303048063,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Dahlia_-_20_Avocado_-1.jpg?v=1781387184",
+        "alt": "Dahlia"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Dahlia_-_20_Avocado_-3.jpg?v=1781387192",
+        "alt": "Dahlia"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "Slijtlaag 0,55mm + vinyl kern",
+      "kleur": "Lichtgrijs",
+      "kleurHex": "#c8c4be",
+      "afmetingen": "Planken van 120 × 20 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Hotel Chic",
+      "ruimte": "Slaapkamer",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-DAHLIA-519"
+    },
+    "tags": [
+      "Hotel Chic",
+      "Slaapkamer",
+      "Lichtgrijs"
+    ],
+    "slug": "dahlia"
+  },
+  {
+    "id": 15721454436735,
+    "title": "Daisy",
+    "handle": "daisy",
+    "collection": "pvc-vloeren",
+    "collectionLabel": "PVC Vloeren",
+    "price": 269.0,
+    "variantId": 57750303015295,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Daisy_-_31_Steel_Blue_-_7.jpg?v=1781387170",
+        "alt": "Daisy"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Daisy_-_31_Steel_Blue_-_3.jpg?v=1781387178",
+        "alt": "Daisy"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "Slijtlaag 0,55mm + vinyl kern",
+      "kleur": "Warm eiken",
+      "kleurHex": "#b08060",
+      "afmetingen": "Planken van 120 × 20 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Hal / Gang",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-DAISY-489"
+    },
+    "tags": [
+      "Industrieel",
+      "Hal / Gang",
+      "Warm eiken"
+    ],
+    "slug": "daisy"
+  },
+  {
+    "id": 15721453584767,
+    "title": "Dante",
+    "handle": "dante",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 159.0,
+    "variantId": 57750300983679,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/dante_13-1.jpg?v=1781387053",
+        "alt": "Dante"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Polyester",
+      "kleur": "Grijs / Taupe",
+      "kleurHex": "#a8a09b",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Ovaal",
+      "stijl": "Klassiek / Traditioneel",
+      "ruimte": "Slaapkamer",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "5 mm",
+      "gewicht": "2900 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 7,
+      "sku": "YI-DANTE-850"
+    },
+    "tags": [
+      "Klassiek",
+      "Slaapkamer",
+      "Grijs"
+    ],
+    "slug": "dante"
+  },
+  {
+    "id": 15721454535039,
+    "title": "Eiken Val Cama",
+    "handle": "eiken-val-cama",
+    "collection": "laminaat",
+    "collectionLabel": "Laminaat",
+    "price": 379.0,
+    "variantId": 57750303113599,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Eiken_Val_Cama.jpg?v=1781387202",
+        "alt": "Eiken Val Cama"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "HDF-kern 8mm",
+      "kleur": "Grijze eiken",
+      "kleurHex": "#888070",
+      "afmetingen": "Planken van 122 × 18 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Kantoor",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-EIKEN--488"
+    },
+    "tags": [
+      "Japandi",
+      "Kantoor",
+      "Grijze eiken"
+    ],
+    "slug": "eiken-val-cama"
+  },
+  {
+    "id": 15721453420927,
+    "title": "Elemental",
+    "handle": "elemental",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 219.0,
+    "variantId": 57750300819839,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Elemental_85833_Flatshot.jpg?v=1781386997",
+        "alt": "Elemental"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% Polypropeen BCF",
+      "kleur": "Blauw / Indigo",
+      "kleurHex": "#5a6b8c",
+      "afmetingen": "240 × 340 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Scandinavisch",
+      "ruimte": "Kantoor",
+      "paalType": "Laagpolig",
+      "paalHoogte": "12 mm",
+      "gewicht": "2900 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 7,
+      "sku": "YI-ELEMEN-583"
+    },
+    "tags": [
+      "Scandinavisch",
+      "Kantoor",
+      "Blauw"
+    ],
+    "slug": "elemental"
+  },
+  {
+    "id": 15721454502271,
+    "title": "Flora",
+    "handle": "flora",
+    "collection": "pvc-vloeren",
+    "collectionLabel": "PVC Vloeren",
+    "price": 309.0,
+    "variantId": 57750303080831,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Flora_-_30_Blue_Mix_-_1.jpg?v=1781387199",
+        "alt": "Flora"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% PVC",
+      "kleur": "Antraciet",
+      "kleurHex": "#4a4844",
+      "afmetingen": "Planken van 120 × 20 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Woonkamer",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-FLORA-253"
+    },
+    "tags": [
+      "Industrieel",
+      "Woonkamer",
+      "Antraciet"
+    ],
+    "slug": "flora"
+  },
+  {
+    "id": 15721453912447,
+    "title": "Galaxy",
+    "handle": "galaxy",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 239.0,
+    "variantId": 57750301311359,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/galaxy-42-2.webp?v=1781387102",
+        "alt": "Galaxy"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "100% Viscose",
+      "kleur": "Sage / Groen",
+      "kleurHex": "#8a9e7d",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Kantoor",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "12 mm",
+      "gewicht": "3300 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-GALAXY-774"
+    },
+    "tags": [
+      "Japandi",
+      "Kantoor",
+      "Sage"
+    ],
+    "slug": "galaxy"
+  },
+  {
+    "id": 15721454141823,
+    "title": "Grace",
+    "handle": "grace",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 259.0,
+    "variantId": 57750301540735,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Grace23-01.jpg?v=1781387137",
+        "alt": "Grace"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% Viscose",
+      "kleur": "Antraciet / Donkergrijs",
+      "kleurHex": "#4a4844",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Modern / Minimalistisch",
+      "ruimte": "Woonkamer",
+      "paalType": "Geweven",
+      "paalHoogte": "10 mm",
+      "gewicht": "2500 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 8,
+      "sku": "YI-GRACE-825"
+    },
+    "tags": [
+      "Modern",
+      "Woonkamer",
+      "Antraciet"
+    ],
+    "slug": "grace"
+  },
+  {
+    "id": 15721453879679,
+    "title": "Jara",
+    "handle": "jara",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 329.0,
+    "variantId": 57750301278591,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Jara_45_Hoek.webp?v=1781387099",
+        "alt": "Jara"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "80% Wol / 20% Polyamide",
+      "kleur": "Natuurbruin",
+      "kleurHex": "#7a6150",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Scandinavisch",
+      "ruimte": "Eetkamer",
+      "paalType": "Middelhoogpolig",
+      "paalHoogte": "7 mm",
+      "gewicht": "1900 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 5,
+      "sku": "YI-JARA-892"
+    },
+    "tags": [
+      "Scandinavisch",
+      "Eetkamer",
+      "Natuurbruin"
+    ],
+    "slug": "jara"
+  },
+  {
+    "id": 15721453846911,
+    "title": "Kashmar",
+    "handle": "kashmar",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 349.0,
+    "variantId": 57750301245823,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Kashmar_63.jpg?v=1781387095",
+        "alt": "Kashmar"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "100% Polypropyleen",
+      "kleur": "Zand / Beige",
+      "kleurHex": "#d4bc9a",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Bohemian",
+      "ruimte": "Kantoor",
+      "paalType": "Middelhoogpolig",
+      "paalHoogte": "20 mm",
+      "gewicht": "2700 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-KASHMA-615"
+    },
+    "tags": [
+      "Bohemian",
+      "Kantoor",
+      "Zand"
+    ],
+    "slug": "kashmar"
+  },
+  {
+    "id": 15721453486463,
+    "title": "Lago",
+    "handle": "lago",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 179.0,
+    "variantId": 57750300885375,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Lago25-02.png?v=1781387020",
+        "alt": "Lago"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/lago-mix-55-1.jpg?v=1781387024",
+        "alt": "Lago"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Terracotta / Roest",
+      "kleurHex": "#b5613a",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Hotel Chic",
+      "ruimte": "Kantoor",
+      "paalType": "Shaggy",
+      "paalHoogte": "5 mm",
+      "gewicht": "3300 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 5,
+      "sku": "YI-LAGO-304"
+    },
+    "tags": [
+      "Hotel Chic",
+      "Kantoor",
+      "Terracotta"
+    ],
+    "slug": "lago"
+  },
+  {
+    "id": 15721453453695,
+    "title": "Lagomix",
+    "handle": "lagomix",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 199.0,
+    "variantId": 57750300852607,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Lagomix_69_hoek.jpg?v=1781387002",
+        "alt": "Lagomix"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Lagomix_69_bovenaf.jpg?v=1781387007",
+        "alt": "Lagomix"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "100% Polypropyleen",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Kantoor",
+      "paalType": "Shaggy",
+      "paalHoogte": "15 mm",
+      "gewicht": "2300 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 7,
+      "sku": "YI-LAGOMI-400"
+    },
+    "tags": [
+      "Japandi",
+      "Kantoor",
+      "Crème"
+    ],
+    "slug": "lagomix"
+  },
+  {
+    "id": 15721453617535,
+    "title": "Loop",
+    "handle": "loop",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 209.0,
+    "variantId": 57750301016447,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Loop_13_hoek_afw_KB12.jpg?v=1781387057",
+        "alt": "Loop"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% Polyester",
+      "kleur": "Blauw / Indigo",
+      "kleurHex": "#5a6b8c",
+      "afmetingen": "80 × 150 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Kantoor",
+      "paalType": "Geweven",
+      "paalHoogte": "7 mm",
+      "gewicht": "3500 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 7,
+      "sku": "YI-LOOP-971"
+    },
+    "tags": [
+      "Industrieel",
+      "Kantoor",
+      "Blauw"
+    ],
+    "slug": "loop"
+  },
+  {
+    "id": 15721453781375,
+    "title": "Luxor",
+    "handle": "luxor",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 289.0,
+    "variantId": 57750301180287,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Luxor_53_hoek.webp?v=1781387085",
+        "alt": "Luxor"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "100% Polyester",
+      "kleur": "Grijs / Taupe",
+      "kleurHex": "#a8a09b",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Hotel Chic",
+      "ruimte": "Woonkamer",
+      "paalType": "Laagpolig",
+      "paalHoogte": "20 mm",
+      "gewicht": "3700 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-LUXOR-638"
+    },
+    "tags": [
+      "Hotel Chic",
+      "Woonkamer",
+      "Grijs"
+    ],
+    "slug": "luxor"
+  },
+  {
+    "id": 15721453519231,
+    "title": "Marich",
+    "handle": "marich",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 169.0,
+    "variantId": 57750300918143,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Marich_24_hoek.jpg?v=1781387029",
+        "alt": "Marich"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Crème / Off-white",
+      "kleurHex": "#ede8dc",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Bohemian",
+      "ruimte": "Slaapkamer",
+      "paalType": "Laagpolig",
+      "paalHoogte": "10 mm",
+      "gewicht": "2000 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 8,
+      "sku": "YI-MARICH-267"
+    },
+    "tags": [
+      "Bohemian",
+      "Slaapkamer",
+      "Crème"
+    ],
+    "slug": "marich"
+  },
+  {
+    "id": 15721454109055,
+    "title": "Metrix",
+    "handle": "metrix",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 249.0,
+    "variantId": 57750301507967,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Metrix_11-2.webp?v=1781387134",
+        "alt": "Metrix"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Viscose",
+      "kleur": "Sage / Groen",
+      "kleurHex": "#8a9e7d",
+      "afmetingen": "80 × 150 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Japandi",
+      "ruimte": "Eetkamer",
+      "paalType": "Middelhoogpolig",
+      "paalHoogte": "15 mm",
+      "gewicht": "4100 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 12,
+      "sku": "YI-METRIX-789"
+    },
+    "tags": [
+      "Japandi",
+      "Eetkamer",
+      "Sage"
+    ],
+    "slug": "metrix"
+  },
+  {
+    "id": 15721454010751,
+    "title": "Monro",
+    "handle": "monro",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 279.0,
+    "variantId": 57750301409663,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/monro_52_olive_Hoek.webp?v=1781387121",
+        "alt": "Monro"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "100% Viscose",
+      "kleur": "Terracotta / Roest",
+      "kleurHex": "#b5613a",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rond",
+      "stijl": "Industrieel",
+      "ruimte": "Eetkamer",
+      "paalType": "Laagpolig",
+      "paalHoogte": "10 mm",
+      "gewicht": "3300 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 8,
+      "sku": "YI-MONRO-587"
+    },
+    "tags": [
+      "Industrieel",
+      "Eetkamer",
+      "Terracotta"
+    ],
+    "slug": "monro"
+  },
+  {
+    "id": 15721453814143,
+    "title": "Olimpos",
+    "handle": "olimpos",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 299.0,
+    "variantId": 57750301213055,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Olimpos_13-1.jpg?v=1781387088",
+        "alt": "Olimpos"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Olimpos-13-rond-vintage.webp?v=1781387092",
+        "alt": "Olimpos"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Natuurbruin",
+      "kleurHex": "#7a6150",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rond",
+      "stijl": "Industrieel",
+      "ruimte": "Hal / Gang",
+      "paalType": "Laagpolig",
+      "paalHoogte": "7 mm",
+      "gewicht": "3400 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "5 jaar garantie op slijtlaag",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-OLIMPO-170"
+    },
+    "tags": [
+      "Industrieel",
+      "Hal / Gang",
+      "Natuurbruin"
+    ],
+    "slug": "olimpos"
+  },
+  {
+    "id": 15721453748607,
+    "title": "Pablo",
+    "handle": "pablo",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 389.0,
+    "variantId": 57750301147519,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Pablo_12-rond.jpg?v=1781387067",
+        "alt": "Pablo"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Pablo_24_hoek.webp?v=1781387071",
+        "alt": "Pablo"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Pablo_24_heel.jpg?v=1781387074",
+        "alt": "Pablo"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Pablo_45_rond.webp?v=1781387078",
+        "alt": "Pablo"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Pablo98-02.webp?v=1781387082",
+        "alt": "Pablo"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior by Headlam",
+      "materiaal": "80% Wol / 20% Polyamide",
+      "kleur": "Sage / Groen",
+      "kleurHex": "#8a9e7d",
+      "afmetingen": "200 × 290 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Contemporary",
+      "ruimte": "Hal / Gang",
+      "paalType": "Geweven",
+      "paalHoogte": "12 mm",
+      "gewicht": "3000 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 8,
+      "sku": "YI-PABLO-672"
+    },
+    "tags": [
+      "Contemporary",
+      "Hal / Gang",
+      "Sage"
+    ],
+    "slug": "pablo"
+  },
+  {
+    "id": 15721453715839,
+    "title": "Peony",
+    "handle": "peony",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 219.0,
+    "variantId": 57750301114751,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Peony41.webp?v=1781387065",
+        "alt": "Peony"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Zand / Beige",
+      "kleurHex": "#d4bc9a",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Ovaal",
+      "stijl": "Klassiek / Traditioneel",
+      "ruimte": "Kantoor",
+      "paalType": "Shaggy",
+      "paalHoogte": "20 mm",
+      "gewicht": "3400 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "3–5 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-PEONY-688"
+    },
+    "tags": [
+      "Klassiek",
+      "Kantoor",
+      "Zand"
+    ],
+    "slug": "peony"
+  },
+  {
+    "id": 15721453977983,
+    "title": "Plush",
+    "handle": "plush",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 259.0,
+    "variantId": 57750301376895,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Plush_12_hoek.webp?v=1781387110",
+        "alt": "Plush"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Plush-24-2.webp?v=1781387114",
+        "alt": "Plush"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Plush_25_bovenaf.webp?v=1781387118",
+        "alt": "Plush"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Polypropeen BCF",
+      "kleur": "Zand / Beige",
+      "kleurHex": "#d4bc9a",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Modern / Minimalistisch",
+      "ruimte": "Hal / Gang",
+      "paalType": "Laagpolig",
+      "paalHoogte": "7 mm",
+      "gewicht": "4000 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 9,
+      "sku": "YI-PLUSH-153"
+    },
+    "tags": [
+      "Modern",
+      "Hal / Gang",
+      "Zand"
+    ],
+    "slug": "plush"
+  },
+  {
+    "id": 15721454240127,
+    "title": "Rubi",
+    "handle": "rubi",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 149.0,
+    "variantId": 57750301639039,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/rubi_15-1.png?v=1781387148",
+        "alt": "Rubi"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Polypropeen BCF",
+      "kleur": "Blauw / Indigo",
+      "kleurHex": "#5a6b8c",
+      "afmetingen": "120 × 180 cm",
+      "vorm": "Ovaal",
+      "stijl": "Contemporary",
+      "ruimte": "Hal / Gang",
+      "paalType": "Middelhoogpolig",
+      "paalHoogte": "12 mm",
+      "gewicht": "2000 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-RUBI-838"
+    },
+    "tags": [
+      "Contemporary",
+      "Hal / Gang",
+      "Blauw"
+    ],
+    "slug": "rubi"
+  },
+  {
+    "id": 15721454076287,
+    "title": "S-3633 Wool",
+    "handle": "s-3633-wool",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 339.0,
+    "variantId": 57750301475199,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/s-3633-wool-off-white-1.webp?v=1781387128",
+        "alt": "S-3633 Wool"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Polyester",
+      "kleur": "Sage / Groen",
+      "kleurHex": "#8a9e7d",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Ovaal",
+      "stijl": "Scandinavisch",
+      "ruimte": "Woonkamer",
+      "paalType": "Hoogpolig",
+      "paalHoogte": "15 mm",
+      "gewicht": "3300 g/m²",
+      "antislip": false,
+      "geschiktVoer": "Niet geschikt voor vloerverwarming",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 3,
+      "sku": "YI-S-3633-729"
+    },
+    "tags": [
+      "Scandinavisch",
+      "Woonkamer",
+      "Sage"
+    ],
+    "slug": "s-3633-wool"
+  },
+  {
+    "id": 15721453388159,
+    "title": "Solviere",
+    "handle": "solviere",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 229.0,
+    "variantId": 57750300787071,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Solviere_53452_-_2.jpg?v=1781386982",
+        "alt": "Solviere"
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Solviere_83273-2.jpg?v=1781386988",
+        "alt": "Solviere"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "50% Wol / 50% Polypropyleen",
+      "kleur": "Antraciet / Donkergrijs",
+      "kleurHex": "#4a4844",
+      "afmetingen": "250 × 350 cm",
+      "vorm": "Ovaal",
+      "stijl": "Japandi",
+      "ruimte": "Slaapkamer",
+      "paalType": "Shaggy",
+      "paalHoogte": "12 mm",
+      "gewicht": "3800 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Wekelijks stofzuigen. Professioneel reinigen aanbevolen. Niet in de wasmachine.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 12,
+      "sku": "YI-SOLVIE-675"
+    },
+    "tags": [
+      "Japandi",
+      "Slaapkamer",
+      "Antraciet"
+    ],
+    "slug": "solviere"
+  },
+  {
+    "id": 15721454207359,
+    "title": "Splendid",
+    "handle": "splendid",
+    "collection": "vloerkleden-tapijten",
+    "collectionLabel": "Vloerkleden & Tapijten",
+    "price": 189.0,
+    "variantId": 57750301606271,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/SPLENDID-23-2.jpg?v=1781387144",
+        "alt": "Splendid"
+      }
+    ],
+    "specs": {
+      "merk": "Lifestyle Interior",
+      "materiaal": "100% Viscose",
+      "kleur": "Antraciet / Donkergrijs",
+      "kleurHex": "#4a4844",
+      "afmetingen": "160 × 230 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Modern / Minimalistisch",
+      "ruimte": "Kantoor",
+      "paalType": "Geweven",
+      "paalHoogte": "10 mm",
+      "gewicht": "2200 g/m²",
+      "antislip": true,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Stofzuig met lage zuigkracht. Vochtige vlekken onmiddellijk behandelen. Droogreiniging aanbevolen.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 5,
+      "sku": "YI-SPLEND-503"
+    },
+    "tags": [
+      "Modern",
+      "Kantoor",
+      "Antraciet"
+    ],
+    "slug": "splendid"
+  },
+  {
+    "id": 15721454403967,
+    "title": "Spotless",
+    "handle": "spotless",
+    "collection": "pvc-vloeren",
+    "collectionLabel": "PVC Vloeren",
+    "price": 329.0,
+    "variantId": 57750302982527,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Spotless_2.jpg?v=1781387164",
+        "alt": "Spotless"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "Slijtlaag 0,55mm + vinyl kern",
+      "kleur": "Lichtgrijs",
+      "kleurHex": "#c8c4be",
+      "afmetingen": "Planken van 120 × 20 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Hal / Gang",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar garantie",
+      "leveringstijd": "2–3 werkdagen",
+      "voorraad": 12,
+      "sku": "YI-SPOTLE-894"
+    },
+    "tags": [
+      "Industrieel",
+      "Hal / Gang",
+      "Lichtgrijs"
+    ],
+    "slug": "spotless"
+  },
+  {
+    "id": 15721454600575,
+    "title": "Valente HB 83853",
+    "handle": "valente-hb-83853",
+    "collection": "laminaat",
+    "collectionLabel": "Laminaat",
+    "price": 419.0,
+    "variantId": 57750303146367,
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Valente_HB_83853-2.jpg?v=1781387209",
+        "alt": "Valente HB 83853"
+      }
+    ],
+    "specs": {
+      "merk": "Headlam Collection",
+      "materiaal": "HDF-kern 8mm",
+      "kleur": "Grijze eiken",
+      "kleurHex": "#888070",
+      "afmetingen": "Planken van 122 × 18 cm",
+      "vorm": "Rechthoek",
+      "stijl": "Industrieel",
+      "ruimte": "Kantoor",
+      "paalType": null,
+      "paalHoogte": null,
+      "gewicht": null,
+      "antislip": false,
+      "geschiktVoer": "Vloerverwarming geschikt",
+      "onderhoud": "Regelmatig stofzuigen. Vlekken direct deppen met een vochtige doek. Niet schuren.",
+      "garantie": "2 jaar fabrieksgarantie",
+      "leveringstijd": "1–2 werkdagen",
+      "voorraad": 4,
+      "sku": "YI-VALENT-256"
+    },
+    "tags": [
+      "Industrieel",
+      "Kantoor",
+      "Grijze eiken"
+    ],
+    "slug": "valente-hb-83853"
+  }
+]
