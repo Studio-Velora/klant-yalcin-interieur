@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webshop — Yalcin Tapijt & Woninginrichting · Den Haag</title>
+<meta name="description" content="Bestel vloerkleden, tapijten, PVC vloeren en laminaat online. Ruime collectie, scherpe prijzen, vakkundige montage in Den Haag en omstreken.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="webshop.css">
+</head>
+<body class="grain">
+
+<!-- ===================== PROMO BAR ===================== -->
+<div class="promo" data-promo role="region" aria-label="Aanbieding">
+  <div class="promo-inner">
+    <span class="tick">Tijdelijke actie</span>
+    <span>Bij elke <strong>laminaat- of PVC-vloer</strong> nu <strong>gratis plinten naar keuze</strong> &mdash; vraag ernaar bij uw offerte.</span>
+    <a href="offerte.html">Offerte aanvragen &rarr;</a>
+  </div>
+  <button class="promo-close" data-promo-close aria-label="Sluiten">&times;</button>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" data-nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Yalcin Tapijt en Woninginrichting — terug naar home">
+      Yalcin<span class="brand-tag">Den Haag</span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-menu" data-nav-menu aria-label="Hoofdmenu">
+      <ul class="nav-links">
+        <li><a href="index.html#over">Over ons</a></li>
+        <li><a href="index.html#diensten">Diensten</a></li>
+        <li><a href="index.html#projecten">Projecten</a></li>
+        <li><a href="index.html#werkwijze">Werkwijze</a></li>
+        <li><a href="webshop.html" style="color:var(--clay)">Webshop</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+31703907020" class="btn-text-hide" style="font-weight:600;font-size:.92rem;color:var(--ink)">070 390 7020</a>
+        <button id="cartBtn" class="nav-cart-btn" aria-label="Winkelwagen openen">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-bubble" id="cartBubble">0</span>
+        </button>
+        <a href="offerte.html" class="btn btn-primary">Offerte <span class="arr">→</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== SHOP HERO ===================== -->
+<section class="shop-hero">
+  <div class="shop-hero-inner">
+    <div>
+      <span class="eyebrow">Collectie 2025</span>
+      <h1>Onze <em>collectie</em></h1>
+      <p class="lead">Vloerkleden, tapijten, PVC vloeren en laminaat — rechtstreeks uit onze showroom. Altijd inclusief advies en vakkundige montage.</p>
+    </div>
+    <div class="shop-hero-stats">
+      <div class="shop-stat">
+        <div class="n" data-count="36" data-suffix="+">36+</div>
+        <div class="l">Producten</div>
+      </div>
+      <div class="shop-stat">
+        <div class="n" data-count="20" data-suffix="+">20+</div>
+        <div class="l">Jaar ervaring</div>
+      </div>
+      <div class="shop-stat">
+        <div class="n">5 ★</div>
+        <div class="l">Google-score</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FILTER BAR ===================== -->
+<div class="filter-bar" role="navigation" aria-label="Categoriefilter">
+  <div class="filter-bar-inner">
+    <div class="filter-tabs" role="tablist">
+      <button class="ftab on" data-filter="all" role="tab" aria-selected="true">Alle producten</button>
+      <button class="ftab" data-filter="vloerkleden-tapijten" role="tab" aria-selected="false">Vloerkleden &amp; Tapijten</button>
+      <button class="ftab" data-filter="pvc-vloeren" role="tab" aria-selected="false">PVC Vloeren</button>
+      <button class="ftab" data-filter="laminaat" role="tab" aria-selected="false">Laminaat</button>
+    </div>
+    <div class="filter-sort">
+      <label for="sortSelect" style="white-space:nowrap">Sorteer op</label>
+      <select id="sortSelect" class="sort-select">
+        <option value="title">Naam A–Z</option>
+        <option value="price-asc">Prijs laag–hoog</option>
+        <option value="price-desc">Prijs hoog–laag</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PRODUCT GRID ===================== -->
+<main>
+  <div class="shop-main">
+    <p class="product-count" id="productCount">Producten laden…</p>
+    <div class="product-grid" id="productGrid" role="list" aria-label="Productoverzicht">
+    </div>
+  </div>
+
+  <!-- ---- USP band ---- -->
+  <div style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap" style="padding-block:clamp(28px,4vw,48px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,4vw,56px);text-align:center">
+        <div>
+          <div style="font-family:var(--display);font-size:1.6rem;color:var(--clay);margin-bottom:.4rem">Gratis</div>
+          <div style="font-size:.92rem;color:var(--ink-soft)">Inmeten op locatie</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display);font-size:1.6rem;color:var(--clay);margin-bottom:.4rem">Vakkundig</div>
+          <div style="font-size:.92rem;color:var(--ink-soft)">Montage door eigen team</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display);font-size:1.6rem;color:var(--clay);margin-bottom:.4rem">iDEAL</div>
+          <div style="font-size:.92rem;color:var(--ink-soft)">Veilig online betalen</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display);font-size:1.6rem;color:var(--clay);margin-bottom:.4rem">5★</div>
+          <div style="font-size:.92rem;color:var(--ink-soft)">Google-beoordelingen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- CTA ---- -->
+  <section class="section-pad cta-banner">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow center">Hulp nodig bij uw keuze?</span>
+      <h2>Wij helpen u graag<br>persoonlijk verder</h2>
+      <p class="lead">Twijfelt u welk product bij uw woning past? Onze specialisten komen langs, meten in en geven eerlijk advies — zonder verkooppraat.</p>
+      <div class="hero-actions" style="justify-content:center;margin-top:2rem">
+        <a href="offerte.html" class="btn btn-primary btn-lg">Offerte aanvragen <span class="arr">→</span></a>
+        <a href="tel:+31703907020" class="btn btn-ghost btn-lg">070 390 7020</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div class="footer-intro">
+        <a href="index.html" class="brand" style="font-size:1.7rem">Yalcin<span class="brand-tag">Den Haag</span></a>
+        <p style="margin-top:1.2rem">Tapijt &amp; woninginrichting met oog voor detail. Vloeren, traprenovaties, gordijnen en complete interieurs — vakkundig uitgevoerd.</p>
+      </div>
+      <div>
+        <h4>Diensten</h4>
+        <ul class="footer-links">
+          <li><a href="projecten/vloeren.html">Vloeren</a></li>
+          <li><a href="projecten/traprenovatie.html">Traprenovatie</a></li>
+          <li><a href="projecten/gordijnen.html">Gordijnen</a></li>
+          <li><a href="projecten/raamdecoratie.html">Raamdecoratie</a></li>
+          <li><a href="projecten/woninginrichting.html">Woninginrichting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#over">Over ons</a></li>
+          <li><a href="index.html#projecten">Projecten</a></li>
+          <li><a href="index.html#werkwijze">Werkwijze</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="offerte.html">Offerte aanvragen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.google.com/maps?q=Apeldoornselaan+243,+3573+LJ+Den+Haag" target="_blank" rel="noopener">Apeldoornselaan 243<br>3573 LJ Den Haag</a></li>
+          <li><a href="tel:+31703907020">070 390 7020</a></li>
+          <li><a href="https://wa.me/31703907020" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:info@yalcin-interieur.nl">info@yalcin-interieur.nl</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> Yalcin Tapijt &amp; Woninginrichting · Den Haag</span>
+      <span class="footer-legal"><a href="privacy.html">Privacyverklaring</a> · <a href="voorwaarden.html">Algemene voorwaarden</a></span>
+      <span>Webdesign door <a href="https://studiovelora.nl" target="_blank" rel="noopener" style="color:rgba(247,241,230,.78)">Studio Velora</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== CART SIDEBAR ===================== -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+<aside class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Winkelwagen">
+  <div class="cart-header">
+    <div>
+      <h3>Winkelwagen <span class="cart-count-badge" id="cartCountBadge">0 items</span></h3>
+    </div>
+    <button class="cart-close" id="cartClose" aria-label="Winkelwagen sluiten">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <p>Uw winkelwagen is leeg.<br>Voeg een product toe om te beginnen.</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotaal</span>
+      <span id="cartSubtotal">€ 0,00</span>
+    </div>
+    <div class="cart-total">
+      <span>Totaal</span>
+      <span class="cart-total-price" id="cartTotal">€ 0,00</span>
+    </div>
+    <button class="btn-checkout" id="checkoutBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Afrekenen
+    </button>
+    <p class="cart-note">
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Veilig betalen via iDEAL &amp; creditcard
+    </p>
+  </div>
+</aside>
+
+<!-- ===================== PRODUCT MODAL ===================== -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Sluiten">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-inner"></div>
+  </div>
+</div>
+
+<!-- ===================== COOKIE BAR ===================== -->
+<div class="cookie" data-cookie role="dialog" aria-label="Cookievoorkeuren">
+  <h4>Cookies</h4>
+  <p>We gebruiken alleen functionele cookies en — met uw toestemming — cookies om de website te verbeteren. Lees meer in onze <a href="privacy.html">privacyverklaring</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" data-cookie-choice="all">Accepteren</button>
+    <button class="btn btn-ghost" data-cookie-choice="essential">Alleen functioneel</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="webshop.js"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Promo bar
+  (function () {
+    var bar = document.querySelector('[data-promo]');
+    if (!bar) return;
+    try { if (localStorage.getItem('yalcin_promo_closed')) document.body.classList.add('promo-closed'); } catch (e) {}
+    var close = bar.querySelector('[data-promo-close]');
+    if (close) close.addEventListener('click', function () {
+      document.body.classList.add('promo-closed');
+      try { localStorage.setItem('yalcin_promo_closed', '1'); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
