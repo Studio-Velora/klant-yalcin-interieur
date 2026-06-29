@@ -234,6 +234,36 @@ body { --promo-h: 46px; }
 
 /* ================= REVIEWS ================= */
 .reviews { background: var(--paper-2); overflow: hidden; }
+/* Rating-samenvatting (Google) */
+.rating-summary {
+  display: inline-flex; align-items: center; gap: 18px;
+  background: var(--paper); border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm); border-radius: 100px;
+  padding: 14px 26px; margin-top: 18px;
+}
+.rating-summary .rs-score { font-family: var(--display); font-size: 2rem; line-height: 1; color: var(--ink); }
+.rating-summary .rs-mid { text-align: left; }
+.rating-summary .rs-stars { color: var(--clay); letter-spacing: 2px; font-size: 1rem; line-height: 1; }
+.rating-summary .rs-sub { font-size: .82rem; color: var(--ink-soft); margin-top: 4px; }
+.rating-summary .rs-google { display: inline-flex; align-items: center; gap: 7px; font-size: .9rem; font-weight: 600; color: var(--ink); border-left: 1px solid var(--line); padding-left: 18px; }
+.rating-summary .rs-google svg { width: 18px; height: 18px; }
+@media (max-width: 520px) {
+  .rating-summary { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 14px 20px; }
+  .rating-summary .rs-google { border-left: 0; padding-left: 0; }
+}
+/* Trust-badgebalk */
+.trust-band { border-block: 1px solid var(--line); background: var(--paper); }
+.trust-band-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 22px var(--gutter);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+}
+.trust-item { display: flex; align-items: center; gap: 12px; justify-content: center; }
+.trust-item svg { width: 26px; height: 26px; stroke: var(--clay); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.trust-item .ti-t { font-weight: 700; font-size: .92rem; color: var(--ink); }
+.trust-item .ti-s { font-size: .78rem; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .trust-band-inner { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+}
 .testi-viewport { overflow: hidden; }
 .testi-track { display: flex; transition: transform .7s var(--ease); }
 .testi-slide { min-width: 100%; padding: 0 2px; }
@@ -372,6 +402,28 @@ body { --promo-h: 46px; }
   <div class="marquee-track">
     <span>PVC &amp; laminaat</span><span>Traprenovatie</span><span>Tapijt</span><span>Gordijnen</span><span>Raamdecoratie</span><span>Inmeten op locatie</span>
     <span>PVC &amp; laminaat</span><span>Traprenovatie</span><span>Tapijt</span><span>Gordijnen</span><span>Raamdecoratie</span><span>Inmeten op locatie</span>
+  </div>
+</div>
+
+<!-- ===================== TRUST BAND ===================== -->
+<div class="trust-band">
+  <div class="trust-band-inner">
+    <a href="https://www.google.com/search?q=Yalcin+Tapijt+Woninginrichting+Den+Haag" target="_blank" rel="noopener" class="trust-item" style="text-decoration:none">
+      <svg viewBox="0 0 24 24"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.3l7.1-.6L12 2l2.9 6.7 7.1.6-5.4 4.7 1.6 7z"/></svg>
+      <span><span class="ti-t">4,8 op Google</span><br><span class="ti-s">100+ recensies</span></span>
+    </a>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+      <span><span class="ti-t">20+ jaar ervaring</span><br><span class="ti-s">vakmanschap sinds jaar en dag</span></span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18M7 3v18"/></svg>
+      <span><span class="ti-t">Gratis inmeten</span><br><span class="ti-s">op locatie in Den Haag e.o.</span></span>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span><span class="ti-t">Eigen montageteam</span><br><span class="ti-s">vakkundig &amp; met garantie</span></span>
+    </div>
   </div>
 </div>
 
@@ -548,6 +600,17 @@ body { --promo-h: 46px; }
     <div style="text-align:center;margin-bottom:clamp(36px,5vw,56px)" data-reveal>
       <span class="eyebrow center">Wat klanten zeggen</span>
       <h2 class="section-title">Beoordeeld met zorg</h2>
+      <a href="https://www.google.com/search?q=Yalcin+Tapijt+Woninginrichting+Den+Haag" target="_blank" rel="noopener" class="rating-summary" style="text-decoration:none">
+        <span class="rs-score">4,8</span>
+        <span class="rs-mid">
+          <span class="rs-stars">★★★★★</span>
+          <span class="rs-sub">100+ recensies</span>
+        </span>
+        <span class="rs-google">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+          Google
+        </span>
+      </a>
     </div>
     <div class="testi-viewport" data-reveal data-reveal-d="1">
       <div class="testi-track" data-testi-track>
