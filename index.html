@@ -251,6 +251,27 @@ body { --promo-h: 46px; }
   .rating-summary { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 14px 20px; }
   .rating-summary .rs-google { border-left: 0; padding-left: 0; }
 }
+/* Keurmerken & veilig betalen */
+.keurmerken { background: var(--paper-2); border-top: 1px solid var(--line); }
+.keurmerken-inner { max-width: var(--maxw); margin: 0 auto; padding: clamp(40px,5vw,64px) var(--gutter); text-align: center; }
+.keurmerken h3 { font-family: var(--display); font-size: clamp(1.4rem,2.4vw,1.9rem); color: var(--ink); margin-bottom: 8px; }
+.keurmerken p { font-size: .92rem; color: var(--ink-soft); margin-bottom: 36px; }
+.keurmerk-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 32px; }
+.keurmerk {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 20px; min-height: 56px; color: var(--ink);
+  font-weight: 700; font-size: .95rem; box-shadow: var(--shadow-sm);
+}
+.keurmerk svg, .keurmerk img { height: 26px; width: auto; display: block; }
+.keurmerk .km-sub { font-weight: 400; font-size: .78rem; color: var(--ink-faint); }
+.pay-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; margin-top: 28px; }
+.pay-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  height: 40px; padding: 0 14px; font-weight: 700; font-size: .82rem; color: var(--ink-soft);
+}
+.km-note { margin-top: 26px; font-size: .8rem; color: var(--ink-faint); }
 /* Trust-badgebalk */
 .trust-band { border-block: 1px solid var(--line); background: var(--paper); }
 .trust-band-inner {
@@ -383,12 +404,7 @@ body { --promo-h: 46px; }
       </div>
     </div>
     <div class="hero-media" data-reveal>
-      <div class="ph" data-src="assets/photo/Firefly-4.jpg" data-label="hero — woonkamer met gordijnen en tapijt">
-        <div class="hero-play">
-          <span class="pbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          <span>Bekijk ons werk in beweging</span>
-        </div>
-      </div>
+      <div class="ph" data-src="assets/photo/hero-interieur.jpg" data-label="hero — licht Parijs interieur met tapijt en gordijnen"></div>
       <div class="hero-badge">
         <div class="num"><span data-count="20" data-suffix="+">20+</span></div>
         <div class="lbl">jaar ervaring in woninginrichting</div>
@@ -773,6 +789,49 @@ body { --promo-h: 46px; }
       <a href="offerte.html" class="btn btn-primary btn-lg">Offerte aanvragen <span class="arr">→</span></a>
       <a href="tel:+31703907020" class="btn btn-ghost btn-lg">070 390 7020</a>
     </div>
+  </div>
+</section>
+
+<!-- ===================== KEURMERKEN & VEILIG BETALEN ===================== -->
+<!-- Placeholders: vervang per keurmerk de tekst/SVG door de officiële widget/logo zodra de accounts gekoppeld zijn. -->
+<section class="keurmerken" id="keurmerken">
+  <div class="keurmerken-inner" data-reveal>
+    <h3>Veilig &amp; vertrouwd winkelen</h3>
+    <p>Erkend, beoordeeld en beschermd — zodat u met een gerust hart bij ons koopt.</p>
+
+    <div class="keurmerk-row">
+      <!-- TRUSTPILOT: vervang door TrustBox widget na aanmaken account -->
+      <a href="https://www.google.com/search?q=Yalcin+Tapijt+Woninginrichting+Den+Haag" target="_blank" rel="noopener" class="keurmerk" style="text-decoration:none">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00b67a" d="M12 2l2.9 6.6L22 9.2l-5.4 4.7 1.7 7.1L12 17.8 5.7 21l1.7-7.1L2 9.2l7.1-.6z"/></svg>
+        Trustpilot <span class="km-sub">— binnenkort</span>
+      </a>
+      <!-- GOOGLE REVIEWS: echt, gekoppeld -->
+      <a href="https://www.google.com/search?q=Yalcin+Tapijt+Woninginrichting+Den+Haag" target="_blank" rel="noopener" class="keurmerk" style="text-decoration:none">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+        Google <span class="km-sub">4,8 ★</span>
+      </a>
+      <!-- THUISWINKEL WAARBORG: vervang door officieel logo na lidmaatschap -->
+      <span class="keurmerk">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#1a4f8b" stroke-width="1.6" d="M12 2l8 3v6c0 5-3.5 8-8 11-4.5-3-8-6-8-11V5z"/><path fill="none" stroke="#1a4f8b" stroke-width="1.6" d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        Thuiswinkel Waarborg <span class="km-sub">— binnenkort</span>
+      </span>
+      <!-- WEBWINKEL KEURMERK -->
+      <span class="keurmerk">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#b5613a" stroke-width="1.6"/><path fill="none" stroke="#b5613a" stroke-width="1.6" d="M8 12l2.5 2.5L16 9"/></svg>
+        Webwinkel Keurmerk <span class="km-sub">— binnenkort</span>
+      </span>
+    </div>
+
+    <div class="pay-row" aria-label="Betaalmethoden">
+      <span class="pay-badge" style="color:#cc0066">iDEAL</span>
+      <span class="pay-badge">Bancontact</span>
+      <span class="pay-badge">Mastercard</span>
+      <span class="pay-badge">VISA</span>
+      <span class="pay-badge">Klarna</span>
+      <span class="pay-badge">Apple&nbsp;Pay</span>
+    </div>
+
+    <p class="km-note">Betalingen worden veilig verwerkt via Shopify Payments &amp; Mollie · SSL-beveiligd.</p>
   </div>
 </section>
 </main>
