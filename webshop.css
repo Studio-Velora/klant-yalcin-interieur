@@ -55,6 +55,27 @@ body.promo-closed .filter-bar { top: 68px; }
   display: flex; align-items: center; gap: 10px;
   flex-shrink: 0; font-size: .84rem; color: var(--ink-soft);
 }
+.shop-search {
+  display: flex; align-items: center; gap: 8px;
+  background: none; border: 1px solid var(--line-2);
+  border-radius: var(--radius); padding: .4em .8em;
+  transition: border-color .3s var(--ease);
+}
+.shop-search:focus-within { border-color: var(--clay); }
+.shop-search svg {
+  width: 15px; height: 15px; flex-shrink: 0;
+  fill: none; stroke: var(--ink-faint); stroke-width: 2;
+}
+.shop-search input {
+  border: none; background: none; outline: none;
+  font-family: var(--body); font-size: .84rem; color: var(--ink);
+  width: 130px;
+}
+.shop-search input::placeholder { color: var(--ink-faint); }
+@media (max-width: 760px) {
+  .filter-bar-inner { flex-wrap: wrap; }
+  .shop-search input { width: 100px; }
+}
 .sort-select {
   background: none; border: 1px solid var(--line-2);
   border-radius: var(--radius); padding: .4em .8em;

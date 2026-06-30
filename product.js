@@ -80,10 +80,59 @@ const FAQS = {
 function renderProduct(product, allProducts) {
   const imgs   = product.images;
   const specs  = product.specs || {};
+  const fl     = product.flooring || null;   // vloeren: prijs per m² + pak
   const price  = fmt(product.price);
   const stock  = specs.voorraad || 5;
   const coll   = PROD_COLL_LABELS[product.collection] || product.collectionLabel || '';
   const isLow  = stock <= 4;
+
+  /* Prijs-rij: vloeren tonen prijs per m², kleden per stuk */
+  const priceRowHtml = fl
+    ? `<div class="prod-price-row">
+         <span class="prod-price-main">${fmt(fl.pricePerM2)}<span class="prod-price-unit">/m²</span></span>
+         <span class="prod-price-note">incl. 21% btw · pak ${fmt(fl.pricePerPack)} (${fl.m2PerPack} m²)</span>
+       </div>`
+    : `<div class="prod-price-row">
+         <span class="prod-price-main">${price}</span>
+         <span class="prod-price-note">incl. 21% btw</span>
+       </div>`;
+
+  /* Koop-blok: vloeren krijgen m²-calculator, kleden de gewone qty */
+  const buyHtml = fl
+    ? `<div class="m2calc" data-m2pp="${fl.m2PerPack}" data-pricepack="${fl.pricePerPack}" data-loss="${fl.cuttingLossPct || 7}">
+         <label class="m2calc-label" for="m2Input">Wat is je oppervlakte?</label>
+         <div class="m2calc-input-row">
+           <input type="number" id="m2Input" min="0" step="0.1" placeholder="0" inputmode="decimal">
+           <span class="m2calc-unit">m²</span>
+         </div>
+         <label class="m2calc-loss">
+           <input type="checkbox" id="m2Loss" checked>
+           <span>Snijverlies toevoegen (${fl.cuttingLossPct || 7}%) <small>aanbevolen</small></span>
+         </label>
+         <div class="m2calc-result" id="m2Result" hidden>
+           <div class="m2calc-line"><span>Benodigd</span><strong id="m2Need">—</strong></div>
+           <div class="m2calc-line"><span>Aantal pakken</span><strong id="m2Packs">—</strong></div>
+           <div class="m2calc-line m2calc-total"><span>Totaal</span><strong id="m2Total">—</strong></div>
+         </div>
+         <button class="btn-add-cart" id="addToCartBtn" disabled>
+           <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+           Voeg toe aan winkelwagen
+         </button>
+       </div>`
+    : `<div class="add-row">
+         <div class="qty-wrap">
+           <button class="qty-btn" id="qtyDec" aria-label="Minder">−</button>
+           <span class="qty-num" id="qtyNum">1</span>
+           <button class="qty-btn" id="qtyInc" aria-label="Meer">+</button>
+         </div>
+         <button class="btn-add-cart" id="addToCartBtn">
+           <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+           In winkelwagen
+         </button>
+         <button class="btn-wishlist" aria-label="Opslaan als favoriet">
+           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+         </button>
+       </div>`;
 
   /* Breadcrumb */
   document.getElementById('breadcrumbColl').textContent = coll;
@@ -149,28 +198,12 @@ function renderProduct(product, allProducts) {
             <span class="pt-label" style="color:var(--clay);font-weight:600">${specs.merk || 'Lifestyle Interior'}</span>
           </div>
 
-          <div class="prod-price-row">
-            <span class="prod-price-main">${price}</span>
-            <span class="prod-price-note">incl. 21% btw</span>
-          </div>
+          ${priceRowHtml}
 
           ${stockHtml}
           ${colorHtml}
 
-          <div class="add-row">
-            <div class="qty-wrap">
-              <button class="qty-btn" id="qtyDec" aria-label="Minder">−</button>
-              <span class="qty-num" id="qtyNum">1</span>
-              <button class="qty-btn" id="qtyInc" aria-label="Meer">+</button>
-            </div>
-            <button class="btn-add-cart" id="addToCartBtn">
-              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-              In winkelwagen
-            </button>
-            <button class="btn-wishlist" aria-label="Opslaan als favoriet">
-              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            </button>
-          </div>
+          ${buyHtml}
 
           <button class="btn-quote" onclick="location.href='offerte.html'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -218,35 +251,61 @@ function renderProduct(product, allProducts) {
     });
   });
 
-  /* Qty */
-  let qty = 1;
-  document.getElementById('qtyDec').addEventListener('click', () => {
-    qty = Math.max(1, qty - 1);
-    document.getElementById('qtyNum').textContent = qty;
-    document.getElementById('stickyQtyNum').textContent = qty;
-  });
-  document.getElementById('qtyInc').addEventListener('click', () => {
-    qty++;
-    document.getElementById('qtyNum').textContent = qty;
-    document.getElementById('stickyQtyNum').textContent = qty;
-  });
-  document.getElementById('stickyDec').addEventListener('click', () => {
-    qty = Math.max(1, qty - 1);
-    document.getElementById('qtyNum').textContent = qty;
-    document.getElementById('stickyQtyNum').textContent = qty;
-  });
-  document.getElementById('stickyInc').addEventListener('click', () => {
-    qty++;
-    document.getElementById('qtyNum').textContent = qty;
-    document.getElementById('stickyQtyNum').textContent = qty;
-  });
-
-  /* Add to cart */
-  function doAdd() {
-    for (let i = 0; i < qty; i++) addToCart(product);
+  /* Qty / m²-calculator */
+  let doAdd;
+  if (fl) {
+    /* Vloeren: m²-calculator berekent aantal pakken */
+    const calc = document.querySelector('.m2calc');
+    const m2pp = parseFloat(calc.dataset.m2pp);
+    const pricePack = parseFloat(calc.dataset.pricepack);
+    const lossPct = parseFloat(calc.dataset.loss);
+    const input = document.getElementById('m2Input');
+    const lossChk = document.getElementById('m2Loss');
+    const result = document.getElementById('m2Result');
+    const addBtn = document.getElementById('addToCartBtn');
+    let packs = 0;
+    function recalc() {
+      const m2 = parseFloat(input.value) || 0;
+      if (m2 <= 0) { result.hidden = true; addBtn.disabled = true; packs = 0; return; }
+      const eff = lossChk.checked ? m2 * (1 + lossPct / 100) : m2;
+      packs = Math.ceil(eff / m2pp);
+      const covered = (packs * m2pp).toFixed(2).replace('.', ',');
+      document.getElementById('m2Need').textContent = eff.toFixed(2).replace('.', ',') + ' m²';
+      document.getElementById('m2Packs').textContent = packs + ' pak' + (packs !== 1 ? 'ken' : '') + ' · ' + covered + ' m²';
+      document.getElementById('m2Total').textContent = fmt(packs * pricePack);
+      result.hidden = false;
+      addBtn.disabled = false;
+    }
+    input.addEventListener('input', recalc);
+    lossChk.addEventListener('change', recalc);
+    doAdd = function () {
+      if (packs <= 0) { input.focus(); return; }
+      for (let i = 0; i < packs; i++) addToCart(product);
+    };
+    /* sticky qty heeft geen zin voor vloeren — verberg het */
+    document.querySelector('.sticky-bar-qty')?.style.setProperty('display', 'none');
+    document.getElementById('stickyAddBtn')?.addEventListener('click', () => {
+      if (packs > 0) doAdd();
+      else input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  } else {
+    /* Kleden: gewone aantal-selector */
+    let qty = 1;
+    const setQty = (v) => {
+      qty = Math.max(1, v);
+      document.getElementById('qtyNum').textContent = qty;
+      const sq = document.getElementById('stickyQtyNum');
+      if (sq) sq.textContent = qty;
+    };
+    document.getElementById('qtyDec').addEventListener('click', () => setQty(qty - 1));
+    document.getElementById('qtyInc').addEventListener('click', () => setQty(qty + 1));
+    document.getElementById('stickyDec')?.addEventListener('click', () => setQty(qty - 1));
+    document.getElementById('stickyInc')?.addEventListener('click', () => setQty(qty + 1));
+    doAdd = function () { for (let i = 0; i < qty; i++) addToCart(product); };
+    document.getElementById('stickyAddBtn')?.addEventListener('click', doAdd);
   }
+
   document.getElementById('addToCartBtn').addEventListener('click', doAdd);
-  document.getElementById('stickyAddBtn').addEventListener('click', doAdd);
 
   /* Sticky bar */
   document.getElementById('stickyTitle').textContent = product.title;
@@ -275,6 +334,11 @@ function renderProduct(product, allProducts) {
     ['Vorm', specs.vorm],
     ['Stijl', specs.stijl],
     ['Geschikt voor', specs.ruimte],
+    // Vloer-specifieke eigenschappen (per m² verkocht)
+    fl ? ['Prijs per m²', fmt(fl.pricePerM2)]                 : null,
+    fl ? ['m² per pak', String(fl.m2PerPack).replace('.', ',') + ' m²'] : null,
+    fl ? ['Planken per pak', fl.planksPerPack + ' planken']   : null,
+    fl ? ['Prijs per pak', fmt(fl.pricePerPack)]              : null,
     specs.paalType   ? ['Paalhoogte', specs.paalHoogte]  : null,
     specs.paalType   ? ['Paaltype', specs.paalType]       : null,
     specs.gewicht    ? ['Gewicht', specs.gewicht]         : null,
