@@ -81,11 +81,13 @@ body { --promo-h: 46px; }
 .hero-trust .stars { color: var(--clay); letter-spacing: 2px; font-size: 1rem; }
 .hero-trust b { color: var(--ink); font-weight: 700; }
 
-.hero-media { position: relative; align-self: stretch; min-height: 60svh; }
+.hero-media { position: relative; align-self: stretch; min-height: clamp(460px, 78svh, 780px); }
 .hero-media .ph {
   position: absolute; inset: clamp(20px,4vw,50px) 0 clamp(20px,4vw,50px) 0;
   height: auto; border-radius: var(--radius);
 }
+/* hoge portretfoto netjes uitsnijden: focus op stoel + parketvloer */
+.hero-media .ph.has-img { background-position: center 58%; }
 .hero-media .ph::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(200deg, transparent 55%, rgba(42,38,32,.22));
