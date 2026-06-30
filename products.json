@@ -454,7 +454,7 @@
     "handle": "dahlia",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 53.66,
+    "price": 289.0,
     "variantId": 57750303048063,
     "images": [
       {
@@ -495,15 +495,7 @@
       "Slaapkamer",
       "Lichtgrijs"
     ],
-    "slug": "dahlia",
-    "flooring": {
-      "pricePerM2": 27.95,
-      "pricePerPack": 53.66,
-      "m2PerPack": 1.92,
-      "planksPerPack": 8,
-      "cuttingLossPct": 7,
-      "placeholder": true
-    }
+    "slug": "dahlia"
   },
   {
     "id": 15721454436735,
@@ -511,7 +503,7 @@
     "handle": "daisy",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 53.66,
+    "price": 269.0,
     "variantId": 57750303015295,
     "images": [
       {
@@ -552,15 +544,7 @@
       "Hal / Gang",
       "Warm eiken"
     ],
-    "slug": "daisy",
-    "flooring": {
-      "pricePerM2": 27.95,
-      "pricePerPack": 53.66,
-      "m2PerPack": 1.92,
-      "planksPerPack": 8,
-      "cuttingLossPct": 7,
-      "placeholder": true
-    }
+    "slug": "daisy"
   },
   {
     "id": 15721453584767,
@@ -711,7 +695,7 @@
     "handle": "flora",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 53.66,
+    "price": 309.0,
     "variantId": 57750303080831,
     "images": [
       {
@@ -748,15 +732,7 @@
       "Woonkamer",
       "Antraciet"
     ],
-    "slug": "flora",
-    "flooring": {
-      "pricePerM2": 27.95,
-      "pricePerPack": 53.66,
-      "m2PerPack": 1.92,
-      "planksPerPack": 8,
-      "cuttingLossPct": 7,
-      "placeholder": true
-    }
+    "slug": "flora"
   },
   {
     "id": 15721453912447,
@@ -1659,7 +1635,7 @@
     "handle": "spotless",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 53.66,
+    "price": 329.0,
     "variantId": 57750302982527,
     "images": [
       {
@@ -1696,15 +1672,7 @@
       "Hal / Gang",
       "Lichtgrijs"
     ],
-    "slug": "spotless",
-    "flooring": {
-      "pricePerM2": 27.95,
-      "pricePerPack": 53.66,
-      "m2PerPack": 1.92,
-      "planksPerPack": 8,
-      "cuttingLossPct": 7,
-      "placeholder": true
-    }
+    "slug": "spotless"
   },
   {
     "id": 15721454600575,
