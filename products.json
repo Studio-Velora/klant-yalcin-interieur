@@ -401,7 +401,7 @@
     "handle": "connect",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 349.0,
+    "price": 53.66,
     "variantId": 57750302949759,
     "images": [
       {
@@ -438,7 +438,15 @@
       "Hal / Gang",
       "Lichtgrijs"
     ],
-    "slug": "connect"
+    "slug": "connect",
+    "flooring": {
+      "pricePerM2": 27.95,
+      "pricePerPack": 53.66,
+      "m2PerPack": 1.92,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721454469503,
@@ -446,7 +454,7 @@
     "handle": "dahlia",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 289.0,
+    "price": 53.66,
     "variantId": 57750303048063,
     "images": [
       {
@@ -487,7 +495,15 @@
       "Slaapkamer",
       "Lichtgrijs"
     ],
-    "slug": "dahlia"
+    "slug": "dahlia",
+    "flooring": {
+      "pricePerM2": 27.95,
+      "pricePerPack": 53.66,
+      "m2PerPack": 1.92,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721454436735,
@@ -495,7 +511,7 @@
     "handle": "daisy",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 269.0,
+    "price": 53.66,
     "variantId": 57750303015295,
     "images": [
       {
@@ -536,7 +552,15 @@
       "Hal / Gang",
       "Warm eiken"
     ],
-    "slug": "daisy"
+    "slug": "daisy",
+    "flooring": {
+      "pricePerM2": 27.95,
+      "pricePerPack": 53.66,
+      "m2PerPack": 1.92,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721453584767,
@@ -589,7 +613,7 @@
     "handle": "eiken-val-cama",
     "collection": "laminaat",
     "collectionLabel": "Laminaat",
-    "price": 379.0,
+    "price": 35.11,
     "variantId": 57750303113599,
     "images": [
       {
@@ -626,7 +650,15 @@
       "Kantoor",
       "Grijze eiken"
     ],
-    "slug": "eiken-val-cama"
+    "slug": "eiken-val-cama",
+    "flooring": {
+      "pricePerM2": 19.95,
+      "pricePerPack": 35.11,
+      "m2PerPack": 1.76,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721453420927,
@@ -679,7 +711,7 @@
     "handle": "flora",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 309.0,
+    "price": 53.66,
     "variantId": 57750303080831,
     "images": [
       {
@@ -716,7 +748,15 @@
       "Woonkamer",
       "Antraciet"
     ],
-    "slug": "flora"
+    "slug": "flora",
+    "flooring": {
+      "pricePerM2": 27.95,
+      "pricePerPack": 53.66,
+      "m2PerPack": 1.92,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721453912447,
@@ -1619,7 +1659,7 @@
     "handle": "spotless",
     "collection": "pvc-vloeren",
     "collectionLabel": "PVC Vloeren",
-    "price": 329.0,
+    "price": 53.66,
     "variantId": 57750302982527,
     "images": [
       {
@@ -1656,7 +1696,15 @@
       "Hal / Gang",
       "Lichtgrijs"
     ],
-    "slug": "spotless"
+    "slug": "spotless",
+    "flooring": {
+      "pricePerM2": 27.95,
+      "pricePerPack": 53.66,
+      "m2PerPack": 1.92,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   },
   {
     "id": 15721454600575,
@@ -1664,7 +1712,7 @@
     "handle": "valente-hb-83853",
     "collection": "laminaat",
     "collectionLabel": "Laminaat",
-    "price": 419.0,
+    "price": 35.11,
     "variantId": 57750303146367,
     "images": [
       {
@@ -1701,6 +1749,14 @@
       "Kantoor",
       "Grijze eiken"
     ],
-    "slug": "valente-hb-83853"
+    "slug": "valente-hb-83853",
+    "flooring": {
+      "pricePerM2": 19.95,
+      "pricePerPack": 35.11,
+      "m2PerPack": 1.76,
+      "planksPerPack": 8,
+      "cuttingLossPct": 7,
+      "placeholder": true
+    }
   }
 ]

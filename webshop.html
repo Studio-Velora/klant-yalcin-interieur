@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="webshop.css">
+<link rel="stylesheet" href="webshop.css?v=3">
 </head>
 <body class="grain">
 
@@ -89,8 +89,14 @@
       <button class="ftab" data-filter="laminaat" role="tab" aria-selected="false">Laminaat</button>
     </div>
     <div class="filter-sort">
-      <label for="sortSelect" style="white-space:nowrap">Sorteer op</label>
-      <select id="sortSelect" class="sort-select">
+      <div class="shop-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="searchInput" placeholder="Zoek product…" aria-label="Zoek product" autocomplete="off">
+      </div>
+      <select id="colorSelect" class="sort-select" aria-label="Filter op kleur">
+        <option value="">Alle kleuren</option>
+      </select>
+      <select id="sortSelect" class="sort-select" aria-label="Sorteren">
         <option value="title">Naam A–Z</option>
         <option value="price-asc">Prijs laag–hoog</option>
         <option value="price-desc">Prijs hoog–laag</option>
@@ -249,7 +255,7 @@
 </div>
 
 <script src="main.js"></script>
-<script src="webshop.js"></script>
+<script src="webshop.js?v=3"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 

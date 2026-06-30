@@ -17,6 +17,8 @@ let allProducts = [];
 let cart        = JSON.parse(localStorage.getItem('yalcin_cart') || '[]');
 let activeFilter = 'all';
 let sortOrder    = 'title';
+let searchQuery  = '';
+let colorFilter  = '';
 
 /* ---- Render product card ---- */
 function renderCard(product) {
@@ -87,6 +89,20 @@ function applyFilter() {
     products = products.filter(p => p.collection === activeFilter);
   }
 
+  if (colorFilter) {
+    products = products.filter(p => (p.specs?.kleur || '') === colorFilter);
+  }
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    products = products.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      (p.collectionLabel || '').toLowerCase().includes(q) ||
+      (p.specs?.kleur || '').toLowerCase().includes(q) ||
+      (p.specs?.materiaal || '').toLowerCase().includes(q)
+    );
+  }
+
   if (sortOrder === 'price-asc') {
     products.sort((a, b) => a.price - b.price);
   } else if (sortOrder === 'price-desc') {
@@ -104,7 +120,7 @@ function applyFilter() {
     grid.innerHTML = `
       <div class="shop-empty" style="grid-column:1/-1">
         <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <p>Geen producten gevonden in deze categorie.</p>
+        <p>Geen producten gevonden. Pas je zoekopdracht of filters aan.</p>
       </div>`;
     return;
   }
@@ -335,7 +351,30 @@ async function init() {
     return;
   }
 
+  /* Kleurfilter vullen uit beschikbare producten */
+  const colorSel = document.getElementById('colorSelect');
+  if (colorSel) {
+    const colors = [...new Set(allProducts.map(p => p.specs?.kleur).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'nl'));
+    colors.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      colorSel.appendChild(opt);
+    });
+  }
+
   applyFilter();
+
+  /* Zoeken */
+  document.getElementById('searchInput')?.addEventListener('input', e => {
+    searchQuery = e.target.value.trim();
+    applyFilter();
+  });
+
+  /* Kleurfilter */
+  colorSel?.addEventListener('change', e => {
+    colorFilter = e.target.value;
+    applyFilter();
+  });
 
   /* Filter tabs */
   document.querySelectorAll('.ftab').forEach(tab => {

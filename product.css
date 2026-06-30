@@ -104,7 +104,40 @@ body.promo-closed .prod-panel { top: 100px; }
   display: flex; align-items: baseline; gap: 14px; margin-bottom: .6rem;
 }
 .prod-price-main { font-family: var(--display); font-size: 2.4rem; color: var(--ink); line-height: 1; }
+.prod-price-unit { font-size: 1.1rem; color: var(--ink-soft); margin-left: 2px; }
 .prod-price-note { font-size: .82rem; color: var(--ink-faint); }
+
+/* ---- m²-calculator (vloeren) ---- */
+.m2calc {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; margin-bottom: 16px; background: var(--paper-2);
+}
+.m2calc-label { display: block; font-weight: 700; font-size: .92rem; color: var(--ink); margin-bottom: 10px; }
+.m2calc-input-row {
+  display: flex; align-items: center; gap: 0; margin-bottom: 14px;
+  border: 1px solid var(--line-2); border-radius: var(--radius); overflow: hidden;
+  max-width: 220px; background: var(--paper);
+}
+.m2calc-input-row:focus-within { border-color: var(--clay); }
+.m2calc-input-row input {
+  border: none; background: none; outline: none; flex: 1; width: 100%;
+  font-family: var(--body); font-size: 1.1rem; color: var(--ink); padding: .7em .9em;
+}
+.m2calc-unit { padding: 0 14px; color: var(--ink-faint); font-size: .95rem; border-left: 1px solid var(--line); }
+.m2calc-loss { display: flex; align-items: flex-start; gap: 9px; font-size: .88rem; color: var(--ink-soft); cursor: pointer; margin-bottom: 14px; }
+.m2calc-loss input { margin-top: 2px; accent-color: var(--clay); width: 16px; height: 16px; flex-shrink: 0; }
+.m2calc-loss small { color: var(--ink-faint); }
+.m2calc-result {
+  border-top: 1px solid var(--line); padding-top: 14px; margin-bottom: 16px;
+  display: grid; gap: 8px;
+}
+.m2calc-line { display: flex; justify-content: space-between; align-items: baseline; font-size: .92rem; color: var(--ink-soft); }
+.m2calc-line strong { color: var(--ink); font-weight: 600; }
+.m2calc-total { border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
+.m2calc-total span { font-weight: 600; color: var(--ink); }
+.m2calc-total strong { font-family: var(--display); font-size: 1.5rem; }
+.m2calc .btn-add-cart { width: 100%; }
+.m2calc .btn-add-cart:disabled { opacity: .45; cursor: not-allowed; }
 
 .prod-trust-row {
   display: flex; align-items: center; gap: 12px; margin-bottom: 1.6rem;
