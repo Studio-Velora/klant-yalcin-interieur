@@ -140,6 +140,11 @@ function openModal(product) {
     'vloerkleden-tapijten': 'Handgeselecteerd uit de Lifestyle Interior collectie. Warm van kleur, robuust van weefsel — gemaakt om jarenlang mooi te blijven. Verkrijgbaar in meerdere maten.',
     'pvc-vloeren': 'Watervast, slijtvast en onderhoudsvriendelijk. Ideaal voor woonkamers, keukens en gangen. Verkrijgbaar inclusief vakkundige montage in Den Haag en omstreken.',
     'laminaat': 'Warme houtlook met de duurzaamheid van laminaat. Strak en eenvoudig te combineren met elk interieur. Inclusief montage en afwerking naar keuze.',
+    'gordijnen': 'Stijlvolle gordijnen die uw interieur compleet maken. Verkrijgbaar in diverse stoffen, kleuren en confectiematen. Inclusief opmeten en montage.',
+    'parket': 'Massief en meerlaags parket voor een tijdloze uitstraling. Duurzaam, warm en geschikt voor vloerverwarming. Professionele plaatsing beschikbaar.',
+    'tapijt': 'Comfortabel tapijt voor een warme en geluidsarme vloer. Verkrijgbaar in diverse dessins en kwaliteiten. Inclusief legservice.',
+    'binnenzonwering': 'Functionele en decoratieve binnenzonwering. Van plissé en jaloeziën tot houten shutters. Op maat gemaakt en vakkundig gemonteerd.',
+    'traprenovatie': 'Geef uw trap een nieuwe look met onze traprenovatie-oplossingen. PVC of laminaat overzetting, snel geplaatst en onderhoudsvriendelijk.',
   };
   const desc = descriptions[product.collection] || 'Hoogwaardig materiaal uit onze curated collectie. Wilt u dit product zien of voelen? Kom langs in onze showroom in Den Haag.';
 
