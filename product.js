@@ -4,13 +4,20 @@
    ========================================================================= */
 
 function fmt(amount) {
-  return '€ ' + parseFloat(amount).toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const n = parseFloat(amount);
+  if (!n || isNaN(n)) return 'Prijs op aanvraag';
+  return '€ ' + n.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 const PROD_COLL_LABELS = {
   'vloerkleden-tapijten': 'Vloerkleden & Tapijten',
   'pvc-vloeren':          'PVC Vloeren',
   'laminaat':             'Laminaat',
+  'gordijnen':            'Gordijnen',
+  'parket':               'Parket',
+  'tapijt':               'Tapijt',
+  'binnenzonwering':      'Binnenzonwering',
+  'traprenovatie':        'Traprenovatie',
 };
 
 /* ---- Description copy per collection ---- */
@@ -52,6 +59,66 @@ const DESCRIPTIONS = {
       <li>Volledige afwerking inclusief plinten</li>
     </ul>
   `,
+  'gordijnen': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem"><strong>${p.title}</strong> — een prachtige gordijnstof die sfeer en functie combineert. Kies uw eigen plooi, breedte en hoogte voor een perfect resultaat op maat.</p>
+    <p>Onze gordijnen worden op maat gemaakt en professioneel opgehangen. U kiest zelf de stof, het type plooi en de afmetingen — wij zorgen voor de perfecte afwerking.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Waarom op maat?</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Perfecte pasvorm voor elk raam</li>
+      <li>Keuze uit diverse plooitypes en railsystemen</li>
+      <li>Professionele montage door eigen team</li>
+      <li>Gratis inmeten op locatie</li>
+      <li>Stofstalen beschikbaar om thuis te bekijken</li>
+    </ul>
+  `,
+  'parket': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem">De <strong>${p.title}</strong> parketvloer is een tijdloze keuze voor wie houdt van echte, warme houten vloeren. Massief of meerlaags — altijd met karakter.</p>
+    <p>Parket is de ultieme vloer voor liefhebbers van natuurlijk hout. Elke plank is uniek, met zijn eigen nerf en kleurschakeringen. De ${p.title} wordt vakkundig gelegd door ons eigen team.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Voordelen</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Echt hout — elke plank is uniek</li>
+      <li>Kan meerdere keren geschuurd en gelakt worden</li>
+      <li>Geschikt voor vloerverwarming (meerlaags)</li>
+      <li>Waardevermeerderend voor uw woning</li>
+      <li>Inclusief professionele plaatsing en afwerking</li>
+    </ul>
+  `,
+  'tapijt': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem"><strong>${p.title}</strong> — een comfortabel tapijt dat warmte en geluidsdemping brengt in elke ruimte. Ideaal voor slaapkamers, trappenhuizen en woonkamers.</p>
+    <p>Tapijt is ongeëvenaard in comfort en akoestiek. De ${p.title} is verkrijgbaar op rol en wordt op maat gesneden en vakkundig gelegd door ons team.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Voordelen</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Warm en zacht onder de voet</li>
+      <li>Uitstekende geluidsdemping</li>
+      <li>Verkrijgbaar in vele dessins en kleuren</li>
+      <li>Op maat gesneden en gelegd</li>
+      <li>Geschikt voor trappen en slaapkamers</li>
+    </ul>
+  `,
+  'binnenzonwering': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem"><strong>${p.title}</strong> — functionele en decoratieve binnenzonwering die uw interieur compleet maakt. Op maat gemaakt voor een perfecte pasvorm.</p>
+    <p>Onze binnenzonwering wordt volledig op maat gemaakt. Kies uw type, kleur en afmetingen — wij zorgen voor nauwkeurige productie en vakkundige montage.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Voordelen</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Op maat gemaakt — perfecte pasvorm</li>
+      <li>Lichtregulatie naar wens</li>
+      <li>Isolerend — bespaart op energie</li>
+      <li>Keuze uit vele kleuren en materialen</li>
+      <li>Professionele montage inclusief</li>
+    </ul>
+  `,
+  'traprenovatie': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem"><strong>${p.title}</strong> — geef uw trap een complete metamorfose met onze traprenovatie-oplossingen. Snel, schoon en met een prachtig eindresultaat.</p>
+    <p>Een traprenovatie is de snelste manier om uw hal en gang een frisse, moderne uitstraling te geven. De ${p.title} wordt als overzetting over uw bestaande trap geplaatst — geen sloopwerk nodig.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Voordelen</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Geen sloopwerk — overzetting over bestaande trap</li>
+      <li>Klaar binnen 1–2 dagen</li>
+      <li>Slijtvast en onderhoudsvriendelijk</li>
+      <li>Keuze uit laminaat, PVC of massief hout</li>
+      <li>Inclusief stootborden en neusprofielen</li>
+    </ul>
+  `,
 };
 
 const FAQS = {
@@ -74,6 +141,37 @@ const FAQS = {
     { q: "Hoe lang duurt de montage?", a: "Afhankelijk van de oppervlakte en het type ruimte duurt een gemiddelde montage 1–2 dagen. Bij het inmeten geeft u een nauwkeurige tijdsinschatting." },
     { q: "Kan ik laminaat zelf leggen of doen jullie dat?", a: "Wij bieden vakkundige montage door ons eigen team. U kunt ook enkel het materiaal kopen en zelf leggen — dit is aan u. De prijs op de productpagina is exclusief montage tenzij anders aangegeven." },
   ],
+  'gordijnen': [
+    { q: "Welke plooitypes bieden jullie aan?", a: "Wij bieden wave-plooi, pencil-plooi, enkele plooi, dubbele plooi en ringen aan. Elk type geeft een ander effect — van strak modern tot klassiek elegant. Kom langs in de showroom om de plooien in het echt te bekijken." },
+    { q: "Komen jullie ook inmeten?", a: "Ja, wij komen gratis bij u langs om nauwkeurig in te meten. Zo garanderen we een perfecte pasvorm. Bel 070 390 7020 om een afspraak te maken." },
+    { q: "Kan ik stofstalen aanvragen?", a: "Ja! U kunt gratis stofstalen meenemen uit onze showroom of wij sturen ze op. Zo kunt u de stof thuis bekijken bij uw eigen lichtomstandigheden." },
+    { q: "Hoe lang duurt het voordat mijn gordijnen klaar zijn?", a: "Onze gordijnen worden op maat gemaakt. De levertijd is doorgaans 2–3 weken na inmeten. Bij spoedbestellingen kunnen wij vaak sneller leveren." },
+    { q: "Verzorgen jullie ook de rails en montage?", a: "Ja, wij leveren en monteren ook het railsysteem. Alles wordt door ons eigen team geplaatst — u hoeft niets zelf te doen." },
+  ],
+  'parket': [
+    { q: "Is parket geschikt voor vloerverwarming?", a: "Meerlaags parket is geschikt voor vloerverwarming tot maximaal 28°C oppervlaktetemperatuur. Massief parket is minder geschikt vanwege uitzetting. Wij adviseren u graag over de beste keuze." },
+    { q: "Kan parket geschuurd worden?", a: "Ja, dat is juist het grote voordeel van parket. Meerlaags parket kan 2–3 keer geschuurd worden, massief parket zelfs vaker. Zo blijft uw vloer decennialang mooi." },
+    { q: "Welke legpatronen zijn mogelijk?", a: "Wij leggen parket in diverse patronen: stroken, visgraat, Hongaarse punt en meer. Elk patroon geeft een andere sfeer. Bespreek de mogelijkheden in onze showroom." },
+    { q: "Hoe onderhoud ik een parketvloer?", a: "Regelmatig stofzuigen met een zachte zuigmond. Gebruik een vochtige (niet natte) dweil met een pH-neutrale reiniger. Vermijd veel water op de vloer." },
+  ],
+  'tapijt': [
+    { q: "Is tapijt geschikt voor mensen met allergie?", a: "Modern tapijt houdt stof juist vast en voorkomt dat het opwervelt. Regelmatig stofzuigen is voldoende. Er zijn ook speciaal antiallergische varianten beschikbaar." },
+    { q: "Kan tapijt op de trap gelegd worden?", a: "Ja, wij leggen ook traptapijt. Dit wordt op maat gesneden en met klemprofielen of lijm vakkundig bevestigd. Vraag naar onze trapoplossingen." },
+    { q: "Hoe lang gaat tapijt mee?", a: "Kwalitatief tapijt gaat 10–15 jaar mee bij normaal huishoudelijk gebruik. De levensduur hangt af van de kwaliteit, het gebruik en het onderhoud." },
+    { q: "Leggen jullie tapijt ook in bedrijfsruimtes?", a: "Ja, wij leveren en leggen ook projecttapijt voor kantoren, winkels en andere commerciële ruimtes. Neem contact op voor een offerte op maat." },
+  ],
+  'binnenzonwering': [
+    { q: "Welke types binnenzonwering bieden jullie?", a: "Wij bieden plissé gordijnen, duette (honingraat), houten jaloeziën, aluminium jaloeziën en rolgordijnen. Elk type heeft unieke eigenschappen qua lichtregulatie en isolatie." },
+    { q: "Is binnenzonwering ook isolerend?", a: "Ja, vooral duette (honingraat) gordijnen zijn uitstekend isolerend. Ze houden warmte binnen in de winter en buiten in de zomer. Dit kan merkbaar schelen op uw energierekening." },
+    { q: "Kan ik een combinatie kiezen van transparant en verduisterend?", a: "Ja, bij plissé en duette is een dag/nacht combinatie mogelijk. Hierbij kunt u schakelen tussen lichtdoorlatend en volledig verduisterend — ideaal voor slaapkamers." },
+    { q: "Hoe worden de maten bepaald?", a: "Wij komen gratis bij u langs om nauwkeurig in te meten. Dit is belangrijk omdat elk raam net iets anders kan zijn. De zonwering wordt dan exact op maat geproduceerd." },
+  ],
+  'traprenovatie': [
+    { q: "Hoelang duurt een traprenovatie?", a: "Een standaard rechte trap is meestal binnen 1 dag klaar. Een trap met kwartslag of bordessen kan 1–2 dagen duren. U kunt de trap dezelfde avond weer gebruiken." },
+    { q: "Kan elke trap gerenoveerd worden?", a: "Vrijwel elke trap is geschikt: rechte trappen, kwartslagen, bordessen en zelfs wenteltrappen. Onze monteur beoordeelt dit tijdens de gratis inmeting." },
+    { q: "Welke materialen zijn beschikbaar?", a: "U kunt kiezen uit laminaat, PVC, of massief hout als overzetting. Elke optie is verkrijgbaar in diverse kleuren en dessins. Wij tonen u de mogelijkheden in onze showroom." },
+    { q: "Moet de oude trapbekleding eerst verwijderd worden?", a: "In de meeste gevallen niet — de overzetting wordt over de bestaande trap geplaatst. Alleen als er losliggend tapijt of erg ongelijke bekleding zit, wordt dit eerst verwijderd." },
+  ],
 };
 
 /* ---- Render product page ---- */
@@ -87,19 +185,241 @@ function renderProduct(product, allProducts) {
   const isLow  = stock <= 4;
 
   /* Prijs-rij: vloeren tonen prijs per m², kleden per stuk */
-  const priceRowHtml = fl
+  const hasPrice = product.price && product.price > 0;
+  const priceRowHtml = fl && fl.pricePerM2
     ? `<div class="prod-price-row">
          <span class="prod-price-main">${fmt(fl.pricePerM2)}<span class="prod-price-unit">/m²</span></span>
-         <span class="prod-price-note">incl. 21% btw · pak ${fmt(fl.pricePerPack)} (${fl.m2PerPack} m²)</span>
+         <span class="prod-price-note">incl. 21% btw${fl.m2PerPack ? ` · pak ${fmt(fl.pricePerPack)} (${fl.m2PerPack} m²)` : ''}</span>
        </div>`
     : `<div class="prod-price-row">
-         <span class="prod-price-main">${price}</span>
-         <span class="prod-price-note">incl. 21% btw</span>
+         <span class="prod-price-main">${hasPrice ? price : 'Prijs op aanvraag'}</span>
+         ${hasPrice ? '<span class="prod-price-note">incl. 21% btw</span>' : '<span class="prod-price-note">Vraag een offerte aan voor de exacte prijs</span>'}
        </div>`;
 
-  /* Koop-blok: vloeren krijgen m²-calculator, kleden de gewone qty */
-  const buyHtml = fl
-    ? `<div class="m2calc" data-m2pp="${fl.m2PerPack}" data-pricepack="${fl.pricePerPack}" data-loss="${fl.cuttingLossPct || 7}">
+  /* Koop-blok: verschilt per collectietype */
+  let buyHtml;
+
+  if (product.collection === 'gordijnen') {
+    buyHtml = `<div class="configurator" id="configurator">
+      <h3 class="config-heading">Configureer uw gordijn</h3>
+      <div class="config-field">
+        <label for="cfgPlooi">Type plooi</label>
+        <select id="cfgPlooi" class="config-select">
+          <option value="">— Kies plooi —</option>
+          <option value="wave">Wave-plooi (modern, strak)</option>
+          <option value="pencil">Pencil-plooi (klassiek)</option>
+          <option value="enkele">Enkele plooi</option>
+          <option value="dubbele">Dubbele plooi (vol, luxe)</option>
+          <option value="ringen">Ringen / Ogen</option>
+        </select>
+      </div>
+      <div class="config-field">
+        <label for="cfgStof">Stoftype</label>
+        <select id="cfgStof" class="config-select">
+          <option value="">— Kies stoftype —</option>
+          <option value="transparant">Transparant (vitrage / inbetween)</option>
+          <option value="lichtdoorlatend">Lichtdoorlatend</option>
+          <option value="verduisterend">Verduisterend (dim-out)</option>
+          <option value="volledig-verduisterend">Volledig verduisterend (black-out)</option>
+        </select>
+      </div>
+      <div class="config-row">
+        <div class="config-field">
+          <label for="cfgBreedte">Breedte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgBreedte" min="30" max="800" step="1" placeholder="0" inputmode="numeric">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+        <div class="config-field">
+          <label for="cfgHoogte">Hoogte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgHoogte" min="30" max="400" step="1" placeholder="0" inputmode="numeric">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+      </div>
+      <div class="config-field">
+        <label for="cfgRails">Railsysteem</label>
+        <select id="cfgRails" class="config-select">
+          <option value="">— Kies railsysteem —</option>
+          <option value="rail-plafond">Plafond-rail</option>
+          <option value="rail-muur">Muur-rail</option>
+          <option value="roede">Gordijnroede</option>
+          <option value="eigen">Ik heb al een rail</option>
+        </select>
+      </div>
+      <div class="config-field">
+        <label for="cfgAantal">Aantal gordijnen</label>
+        <div class="config-input-wrap">
+          <input type="number" id="cfgAantal" min="1" max="20" value="2" inputmode="numeric">
+          <span class="config-unit">stuks</span>
+        </div>
+      </div>
+      <div class="config-summary" id="cfgSummary" hidden>
+        <div class="config-summary-title">Uw keuze</div>
+        <div id="cfgSummaryLines"></div>
+      </div>
+      <button class="btn-add-cart btn-quote-config" id="addToCartBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Offerte aanvragen
+      </button>
+      <p class="config-note">Exacte prijs na inmeten — wij nemen binnen 1 werkdag contact op.</p>
+    </div>`;
+  } else if (product.collection === 'binnenzonwering') {
+    buyHtml = `<div class="configurator" id="configurator">
+      <h3 class="config-heading">Configureer uw zonwering</h3>
+      <div class="config-field">
+        <label for="cfgType">Type zonwering</label>
+        <select id="cfgType" class="config-select">
+          <option value="">— Kies type —</option>
+          <option value="plisse">Plissé gordijn</option>
+          <option value="duette">Duette (honingraat)</option>
+          <option value="houten-jaloezien">Houten jaloeziën</option>
+          <option value="aluminium-jaloezien">Aluminium jaloeziën</option>
+          <option value="rolgordijn">Rolgordijn</option>
+          <option value="vouwgordijn">Vouwgordijn</option>
+        </select>
+      </div>
+      <div class="config-field">
+        <label for="cfgBediening">Bediening</label>
+        <select id="cfgBediening" class="config-select">
+          <option value="">— Kies bediening —</option>
+          <option value="koord">Koord / trekkoord</option>
+          <option value="ketting">Kettingbediening</option>
+          <option value="elektrisch">Elektrisch (motor)</option>
+          <option value="smartHome">Smart Home (app-bediening)</option>
+        </select>
+      </div>
+      <div class="config-row">
+        <div class="config-field">
+          <label for="cfgBreedte">Breedte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgBreedte" min="20" max="400" step="1" placeholder="0" inputmode="numeric">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+        <div class="config-field">
+          <label for="cfgHoogte">Hoogte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgHoogte" min="20" max="400" step="1" placeholder="0" inputmode="numeric">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+      </div>
+      <div class="config-field">
+        <label for="cfgAantalRamen">Aantal ramen</label>
+        <div class="config-input-wrap">
+          <input type="number" id="cfgAantalRamen" min="1" max="30" value="1" inputmode="numeric">
+          <span class="config-unit">stuks</span>
+        </div>
+      </div>
+      <div class="config-summary" id="cfgSummary" hidden>
+        <div class="config-summary-title">Uw keuze</div>
+        <div id="cfgSummaryLines"></div>
+      </div>
+      <button class="btn-add-cart btn-quote-config" id="addToCartBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Offerte aanvragen
+      </button>
+      <p class="config-note">Exacte prijs na inmeten — wij nemen binnen 1 werkdag contact op.</p>
+    </div>`;
+  } else if (product.collection === 'traprenovatie') {
+    buyHtml = `<div class="configurator" id="configurator">
+      <h3 class="config-heading">Configureer uw traprenovatie</h3>
+      <div class="config-field">
+        <label for="cfgTrapType">Type trap</label>
+        <select id="cfgTrapType" class="config-select">
+          <option value="">— Kies traptype —</option>
+          <option value="recht">Rechte trap</option>
+          <option value="kwartslag">Kwartslag (1 bocht)</option>
+          <option value="halfslag">Halfslag (2 bochten)</option>
+          <option value="bordes">Met bordes</option>
+          <option value="wentel">Wenteltrap</option>
+        </select>
+      </div>
+      <div class="config-field">
+        <label for="cfgMateriaal">Materiaal overzetting</label>
+        <select id="cfgMateriaal" class="config-select">
+          <option value="">— Kies materiaal —</option>
+          <option value="laminaat">Laminaat</option>
+          <option value="pvc">PVC</option>
+          <option value="massief">Massief hout</option>
+        </select>
+      </div>
+      <div class="config-row">
+        <div class="config-field">
+          <label for="cfgTreden">Aantal treden</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgTreden" min="1" max="30" placeholder="13" inputmode="numeric">
+            <span class="config-unit">treden</span>
+          </div>
+        </div>
+        <div class="config-field">
+          <label for="cfgTrapBreedte">Trapbreedte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgTrapBreedte" min="50" max="200" placeholder="80" inputmode="numeric">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+      </div>
+      <div class="config-field">
+        <label>Extra opties</label>
+        <label class="config-check"><input type="checkbox" id="cfgStootbord"> Stootborden meenemen</label>
+        <label class="config-check"><input type="checkbox" id="cfgNeusprofiel" checked> Neusprofielen (antislip)</label>
+        <label class="config-check"><input type="checkbox" id="cfgOnderplaat"> Onderplaat bordes</label>
+      </div>
+      <div class="config-summary" id="cfgSummary" hidden>
+        <div class="config-summary-title">Uw keuze</div>
+        <div id="cfgSummaryLines"></div>
+      </div>
+      <button class="btn-add-cart btn-quote-config" id="addToCartBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Offerte aanvragen
+      </button>
+      <p class="config-note">Exacte prijs na inmeten — wij nemen binnen 1 werkdag contact op.</p>
+    </div>`;
+  } else if (product.collection === 'tapijt') {
+    buyHtml = `<div class="configurator" id="configurator">
+      <h3 class="config-heading">Configureer uw tapijt</h3>
+      <div class="config-row">
+        <div class="config-field">
+          <label for="cfgBreedte">Breedte ruimte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgBreedte" min="1" max="2000" step="1" placeholder="0" inputmode="decimal">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+        <div class="config-field">
+          <label for="cfgLengte">Lengte ruimte</label>
+          <div class="config-input-wrap">
+            <input type="number" id="cfgLengte" min="1" max="2000" step="1" placeholder="0" inputmode="decimal">
+            <span class="config-unit">cm</span>
+          </div>
+        </div>
+      </div>
+      <div class="config-field">
+        <label for="cfgTapijt">Toepassing</label>
+        <select id="cfgTapijt" class="config-select">
+          <option value="">— Kies toepassing —</option>
+          <option value="woonkamer">Woonkamer / slaapkamer</option>
+          <option value="trap">Trap</option>
+          <option value="kantoor">Kantoor / bedrijfsruimte</option>
+          <option value="gang">Gang / overloop</option>
+        </select>
+      </div>
+      <div class="config-summary" id="cfgSummary" hidden>
+        <div class="config-summary-title">Uw keuze</div>
+        <div id="cfgSummaryLines"></div>
+      </div>
+      <button class="btn-add-cart btn-quote-config" id="addToCartBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Offerte aanvragen
+      </button>
+      <p class="config-note">Exacte prijs na inmeten — wij nemen binnen 1 werkdag contact op.</p>
+    </div>`;
+  } else if (fl) {
+    buyHtml = `<div class="m2calc" data-m2pp="${fl.m2PerPack}" data-pricepack="${fl.pricePerPack}" data-loss="${fl.cuttingLossPct || 7}">
          <label class="m2calc-label" for="m2Input">Wat is je oppervlakte?</label>
          <div class="m2calc-input-row">
            <input type="number" id="m2Input" min="0" step="0.1" placeholder="0" inputmode="decimal">
@@ -118,8 +438,9 @@ function renderProduct(product, allProducts) {
            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
            Voeg toe aan winkelwagen
          </button>
-       </div>`
-    : `<div class="add-row">
+       </div>`;
+  } else {
+    buyHtml = `<div class="add-row">
          <div class="qty-wrap">
            <button class="qty-btn" id="qtyDec" aria-label="Minder">−</button>
            <span class="qty-num" id="qtyNum">1</span>
@@ -133,6 +454,7 @@ function renderProduct(product, allProducts) {
            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
          </button>
        </div>`;
+  }
 
   /* Breadcrumb */
   document.getElementById('breadcrumbColl').textContent = coll;
@@ -251,9 +573,79 @@ function renderProduct(product, allProducts) {
     });
   });
 
-  /* Qty / m²-calculator */
+  /* Qty / m²-calculator / configurator */
   let doAdd;
-  if (fl) {
+  const isConfigurable = ['gordijnen','binnenzonwering','traprenovatie','tapijt'].includes(product.collection);
+
+  if (isConfigurable) {
+    /* Configurator: verzamel keuzes en stuur naar offertepagina */
+    const cfg = document.getElementById('configurator');
+    const summary = document.getElementById('cfgSummary');
+    const summaryLines = document.getElementById('cfgSummaryLines');
+
+    function updateSummary() {
+      const inputs = cfg.querySelectorAll('select, input[type=number]');
+      const checks = cfg.querySelectorAll('input[type=checkbox]');
+      let lines = [];
+      inputs.forEach(el => {
+        const label = el.closest('.config-field')?.querySelector('label')?.textContent || '';
+        if (el.tagName === 'SELECT' && el.value) {
+          lines.push(`<div class="config-summary-line"><span>${label}</span><strong>${el.options[el.selectedIndex].text}</strong></div>`);
+        } else if (el.type === 'number' && el.value) {
+          const unit = el.closest('.config-input-wrap')?.querySelector('.config-unit')?.textContent || '';
+          lines.push(`<div class="config-summary-line"><span>${label}</span><strong>${el.value} ${unit}</strong></div>`);
+        }
+      });
+      checks.forEach(el => {
+        if (el.checked) {
+          const label = el.closest('.config-check')?.textContent?.trim() || '';
+          if (label) lines.push(`<div class="config-summary-line"><span>✓</span><strong>${label}</strong></div>`);
+        }
+      });
+      if (lines.length > 0) {
+        summaryLines.innerHTML = lines.join('');
+        summary.hidden = false;
+      } else {
+        summary.hidden = true;
+      }
+    }
+
+    cfg.querySelectorAll('select, input').forEach(el => {
+      el.addEventListener('change', updateSummary);
+      el.addEventListener('input', updateSummary);
+    });
+
+    doAdd = function() {
+      const inputs = cfg.querySelectorAll('select, input[type=number]');
+      const checks = cfg.querySelectorAll('input[type=checkbox]');
+      let params = new URLSearchParams();
+      params.set('product', product.title);
+      params.set('collectie', coll);
+      inputs.forEach(el => {
+        const label = el.closest('.config-field')?.querySelector('label')?.textContent || el.id;
+        if (el.tagName === 'SELECT' && el.value) {
+          params.set(label, el.options[el.selectedIndex].text);
+        } else if (el.type === 'number' && el.value) {
+          const unit = el.closest('.config-input-wrap')?.querySelector('.config-unit')?.textContent || '';
+          params.set(label, el.value + ' ' + unit);
+        }
+      });
+      checks.forEach(el => {
+        if (el.checked) {
+          const label = el.closest('.config-check')?.textContent?.trim() || el.id;
+          params.set(label, 'Ja');
+        }
+      });
+      window.location.href = 'offerte.html?' + params.toString();
+    };
+
+    document.querySelector('.sticky-bar-qty')?.style.setProperty('display', 'none');
+    const stickyBtn = document.getElementById('stickyAddBtn');
+    if (stickyBtn) {
+      stickyBtn.textContent = 'Offerte aanvragen';
+      stickyBtn.addEventListener('click', doAdd);
+    }
+  } else if (fl) {
     /* Vloeren: m²-calculator berekent aantal pakken */
     const calc = document.querySelector('.m2calc');
     const m2pp = parseFloat(calc.dataset.m2pp);
@@ -282,7 +674,6 @@ function renderProduct(product, allProducts) {
       if (packs <= 0) { input.focus(); return; }
       for (let i = 0; i < packs; i++) addToCart(product);
     };
-    /* sticky qty heeft geen zin voor vloeren — verberg het */
     document.querySelector('.sticky-bar-qty')?.style.setProperty('display', 'none');
     document.getElementById('stickyAddBtn')?.addEventListener('click', () => {
       if (packs > 0) doAdd();
@@ -297,15 +688,15 @@ function renderProduct(product, allProducts) {
       const sq = document.getElementById('stickyQtyNum');
       if (sq) sq.textContent = qty;
     };
-    document.getElementById('qtyDec').addEventListener('click', () => setQty(qty - 1));
-    document.getElementById('qtyInc').addEventListener('click', () => setQty(qty + 1));
+    document.getElementById('qtyDec')?.addEventListener('click', () => setQty(qty - 1));
+    document.getElementById('qtyInc')?.addEventListener('click', () => setQty(qty + 1));
     document.getElementById('stickyDec')?.addEventListener('click', () => setQty(qty - 1));
     document.getElementById('stickyInc')?.addEventListener('click', () => setQty(qty + 1));
     doAdd = function () { for (let i = 0; i < qty; i++) addToCart(product); };
     document.getElementById('stickyAddBtn')?.addEventListener('click', doAdd);
   }
 
-  document.getElementById('addToCartBtn').addEventListener('click', doAdd);
+  document.getElementById('addToCartBtn')?.addEventListener('click', doAdd);
 
   /* Sticky bar */
   document.getElementById('stickyTitle').textContent = product.title;
