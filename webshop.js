@@ -18,12 +18,13 @@ let cart        = JSON.parse(localStorage.getItem('yalcin_cart') || '[]');
 let activeFilter = 'all';
 let sortOrder    = 'title';
 let searchQuery  = '';
-let colorFilter  = '';
+let colorFilter  = new Set();
 
 /* ---- Render product card ---- */
 function renderCard(product) {
   const img   = product.images[0];
-  const price = formatPrice(product.price);
+  const hasPrice = product.price > 0;
+  const price = hasPrice ? formatPrice(product.price) : 'Prijs op aanvraag';
 
   const card = document.createElement('article');
   card.className = 'prod-card';
@@ -39,14 +40,14 @@ function renderCard(product) {
       ${product.collectionLabel
         ? `<span class="prod-badge" style="background:var(--ink);font-size:.6rem">${product.collectionLabel}</span>`
         : ''}
-      <button class="prod-quick-add" data-add="${product.id}" aria-label="Voeg ${product.title} toe aan winkelwagen">
+      ${hasPrice ? `<button class="prod-quick-add" data-add="${product.id}" aria-label="Voeg ${product.title} toe aan winkelwagen">
         + In winkelwagen
-      </button>
+      </button>` : ''}
     </div>
     <div class="prod-info">
       ${product.collectionLabel ? `<div class="prod-coll">${product.collectionLabel}</div>` : ''}
       <div class="prod-name">${product.title}</div>
-      <div class="prod-price">${price} <span class="prod-price-note">incl. btw</span></div>
+      <div class="prod-price">${price}${hasPrice ? ' <span class="prod-price-note">incl. btw</span>' : ''}</div>
     </div>
   `;
 
@@ -89,8 +90,8 @@ function applyFilter() {
     products = products.filter(p => p.collection === activeFilter);
   }
 
-  if (colorFilter) {
-    products = products.filter(p => (p.specs?.kleur || '') === colorFilter);
+  if (colorFilter.size) {
+    products = products.filter(p => colorFilter.has(p.specs?.kleur || ''));
   }
 
   if (searchQuery) {
@@ -205,8 +206,60 @@ function saveCart() {
   localStorage.setItem('yalcin_cart', JSON.stringify(cart));
 }
 
+/* ---- Animatie bij toevoegen aan winkelmandje ---- */
+let lastClickEl = null;
+document.addEventListener('click', e => { lastClickEl = e.target; }, true);
+let lastCartAnim = 0;
+
+function animateAddToCart() {
+  const now = Date.now();
+  if (now - lastCartAnim < 400) return;   // m²-calculator voegt meerdere pakken tegelijk toe
+  lastCartAnim = now;
+
+  const cartBtn = document.getElementById('cartBtn');
+  const src = lastClickEl && lastClickEl.closest ? lastClickEl.closest('button') : null;
+
+  /* Knop even "Toegevoegd" */
+  if (src && !src._flash && src.matches('.btn-add-cart, .prod-quick-add, .modal-add')) {
+    src._flash = true;
+    const html = src.innerHTML;
+    src.classList.add('is-added');
+    src.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;margin-right:6px;vertical-align:-3px"><polyline points="20 6 9 17 4 12"/></svg>Toegevoegd';
+    setTimeout(() => { src.innerHTML = html; src.classList.remove('is-added'); src._flash = false; }, 1400);
+  }
+
+  if (!cartBtn) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const to = cartBtn.getBoundingClientRect();
+  const bump = () => {
+    cartBtn.classList.remove('cart-bump'); void cartBtn.offsetWidth; cartBtn.classList.add('cart-bump');
+    const bubble = document.getElementById('cartBubble');
+    if (bubble) { bubble.classList.add('pop'); setTimeout(() => bubble.classList.remove('pop'), 500); }
+  };
+  if (reduce || !src || !to.width) { bump(); return; }
+
+  /* Bolletje vliegt naar het mandje */
+  const from = src.getBoundingClientRect();
+  const dot = document.createElement('div');
+  dot.className = 'fly-dot';
+  dot.style.left = (from.left + from.width / 2 - 11) + 'px';
+  dot.style.top  = (from.top + from.height / 2 - 11) + 'px';
+  document.body.appendChild(dot);
+  const dx = (to.left + to.width / 2) - (from.left + from.width / 2);
+  const dy = (to.top + to.height / 2) - (from.top + from.height / 2);
+  const anim = dot.animate([
+    { transform: 'translate(0,0) scale(1)', opacity: 1 },
+    { transform: `translate(${dx * .5}px,${dy * .5 - 40}px) scale(1.15)`, opacity: 1, offset: .45 },
+    { transform: `translate(${dx}px,${dy}px) scale(.35)`, opacity: .9 }
+  ], { duration: 650, easing: 'cubic-bezier(.5,0,.3,1)' });
+  let done = false;
+  const finish = () => { if (done) return; done = true; dot.remove(); bump(); };
+  anim.onfinish = finish;
+  setTimeout(finish, 800);   // vangnet als de browser de animatie pauzeert
+}
+
 function addToCart(product) {
-  if (!product.variantId) return;
+  if (!product.variantId || !(product.price > 0)) return;
   const existing = cart.find(i => i.variantId === product.variantId);
   if (existing) {
     existing.qty += 1;
@@ -222,6 +275,7 @@ function addToCart(product) {
   }
   saveCart();
   updateCartUI();
+  animateAddToCart();
   showToast(`${product.title} toegevoegd`);
 }
 
@@ -337,6 +391,115 @@ function showToast(msg) {
   toast._t = setTimeout(() => toast.classList.remove('show'), 2800);
 }
 
+/* ---- Categorie kiezen (tabs + categoriekaarten) ---- */
+function setCategory(filter, scroll) {
+  activeFilter = filter;
+  document.querySelectorAll('.ftab').forEach(t => {
+    const on = t.dataset.filter === filter;
+    t.classList.toggle('on', on);
+    t.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  document.querySelectorAll('.cat-card').forEach(c => {
+    const on = c.dataset.filter === filter;
+    c.classList.toggle('on', on);
+    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  refreshColorOptions();
+  applyFilter();
+  if (scroll) {
+    const bar = document.querySelector('.filter-bar');
+    if (bar) window.scrollTo({ top: bar.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+  }
+}
+
+function setupCategoryCards() {
+  document.querySelectorAll('.cat-card').forEach(card => {
+    const coll  = card.dataset.filter;
+    const items = allProducts.filter(p => p.collection === coll);
+    const withImg = items.filter(p => p.images?.[0]?.url);
+    const pic = withImg.find(p => p.images[0].url.startsWith('assets/')) || withImg[0];
+    const imgUrl = pic ? pic.images[0].url : (coll === 'parket' ? 'assets/photo/gerenoveerde-trap-eiken.jpg' : '');
+    if (imgUrl) card.querySelector('.cat-img').style.backgroundImage = `url("${imgUrl}")`;
+    card.querySelector('.cat-count').textContent = `${items.length} producten`;
+    card.setAttribute('aria-pressed', 'false');
+    card.addEventListener('click', () => setCategory(activeFilter === coll ? 'all' : coll, true));
+  });
+}
+
+/* ---- Kleurfilter (meerdere kleuren, met bolletje) ---- */
+const COLOR_FALLBACK = {
+  'eiken': '#c9a36b', 'naturel': '#d9c3a0', 'licht': '#e6dccb', 'wit': '#f4f1ea',
+  'bruin': '#7a5a3f', 'grijze eiken': '#888070', 'donker': '#3f3a35', 'zwart': '#26231f',
+  'grijs': '#9a9893', 'warm eiken': '#b08060'
+};
+function colorHex(name) {
+  const p = allProducts.find(x => x.specs?.kleur === name && x.specs?.kleurHex);
+  return p ? p.specs.kleurHex : (COLOR_FALLBACK[name.toLowerCase()] || '#cfc7b8');
+}
+
+let refreshColorOptions = () => {};
+function setupColorFilter() {
+  const btn   = document.getElementById('colorBtn');
+  const panel = document.getElementById('colorPanel');
+  const label = document.getElementById('colorBtnLabel');
+  if (!btn || !panel) return;
+
+  const build = () => {
+    const counts = {};
+    allProducts.forEach(p => {
+      const k = p.specs?.kleur;
+      if (k && (activeFilter === 'all' || p.collection === activeFilter)) counts[k] = (counts[k] || 0) + 1;
+    });
+    [...colorFilter].forEach(c => { if (!counts[c]) colorFilter.delete(c); });
+    const colors = Object.keys(counts).sort((a, b) => a.localeCompare(b, 'nl'));
+    panel.innerHTML = (colors.length ? colors.map(c => `
+    <label class="color-opt">
+      <input type="checkbox" value="${c}"${colorFilter.has(c) ? ' checked' : ''}>
+      <span class="color-dot" style="background:${colorHex(c)}"></span>
+      <span class="color-name">${c}</span>
+      <span class="color-n">${counts[c]}</span>
+    </label>`).join('') : '<p class="color-none">Geen kleurinformatie in deze categorie</p>') + `<button type="button" class="color-clear" id="colorClear">Wis kleurkeuze</button>`;
+    updateLabel();
+  };
+  refreshColorOptions = build;
+
+  function updateLabel() {
+    const n = colorFilter.size;
+    label.textContent = n === 0 ? 'Alle kleuren' : n === 1 ? [...colorFilter][0] : `${n} kleuren`;
+    btn.classList.toggle('active', n > 0);
+  }
+  const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+  const open  = () => {
+    const r = btn.getBoundingClientRect();
+    panel.style.top  = (r.bottom + 6) + 'px';
+    panel.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 268)) + 'px';
+    panel.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+  };
+
+  btn.addEventListener('click', e => { e.stopPropagation(); panel.hidden ? open() : close(); });
+  panel.addEventListener('click', e => e.stopPropagation());
+  panel.addEventListener('change', e => {
+    const cb = e.target;
+    if (cb.type !== 'checkbox') return;
+    cb.checked ? colorFilter.add(cb.value) : colorFilter.delete(cb.value);
+    updateLabel();
+    applyFilter();
+  });
+  panel.addEventListener('click', e => {
+    if (e.target.id !== 'colorClear') return;
+    colorFilter.clear();
+    panel.querySelectorAll('input').forEach(i => { i.checked = false; });
+    updateLabel();
+    applyFilter();
+  });
+  build();
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => { if (window.innerWidth !== lastW) { lastW = window.innerWidth; close(); } });
+}
+
 /* ---- Init ---- */
 async function init() {
   if (!document.getElementById('productGrid')) { updateCartUI(); return; }
@@ -356,16 +519,8 @@ async function init() {
     return;
   }
 
-  /* Kleurfilter vullen uit beschikbare producten */
-  const colorSel = document.getElementById('colorSelect');
-  if (colorSel) {
-    const colors = [...new Set(allProducts.map(p => p.specs?.kleur).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'nl'));
-    colors.forEach(c => {
-      const opt = document.createElement('option');
-      opt.value = c; opt.textContent = c;
-      colorSel.appendChild(opt);
-    });
-  }
+  setupColorFilter();
+  setupCategoryCards();
 
   applyFilter();
 
@@ -375,24 +530,9 @@ async function init() {
     applyFilter();
   });
 
-  /* Kleurfilter */
-  colorSel?.addEventListener('change', e => {
-    colorFilter = e.target.value;
-    applyFilter();
-  });
-
   /* Filter tabs */
   document.querySelectorAll('.ftab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.ftab').forEach(t => {
-        t.classList.remove('on');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('on');
-      tab.setAttribute('aria-selected', 'true');
-      activeFilter = tab.dataset.filter;
-      applyFilter();
-    });
+    tab.addEventListener('click', () => setCategory(tab.dataset.filter));
   });
 
   /* Sort */
