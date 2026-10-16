@@ -146,6 +146,7 @@ function openModal(product) {
     'tapijt': 'Comfortabel tapijt voor een warme en geluidsarme vloer. Verkrijgbaar in diverse dessins en kwaliteiten. Inclusief legservice.',
     'binnenzonwering': 'Functionele en decoratieve binnenzonwering. Van plissé en jaloeziën tot houten shutters. Op maat gemaakt en vakkundig gemonteerd.',
     'traprenovatie': 'Geef uw trap een nieuwe look met onze traprenovatie-oplossingen. PVC of laminaat overzetting, snel geplaatst en onderhoudsvriendelijk.',
+    'cadeaubonnen': 'Verrras iemand met een cadeaubon van Yalcin Tapijt & Woninginrichting. Geldig op het gehele assortiment, van vloerkleden tot complete vloeren. 1 jaar geldig na aankoop.',
   };
   const desc = descriptions[product.collection] || 'Hoogwaardig materiaal uit onze curated collectie. Wilt u dit product zien of voelen? Kom langs in onze showroom in Den Haag.';
 
