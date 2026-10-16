@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="webshop.css?v=4">
+<link rel="stylesheet" href="webshop.css?v=5">
 </head>
 <body class="grain">
 
@@ -114,11 +114,14 @@
         <button type="button" class="sort-select color-btn" id="colorBtn" aria-haspopup="true" aria-expanded="false"><span id="colorBtnLabel">Alle kleuren</span></button>
         <div class="color-panel" id="colorPanel" role="group" aria-label="Kies kleuren" hidden></div>
       </div>
-      <select id="sortSelect" class="sort-select" aria-label="Sorteren">
-        <option value="title">Naam A–Z</option>
-        <option value="price-asc">Prijs laag–hoog</option>
-        <option value="price-desc">Prijs hoog–laag</option>
-      </select>
+      <div class="color-filter" id="sortFilter">
+        <button type="button" class="sort-select color-btn" id="sortBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Sorteren"><span id="sortBtnLabel">Naam A–Z</span></button>
+        <div class="color-panel sort-panel" id="sortPanel" role="listbox" aria-label="Sorteren" hidden>
+          <button type="button" class="sort-opt on" role="option" aria-selected="true" data-sort="title">Naam A–Z</button>
+          <button type="button" class="sort-opt" role="option" aria-selected="false" data-sort="price-asc">Prijs laag–hoog</button>
+          <button type="button" class="sort-opt" role="option" aria-selected="false" data-sort="price-desc">Prijs hoog–laag</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -273,7 +276,7 @@
 </div>
 
 <script src="main.js"></script>
-<script src="webshop.js?v=7"></script>
+<script src="webshop.js?v=8"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
