@@ -501,6 +501,42 @@ function setupColorFilter() {
   window.addEventListener('resize', () => { if (window.innerWidth !== lastW) { lastW = window.innerWidth; close(); } });
 }
 
+/* ---- Sorteer-dropdown (zelfde stijl als kleurfilter) ---- */
+function setupSortDropdown() {
+  const btn   = document.getElementById('sortBtn');
+  const panel = document.getElementById('sortPanel');
+  const label = document.getElementById('sortBtnLabel');
+  if (!btn || !panel) return;
+  const close = () => { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    document.getElementById('colorPanel')?.setAttribute('hidden', '');
+    if (!panel.hidden) { close(); return; }
+    const r = btn.getBoundingClientRect();
+    panel.style.top = (r.bottom + 6) + 'px';
+    panel.style.left = Math.max(8, Math.min(r.right - 200, window.innerWidth - 208)) + 'px';
+    panel.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+  });
+  panel.addEventListener('click', e => {
+    const opt = e.target.closest('.sort-opt');
+    if (!opt) return;
+    sortOrder = opt.dataset.sort;
+    panel.querySelectorAll('.sort-opt').forEach(o => {
+      const on = o === opt;
+      o.classList.toggle('on', on);
+      o.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    label.textContent = opt.textContent;
+    close();
+    applyFilter();
+  });
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => { if (window.innerWidth !== lastW) { lastW = window.innerWidth; close(); } });
+}
+
 /* ---- Init ---- */
 async function init() {
   if (!document.getElementById('productGrid')) { updateCartUI(); return; }
@@ -537,10 +573,7 @@ async function init() {
   });
 
   /* Sort */
-  document.getElementById('sortSelect')?.addEventListener('change', e => {
-    sortOrder = e.target.value;
-    applyFilter();
-  });
+  setupSortDropdown();
 
   /* Cart */
   document.getElementById('cartBtn')?.addEventListener('click', openCart);
