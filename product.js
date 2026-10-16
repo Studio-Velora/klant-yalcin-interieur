@@ -186,7 +186,9 @@ function renderProduct(product, allProducts) {
 
   /* Prijs-rij: vloeren tonen prijs per m², kleden per stuk */
   const hasPrice = product.price && product.price > 0;
-  const priceRowHtml = fl && fl.pricePerM2
+  const calcOk   = !!(fl && fl.m2PerPack && fl.pricePerPack);
+  const quoteOnly = !hasPrice && !calcOk;
+  const priceRowHtml = calcOk && fl.pricePerM2
     ? `<div class="prod-price-row">
          <span class="prod-price-main">${fmt(fl.pricePerM2)}<span class="prod-price-unit">/m²</span></span>
          <span class="prod-price-note">incl. 21% btw${fl.m2PerPack ? ` · pak ${fmt(fl.pricePerPack)} (${fl.m2PerPack} m²)` : ''}</span>
@@ -418,7 +420,7 @@ function renderProduct(product, allProducts) {
       </button>
       <p class="config-note">Exacte prijs na inmeten — wij nemen binnen 1 werkdag contact op.</p>
     </div>`;
-  } else if (fl) {
+  } else if (calcOk) {
     buyHtml = `<div class="m2calc" data-m2pp="${fl.m2PerPack}" data-pricepack="${fl.pricePerPack}" data-loss="${fl.cuttingLossPct || 7}">
          <label class="m2calc-label" for="m2Input">Wat is je oppervlakte?</label>
          <div class="m2calc-input-row">
@@ -439,6 +441,11 @@ function renderProduct(product, allProducts) {
            Voeg toe aan winkelwagen
          </button>
        </div>`;
+  } else if (quoteOnly) {
+    buyHtml = `<button class="btn-add-cart btn-quote-config" id="addToCartBtn">
+         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+         Offerte aanvragen
+       </button>`;
   } else {
     buyHtml = `<div class="add-row">
          <div class="qty-wrap">
@@ -515,7 +522,7 @@ function renderProduct(product, allProducts) {
 
           <div class="prod-trust-row">
             <span class="pt-stars">★★★★★</span>
-            <span class="pt-label">4,9 (5.013+)</span>
+            <span class="pt-label">5,0 (15)</span>
             <span class="pt-sep"></span>
             <span class="pt-label" style="color:var(--clay);font-weight:600">${specs.merk || 'Lifestyle Interior'}</span>
           </div>
@@ -645,7 +652,7 @@ function renderProduct(product, allProducts) {
       stickyBtn.textContent = 'Offerte aanvragen';
       stickyBtn.addEventListener('click', doAdd);
     }
-  } else if (fl) {
+  } else if (calcOk) {
     /* Vloeren: m²-calculator berekent aantal pakken */
     const calc = document.querySelector('.m2calc');
     const m2pp = parseFloat(calc.dataset.m2pp);
@@ -679,6 +686,15 @@ function renderProduct(product, allProducts) {
       if (packs > 0) doAdd();
       else input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
+  } else if (quoteOnly) {
+    /* Geen prijs bekend: offerte-aanvraag */
+    doAdd = function () { location.href = 'offerte.html'; };
+    document.querySelector('.sticky-bar-qty')?.style.setProperty('display', 'none');
+    const stickyBtn = document.getElementById('stickyAddBtn');
+    if (stickyBtn) {
+      stickyBtn.textContent = 'Offerte aanvragen';
+      stickyBtn.addEventListener('click', doAdd);
+    }
   } else {
     /* Kleden: gewone aantal-selector */
     let qty = 1;

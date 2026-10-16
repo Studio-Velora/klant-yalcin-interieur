@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="webshop.css?v=3">
+<link rel="stylesheet" href="webshop.css?v=4">
 </head>
 <body class="grain">
 
@@ -35,11 +35,11 @@
     </button>
     <nav class="nav-menu" data-nav-menu aria-label="Hoofdmenu">
       <ul class="nav-links">
+        <li><a href="webshop.html" style="color:var(--clay)">Webshop</a></li>
         <li><a href="index.html#over">Over ons</a></li>
         <li><a href="index.html#diensten">Diensten</a></li>
         <li><a href="index.html#projecten">Projecten</a></li>
         <li><a href="index.html#werkwijze">Werkwijze</a></li>
-        <li><a href="webshop.html" style="color:var(--clay)">Webshop</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -79,6 +79,20 @@
   </div>
 </section>
 
+<!-- ===================== CATEGORIEKEUZE ===================== -->
+<section class="cat-pick" id="catPick" aria-label="Kies een productcategorie">
+  <div class="cat-pick-inner">
+    <h2 class="cat-pick-title">Waar bent u naar op zoek?</h2>
+    <div class="cat-grid">
+      <button type="button" class="cat-card" data-filter="pvc-vloeren"><span class="cat-img"></span><span class="cat-name">PVC Vloeren</span><span class="cat-count"></span></button>
+      <button type="button" class="cat-card" data-filter="laminaat"><span class="cat-img"></span><span class="cat-name">Laminaat</span><span class="cat-count"></span></button>
+      <button type="button" class="cat-card" data-filter="parket"><span class="cat-img"></span><span class="cat-name">Parket</span><span class="cat-count"></span></button>
+      <button type="button" class="cat-card" data-filter="gordijnen"><span class="cat-img"></span><span class="cat-name">Gordijnen</span><span class="cat-count"></span></button>
+      <button type="button" class="cat-card" data-filter="vloerkleden-tapijten"><span class="cat-img"></span><span class="cat-name">Vloerkleden &amp; Tapijten</span><span class="cat-count"></span></button>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FILTER BAR ===================== -->
 <div class="filter-bar" role="navigation" aria-label="Categoriefilter">
   <div class="filter-bar-inner">
@@ -95,9 +109,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         <input type="search" id="searchInput" placeholder="Zoek product…" aria-label="Zoek product" autocomplete="off">
       </div>
-      <select id="colorSelect" class="sort-select" aria-label="Filter op kleur">
-        <option value="">Alle kleuren</option>
-      </select>
+      <div class="color-filter" id="colorFilter">
+        <button type="button" class="sort-select color-btn" id="colorBtn" aria-haspopup="true" aria-expanded="false"><span id="colorBtnLabel">Alle kleuren</span></button>
+        <div class="color-panel" id="colorPanel" role="group" aria-label="Kies kleuren" hidden></div>
+      </div>
       <select id="sortSelect" class="sort-select" aria-label="Sorteren">
         <option value="title">Naam A–Z</option>
         <option value="price-asc">Prijs laag–hoog</option>
@@ -187,7 +202,7 @@
           <li><a href="https://www.google.com/maps?q=Apeldoornselaan+243,+3573+LJ+Den+Haag" target="_blank" rel="noopener">Apeldoornselaan 243<br>3573 LJ Den Haag</a></li>
           <li><a href="tel:+31703907020">070 390 7020</a></li>
           <li><a href="https://wa.me/31703907020" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="mailto:info@yalcin-interieur.nl">info@yalcin-interieur.nl</a></li>
+          <li><a href="mailto:info@yalcininterieur.nl">info@yalcininterieur.nl</a></li>
         </ul>
       </div>
     </div>
@@ -257,7 +272,7 @@
 </div>
 
 <script src="main.js"></script>
-<script src="webshop.js?v=3"></script>
+<script src="webshop.js?v=7"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
