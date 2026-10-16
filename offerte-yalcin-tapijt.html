@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offerte — Novela Webdesign</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #2a2a2a; background: #fff; line-height: 1.45; font-size: 13px; }
+  .page { max-width: 800px; margin: 0 auto; padding: 32px 44px 24px; }
+
+  .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .logo { font-size: 1.4rem; font-weight: 700; color: #ef6a5a; letter-spacing: -0.02em; }
+  .logo span { font-weight: 400; color: #6a5d52; }
+  .doc-info { text-align: right; font-size: 0.78rem; color: #6a5d52; }
+  .doc-info strong { display: block; font-size: 0.95rem; color: #2a2a2a; margin-bottom: 2px; }
+
+  .divider { height: 2px; background: linear-gradient(90deg, #ef6a5a, #ffb486); border-radius: 2px; margin-bottom: 20px; }
+
+  .parties { display: flex; gap: 40px; margin-bottom: 20px; }
+  .party { flex: 1; }
+  .party-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #ef6a5a; font-weight: 600; margin-bottom: 3px; }
+  .party-name { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
+  .party-detail { font-size: 0.76rem; color: #6a5d52; line-height: 1.5; }
+
+  h2 { font-size: 0.88rem; font-weight: 700; color: #ef6a5a; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .items { width: 100%; border-collapse: collapse; margin-bottom: 6px; }
+  .items th { text-align: left; padding: 6px 10px; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6a5d52; background: #f9f5ef; border-bottom: 2px solid #e8e0d4; font-weight: 600; }
+  .items th:last-child { text-align: right; }
+  .items td { padding: 8px 10px; font-size: 0.82rem; border-bottom: 1px solid #efe9e0; vertical-align: top; }
+  .items td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .items .desc { font-size: 0.72rem; color: #6a5d52; margin-top: 2px; }
+
+  .totals { width: 280px; margin-left: auto; margin-bottom: 20px; }
+  .total-row { display: flex; justify-content: space-between; padding: 5px 10px; font-size: 0.82rem; }
+  .total-row.main { background: #ef6a5a; color: #fff; font-weight: 700; font-size: 0.92rem; border-radius: 6px; margin-top: 3px; padding: 7px 10px; }
+  .total-row span:last-child { font-variant-numeric: tabular-nums; }
+
+  .section { margin-bottom: 18px; }
+  .note-box { background: #fdf8ef; border-radius: 8px; padding: 12px 14px; font-size: 0.76rem; color: #6a5d52; }
+  .note-box p + p { margin-top: 5px; }
+
+  .maandelijks { background: #f9f5ef; border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
+  .maandelijks h3 { font-size: 0.84rem; font-weight: 700; margin-bottom: 6px; }
+  .maandelijks ul { list-style: none; padding: 0; columns: 2; column-gap: 16px; }
+  .maandelijks li { font-size: 0.76rem; padding: 2px 0; color: #6a5d52; break-inside: avoid; }
+  .maandelijks li::before { content: ''; display: inline-block; width: 5px; height: 5px; background: #ef6a5a; border-radius: 50%; margin-right: 7px; vertical-align: middle; }
+  .maandelijks .price { font-size: 0.95rem; font-weight: 700; color: #ef6a5a; margin-top: 8px; }
+
+  .sign { display: flex; gap: 40px; margin-top: 28px; }
+  .sign-block { flex: 1; }
+  .sign-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6a5d52; font-weight: 600; margin-bottom: 32px; }
+  .sign-line { border-top: 1px solid #ccc; padding-top: 4px; font-size: 0.76rem; color: #6a5d52; }
+
+  .footer-bar { margin-top: 24px; padding-top: 10px; border-top: 2px solid #efe9e0; text-align: center; font-size: 0.68rem; color: #999; }
+
+  @media print {
+    .page { padding: 28px 36px 20px; max-width: none; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="logo">Novela <span>Webdesign</span></div>
+    <div class="doc-info">
+      <strong>Offerte</strong>
+      NR: NW-2026-0041<br>
+      Datum: 16 oktober 2026<br>
+      Geldig tot: 16 november 2026
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="parties">
+    <div class="party">
+      <div class="party-label">Van</div>
+      <div class="party-name">Novela Webdesign</div>
+      <div class="party-detail">
+        T.a.v. Tarik Karramass<br>
+        KVK: 42142072<br>
+        BTW: NL005530028B36<br>
+        IBAN: NL92RABO0139116478<br>
+        info@novelawebdesign.nl
+      </div>
+    </div>
+    <div class="party">
+      <div class="party-label">Aan</div>
+      <div class="party-name">Yalcin Tapijt & Woninginrichting</div>
+      <div class="party-detail">
+        Apeldoornselaan 243<br>
+        2573 LE Den Haag<br>
+        KVK: 27259012<br>
+        BTW: NL002303149B50
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Projectomschrijving</h2>
+    <table class="items">
+      <thead>
+        <tr>
+          <th>Omschrijving</th>
+          <th>Bedrag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Website en webshop ontwerp en ontwikkeling
+            <div class="desc">Volledig op maat ontworpen website met informatiepagina's, contactformulier, responsief design en zoekmachineoptimalisatie (SEO). Webshop met Shopify-integratie, productcatalogus met 615+ producten, checkout-flow, categoriefilters en productdetailpagina's.</div>
+          </td>
+          <td>&euro; 2.066,12</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <div class="total-row">
+        <span>Subtotaal excl. BTW</span>
+        <span>&euro; 2.066,12</span>
+      </div>
+      <div class="total-row">
+        <span>BTW (21%)</span>
+        <span>&euro; 433,88</span>
+      </div>
+      <div class="total-row main">
+        <span>Totaal incl. BTW</span>
+        <span>&euro; 2.500,00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="maandelijks">
+    <h3>Maandelijks servicepakket</h3>
+    <ul>
+      <li>Webhosting en domeinbeheer</li>
+      <li>SSL-certificaat en beveiligingsupdates</li>
+      <li>Technisch onderhoud en software-updates</li>
+      <li>Kleine tekstuele en visuele aanpassingen</li>
+      <li>Productwijzigingen in de webshop (toevoegen, verwijderen, prijsaanpassingen)</li>
+      <li>Maandelijkse back-up van alle bestanden</li>
+      <li>Uptime-monitoring en prestatie-optimalisatie</li>
+      <li>E-mailondersteuning bij vragen</li>
+    </ul>
+    <div class="price">&euro; 25,00 per maand incl. BTW</div>
+  </div>
+
+  <div class="section">
+    <h2>Voorwaarden</h2>
+    <div class="note-box">
+      <p>Het eenmalige bedrag van &euro; 2.500,00 incl. BTW wordt gefactureerd na oplevering van de website en webshop.</p>
+      <p>Het maandelijkse servicepakket van &euro; 25,00 incl. BTW gaat in na oplevering en wordt maandelijks gefactureerd. Opzegbaar per kalendermaand.</p>
+      <p>Deze offerte is 30 dagen geldig na bovenstaande datum.</p>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="sign-block">
+      <div class="sign-label">Voor akkoord, Novela Webdesign</div>
+      <div class="sign-line">Tarik Karramass &middot; 16 oktober 2026</div>
+    </div>
+    <div class="sign-block">
+      <div class="sign-label">Voor akkoord, opdrachtgever</div>
+      <div class="sign-line">Naam &middot; Datum</div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    Novela Webdesign &middot; KVK 42142072 &middot; BTW NL005530028B36 &middot; info@novelawebdesign.nl
+  </div>
+
+</div>
+</body>
+</html>

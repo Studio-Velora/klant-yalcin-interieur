@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Productbeheer — Yalcin Tapijt & Woninginrichting</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --border: #e0ddd6;
+    --fg: #1a1a1a;
+    --fg-dim: #7a7a72;
+    --accent: #1a1a1a;
+    --ok: #2d8a4e;
+    --warn: #c4760a;
+    --miss: #b84033;
+    --blue: #2563eb;
+    --font: 'Inter Tight', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 14px; line-height: 1.5; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 24px; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .header h1 { font-size: 1.3rem; font-weight: 700; }
+  .header p { color: var(--fg-dim); font-size: 0.85rem; margin-top: 2px; }
+  .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* Stats */
+  .stats { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; min-width: 120px; }
+  .stat-n { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat-l { font-size: 0.75rem; color: var(--fg-dim); }
+
+  /* Controls */
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+  .search { flex: 1; min-width: 200px; max-width: 360px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); font-size: 0.85rem; font-family: var(--font); outline: none; }
+  .search:focus { border-color: var(--fg-dim); }
+  select { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); font-size: 0.8rem; font-family: var(--font); cursor: pointer; }
+  .view-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-left: auto; }
+  .view-btn { background: var(--surface); border: none; padding: 7px 12px; cursor: pointer; font-size: 0.8rem; font-family: var(--font); color: var(--fg-dim); }
+  .view-btn.on { background: var(--accent); color: #fff; }
+  .view-btn + .view-btn { border-left: 1px solid var(--border); }
+
+  .btn { padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font); cursor: pointer; border: 1px solid var(--border); font-weight: 500; }
+  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-success { background: var(--ok); color: #fff; border-color: var(--ok); }
+  .btn-danger { background: var(--miss); color: #fff; border-color: var(--miss); font-size: 0.78rem; }
+  .btn-outline { background: var(--surface); color: var(--fg); }
+
+  /* Changes banner */
+  .changes-banner { background: #fef3cd; border: 1px solid #f0d060; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .changes-banner.hidden { display: none; }
+  .changes-banner span { font-size: 0.85rem; font-weight: 500; }
+
+  /* Grid view */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; position: relative; }
+  .card.deleted { opacity: 0.4; pointer-events: none; }
+  .card.edited { border-color: var(--blue); border-width: 2px; }
+  .card.new { border-color: var(--ok); border-width: 2px; }
+  .card-img { width: 100%; aspect-ratio: 4/3; background: var(--border); object-fit: cover; display: block; }
+  .card-noimg { width: 100%; aspect-ratio: 4/3; background: var(--border); display: flex; align-items: center; justify-content: center; color: var(--fg-dim); font-size: 0.75rem; }
+  .card-body { padding: 12px; }
+  .card-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; }
+  .card-price { font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+  .card-price.zero { color: var(--warn); }
+  .card-meta { font-size: 0.72rem; color: var(--fg-dim); }
+  .card-meta span + span::before { content: ' · '; }
+  .card-actions { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; }
+  .card-btn { width: 30px; height: 30px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+  .card-btn-edit { background: rgba(255,255,255,0.9); color: var(--fg); }
+  .card-btn-del { background: rgba(255,255,255,0.9); color: var(--miss); }
+  .card-status { position: absolute; top: 8px; left: 8px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
+
+  /* List view */
+  .list-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .list-table th { text-align: left; padding: 10px 12px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-dim); background: var(--bg); border-bottom: 1px solid var(--border); font-weight: 600; }
+  .list-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 0.82rem; vertical-align: middle; }
+  .list-table tr:last-child td { border-bottom: none; }
+  .list-table tr.deleted { opacity: 0.4; }
+  .list-table tr.edited { background: #eef6ff; }
+  .list-table tr.new { background: #eefaef; }
+  .list-thumb { width: 48px; height: 36px; border-radius: 4px; object-fit: cover; background: var(--border); }
+  .list-nothumb { width: 48px; height: 36px; border-radius: 4px; background: var(--border); display: inline-flex; align-items: center; justify-content: center; font-size: 0.6rem; color: var(--fg-dim); }
+  .list-actions { display: flex; gap: 4px; }
+  .overflow-wrap { overflow-x: auto; }
+
+  /* Modal */
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .modal-bg.hidden { display: none; }
+  .modal { background: var(--surface); border-radius: 12px; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; padding: 28px; }
+  .modal h2 { font-size: 1.15rem; margin-bottom: 20px; font-weight: 700; }
+  .modal label { display: block; font-size: 0.78rem; font-weight: 600; margin-bottom: 4px; }
+  .modal input[type="text"], .modal input[type="number"], .modal select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-size: 0.85rem; font-family: var(--font); margin-bottom: 14px; outline: none; }
+  .modal input:focus, .modal select:focus { border-color: var(--fg-dim); }
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modal-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; background: var(--border); margin-bottom: 8px; }
+  .modal-noimg { width: 100%; aspect-ratio: 4/3; border-radius: 8px; background: var(--border); display: flex; align-items: center; justify-content: center; color: var(--fg-dim); font-size: 0.8rem; margin-bottom: 8px; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+
+  .confirm-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .confirm-bg.hidden { display: none; }
+  .confirm-box { background: var(--surface); border-radius: 10px; padding: 24px; max-width: 400px; text-align: center; }
+  .confirm-box p { margin-bottom: 16px; font-size: 0.9rem; }
+  .confirm-actions { display: flex; gap: 8px; justify-content: center; }
+
+  .empty { text-align: center; padding: 60px 20px; color: var(--fg-dim); }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .modal-row { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .stats { gap: 8px; }
+    .stat-card { padding: 10px 14px; min-width: 0; flex: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="wrap header-inner">
+    <div>
+      <h1>Productbeheer</h1>
+      <p>Bekijk, bewerk, voeg toe of verwijder producten. Exporteer het resultaat als je klaar bent.</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-outline" id="addBtn">+ Nieuw product</button>
+      <button class="btn btn-success" id="exportBtn">Exporteren</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="stats" id="stats"></div>
+
+  <div class="changes-banner hidden" id="changesBanner">
+    <span id="changesText">0 wijzigingen</span>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-outline" id="resetBtn" style="font-size:.78rem">Alles terugzetten</button>
+      <button class="btn btn-success" id="exportBtn2" style="font-size:.78rem">Exporteren</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input type="search" class="search" id="search" placeholder="Zoek op naam, merk, kleur of SKU..." autocomplete="off">
+    <select id="filterColl"><option value="">Alle categorieen</option></select>
+    <select id="filterStatus">
+      <option value="">Alle producten</option>
+      <option value="noimg">Zonder foto</option>
+      <option value="noprice">Zonder prijs</option>
+      <option value="edited">Bewerkt</option>
+    </select>
+    <div class="view-toggle">
+      <button class="view-btn on" data-view="grid" title="Rasterweergave">&#9638;</button>
+      <button class="view-btn" data-view="list" title="Lijstweergave">&#9776;</button>
+    </div>
+  </div>
+
+  <div id="catalog"></div>
+
+</div>
+
+<div class="modal-bg hidden" id="modalBg">
+  <div class="modal" id="modal"></div>
+</div>
+
+<div class="confirm-bg hidden" id="confirmBg">
+  <div class="confirm-box" id="confirmBox"></div>
+</div>
+
+<script>
+(function() {
+  let original = [];
+  let products = [];
+  let deleted = new Set();
+  let edited = new Set();
+  let added = new Set();
+  let view = 'grid';
+
+  const $ = id => document.getElementById(id);
+  const esc = s => s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
+
+  function fmtPrice(n) {
+    if (!n || n <= 0) return 'Prijs ontbreekt';
+    return '€ ' + parseFloat(n).toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function status(p) {
+    if (!p.img) return 'miss';
+    if (!p.price || p.price <= 0) return 'warn';
+    return 'ok';
+  }
+
+  function changeCount() { return deleted.size + edited.size + added.size; }
+
+  function updateChangesBanner() {
+    const n = changeCount();
+    const banner = $('changesBanner');
+    if (n === 0) { banner.classList.add('hidden'); return; }
+    banner.classList.remove('hidden');
+    const parts = [];
+    if (edited.size) parts.push(edited.size + ' bewerkt');
+    if (added.size) parts.push(added.size + ' nieuw');
+    if (deleted.size) parts.push(deleted.size + ' verwijderd');
+    $('changesText').textContent = parts.join(', ');
+  }
+
+  function renderStats() {
+    const active = products.filter(p => !deleted.has(p._uid));
+    const withImg = active.filter(p => p.img).length;
+    const withPrice = active.filter(p => p.price > 0).length;
+    $('stats').innerHTML =
+      '<div class="stat-card"><div class="stat-n">' + active.length + '</div><div class="stat-l">producten</div></div>' +
+      '<div class="stat-card"><div class="stat-n">' + withImg + '</div><div class="stat-l">met foto</div></div>' +
+      '<div class="stat-card"><div class="stat-n">' + (active.length - withImg) + '</div><div class="stat-l">zonder foto</div></div>' +
+      '<div class="stat-card"><div class="stat-n">' + (active.length - withPrice) + '</div><div class="stat-l">zonder prijs</div></div>';
+  }
+
+  function getFiltered() {
+    const q = $('search').value.toLowerCase().trim();
+    const coll = $('filterColl').value;
+    const st = $('filterStatus').value;
+    return products.filter(p => {
+      if (coll && p.collectionLabel !== coll) return false;
+      if (st === 'noimg' && p.img) return false;
+      if (st === 'noprice' && p.price > 0) return false;
+      if (st === 'edited' && !edited.has(p._uid) && !added.has(p._uid)) return false;
+      if (q && !(
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.merk || '').toLowerCase().includes(q) ||
+        (p.kleur || '').toLowerCase().includes(q) ||
+        (p.sku || '').toLowerCase().includes(q)
+      )) return false;
+      return true;
+    });
+  }
+
+  function renderGrid(items) {
+    if (!items.length) return '<div class="empty">Geen producten gevonden.</div>';
+    return '<div class="grid">' + items.map(p => {
+      const del = deleted.has(p._uid);
+      const cls = del ? 'deleted' : added.has(p._uid) ? 'new' : edited.has(p._uid) ? 'edited' : '';
+      const st = status(p);
+      return '<div class="card ' + cls + '" data-uid="' + p._uid + '">' +
+        '<div class="card-actions">' +
+          '<button class="card-btn card-btn-edit" data-edit="' + p._uid + '" title="Bewerken">&#9998;</button>' +
+          '<button class="card-btn card-btn-del" data-del="' + p._uid + '" title="Verwijderen">&times;</button>' +
+        '</div>' +
+        '<div class="card-status" style="background:var(--' + st + ')"></div>' +
+        (p.img
+          ? '<img class="card-img" src="' + esc(p.img) + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.outerHTML=\'<div class=card-noimg>Geen foto</div>\'">'
+          : '<div class="card-noimg">Geen foto</div>') +
+        '<div class="card-body">' +
+          '<div class="card-title">' + esc(p.title) + '</div>' +
+          '<div class="card-price' + ((!p.price || p.price <= 0) ? ' zero' : '') + '">' + fmtPrice(p.price) + '</div>' +
+          '<div class="card-meta">' +
+            (p.collectionLabel ? '<span>' + esc(p.collectionLabel) + '</span>' : '') +
+            (p.merk ? '<span>' + esc(p.merk) + '</span>' : '') +
+            (p.kleur ? '<span>' + esc(p.kleur) + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('') + '</div>';
+  }
+
+  function renderList(items) {
+    if (!items.length) return '<div class="empty">Geen producten gevonden.</div>';
+    return '<div class="overflow-wrap"><table class="list-table">' +
+      '<thead><tr><th></th><th>Product</th><th>Categorie</th><th>Prijs</th><th>Merk</th><th>Kleur</th><th>Afmetingen</th><th>SKU</th><th></th></tr></thead>' +
+      '<tbody>' + items.map(p => {
+        const del = deleted.has(p._uid);
+        const cls = del ? 'deleted' : added.has(p._uid) ? 'new' : edited.has(p._uid) ? 'edited' : '';
+        return '<tr class="' + cls + '">' +
+          '<td>' + (p.img
+            ? '<img class="list-thumb" src="' + esc(p.img) + '" alt="" loading="lazy" onerror="this.outerHTML=\'<span class=list-nothumb>-</span>\'">'
+            : '<span class="list-nothumb">-</span>') + '</td>' +
+          '<td style="font-weight:600">' + esc(p.title) + '</td>' +
+          '<td style="font-size:.75rem;color:var(--fg-dim)">' + esc(p.collectionLabel) + '</td>' +
+          '<td style="font-weight:600;font-variant-numeric:tabular-nums;' + ((!p.price || p.price <= 0) ? 'color:var(--warn)' : '') + '">' + fmtPrice(p.price) + '</td>' +
+          '<td style="font-size:.78rem">' + esc(p.merk) + '</td>' +
+          '<td style="font-size:.78rem">' + esc(p.kleur) + '</td>' +
+          '<td style="font-size:.78rem">' + esc(p.afmetingen) + '</td>' +
+          '<td style="font-size:.72rem;color:var(--fg-dim)">' + esc(p.sku) + '</td>' +
+          '<td><div class="list-actions">' +
+            '<button class="card-btn card-btn-edit" data-edit="' + p._uid + '" title="Bewerken" style="width:26px;height:26px;font-size:.7rem">&#9998;</button>' +
+            '<button class="card-btn card-btn-del" data-del="' + p._uid + '" title="Verwijderen" style="width:26px;height:26px;font-size:.7rem">&times;</button>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function render() {
+    const items = getFiltered();
+    $('catalog').innerHTML = view === 'grid' ? renderGrid(items) : renderList(items);
+    renderStats();
+    updateChangesBanner();
+  }
+
+  // Edit modal
+  function openEdit(uid) {
+    const p = products.find(x => x._uid === uid);
+    if (!p) return;
+
+    const colls = [...new Set(products.map(x => x.collectionLabel).filter(Boolean))].sort();
+
+    $('modal').innerHTML =
+      '<h2>Product bewerken</h2>' +
+      '<div style="margin-bottom:16px">' +
+        (p.img
+          ? '<img class="modal-img" src="' + esc(p.img) + '" alt="" onerror="this.outerHTML=\'<div class=modal-noimg>Geen foto</div>\'">'
+          : '<div class="modal-noimg">Geen foto</div>') +
+        '<label>Afbeelding URL</label>' +
+        '<input type="text" id="mImg" value="' + esc(p.img) + '">' +
+      '</div>' +
+      '<label>Productnaam</label>' +
+      '<input type="text" id="mTitle" value="' + esc(p.title) + '">' +
+      '<div class="modal-row">' +
+        '<div><label>Prijs (euro)</label><input type="number" id="mPrice" value="' + (p.price || 0) + '" step="0.01" min="0"></div>' +
+        '<div><label>Categorie</label><select id="mColl">' + colls.map(c => '<option' + (c === p.collectionLabel ? ' selected' : '') + '>' + esc(c) + '</option>').join('') + '<option value="__new">+ Nieuwe categorie</option></select></div>' +
+      '</div>' +
+      '<div class="modal-row">' +
+        '<div><label>Merk</label><input type="text" id="mMerk" value="' + esc(p.merk) + '"></div>' +
+        '<div><label>Materiaal</label><input type="text" id="mMat" value="' + esc(p.materiaal) + '"></div>' +
+      '</div>' +
+      '<div class="modal-row">' +
+        '<div><label>Kleur</label><input type="text" id="mKleur" value="' + esc(p.kleur) + '"></div>' +
+        '<div><label>Afmetingen</label><input type="text" id="mAfm" value="' + esc(p.afmetingen) + '"></div>' +
+      '</div>' +
+      '<label>SKU</label>' +
+      '<input type="text" id="mSku" value="' + esc(p.sku) + '">' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-outline" id="mCancel">Annuleren</button>' +
+        '<button class="btn btn-primary" id="mSave">Opslaan</button>' +
+      '</div>';
+
+    $('modalBg').classList.remove('hidden');
+
+    // Preview image on URL change
+    $('mImg').addEventListener('change', function() {
+      const wrap = this.closest('div');
+      const old = wrap.querySelector('.modal-img, .modal-noimg');
+      if (this.value) {
+        if (old) old.outerHTML = '<img class="modal-img" src="' + esc(this.value) + '" alt="" onerror="this.outerHTML=\'<div class=modal-noimg>Geen foto</div>\'">';
+      } else {
+        if (old) old.outerHTML = '<div class="modal-noimg">Geen foto</div>';
+      }
+    });
+
+    $('mCancel').onclick = closeModal;
+    $('mSave').onclick = function() {
+      let collLabel = $('mColl').value;
+      if (collLabel === '__new') {
+        collLabel = prompt('Naam van de nieuwe categorie:');
+        if (!collLabel) return;
+      }
+      p.title = $('mTitle').value.trim();
+      p.price = parseFloat($('mPrice').value) || 0;
+      p.img = $('mImg').value.trim();
+      p.merk = $('mMerk').value.trim();
+      p.materiaal = $('mMat').value.trim();
+      p.kleur = $('mKleur').value.trim();
+      p.afmetingen = $('mAfm').value.trim();
+      p.sku = $('mSku').value.trim();
+      p.collectionLabel = collLabel;
+      p.collection = collLabel.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      if (!added.has(p._uid)) edited.add(p._uid);
+      closeModal();
+      render();
+      saveState();
+    };
+  }
+
+  function openAdd() {
+    const colls = [...new Set(products.map(x => x.collectionLabel).filter(Boolean))].sort();
+    const uid = 'new_' + Date.now();
+
+    $('modal').innerHTML =
+      '<h2>Nieuw product toevoegen</h2>' +
+      '<label>Afbeelding URL</label>' +
+      '<input type="text" id="mImg" placeholder="https://...">' +
+      '<label>Productnaam</label>' +
+      '<input type="text" id="mTitle" placeholder="Bijv. Wollen vloerkleed Sahara">' +
+      '<div class="modal-row">' +
+        '<div><label>Prijs (euro)</label><input type="number" id="mPrice" value="0" step="0.01" min="0"></div>' +
+        '<div><label>Categorie</label><select id="mColl">' + colls.map(c => '<option>' + esc(c) + '</option>').join('') + '<option value="__new">+ Nieuwe categorie</option></select></div>' +
+      '</div>' +
+      '<div class="modal-row">' +
+        '<div><label>Merk</label><input type="text" id="mMerk"></div>' +
+        '<div><label>Materiaal</label><input type="text" id="mMat"></div>' +
+      '</div>' +
+      '<div class="modal-row">' +
+        '<div><label>Kleur</label><input type="text" id="mKleur"></div>' +
+        '<div><label>Afmetingen</label><input type="text" id="mAfm"></div>' +
+      '</div>' +
+      '<label>SKU</label>' +
+      '<input type="text" id="mSku">' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-outline" id="mCancel">Annuleren</button>' +
+        '<button class="btn btn-primary" id="mSave">Toevoegen</button>' +
+      '</div>';
+
+    $('modalBg').classList.remove('hidden');
+
+    $('mCancel').onclick = closeModal;
+    $('mSave').onclick = function() {
+      let collLabel = $('mColl').value;
+      if (collLabel === '__new') {
+        collLabel = prompt('Naam van de nieuwe categorie:');
+        if (!collLabel) return;
+      }
+      const p = {
+        _uid: uid,
+        id: Date.now(),
+        title: $('mTitle').value.trim(),
+        handle: $('mTitle').value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        price: parseFloat($('mPrice').value) || 0,
+        img: $('mImg').value.trim(),
+        merk: $('mMerk').value.trim(),
+        materiaal: $('mMat').value.trim(),
+        kleur: $('mKleur').value.trim(),
+        afmetingen: $('mAfm').value.trim(),
+        sku: $('mSku').value.trim(),
+        collectionLabel: collLabel,
+        collection: collLabel.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      };
+      if (!p.title) { alert('Vul een productnaam in.'); return; }
+      products.unshift(p);
+      added.add(uid);
+      closeModal();
+      render();
+      saveState();
+    };
+  }
+
+  function closeModal() { $('modalBg').classList.add('hidden'); }
+
+  function confirmDelete(uid) {
+    const p = products.find(x => x._uid === uid);
+    if (!p) return;
+    $('confirmBox').innerHTML =
+      '<p>Weet je zeker dat je <strong>' + esc(p.title) + '</strong> wilt verwijderen?</p>' +
+      '<div class="confirm-actions">' +
+        '<button class="btn btn-outline" id="cCancel">Annuleren</button>' +
+        '<button class="btn btn-danger" id="cConfirm">Verwijderen</button>' +
+      '</div>';
+    $('confirmBg').classList.remove('hidden');
+    $('cCancel').onclick = () => $('confirmBg').classList.add('hidden');
+    $('cConfirm').onclick = () => {
+      if (added.has(uid)) {
+        products = products.filter(x => x._uid !== uid);
+        added.delete(uid);
+      } else {
+        deleted.add(uid);
+        edited.delete(uid);
+      }
+      $('confirmBg').classList.add('hidden');
+      render();
+      saveState();
+    };
+  }
+
+  // Export
+  function exportProducts() {
+    const active = products.filter(p => !deleted.has(p._uid));
+    const out = active.map(p => {
+      const obj = {
+        id: p.id, title: p.title, handle: p.handle || p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        collection: p.collection, collectionLabel: p.collectionLabel,
+        price: p.price, variantId: p.variantId || 0,
+        images: p.img ? [{ url: p.img, alt: p.title + ' — productfoto' }] : [],
+        specs: {}
+      };
+      if (p.merk) obj.specs.merk = p.merk;
+      if (p.materiaal) obj.specs.materiaal = p.materiaal;
+      if (p.kleur) obj.specs.kleur = p.kleur;
+      if (p.afmetingen) obj.specs.afmetingen = p.afmetingen;
+      if (p.sku) obj.specs.sku = p.sku;
+      obj.tags = [p.collectionLabel, p.kleur].filter(Boolean);
+      obj.slug = obj.handle;
+      return obj;
+    });
+
+    const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'products_bijgewerkt.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // LocalStorage state
+  function saveState() {
+    try {
+      localStorage.setItem('yalcin_admin', JSON.stringify({
+        products, deleted: [...deleted], edited: [...edited], added: [...added]
+      }));
+    } catch(e) {}
+  }
+  function loadState() {
+    try {
+      const s = JSON.parse(localStorage.getItem('yalcin_admin'));
+      if (s && s.products) {
+        products = s.products;
+        deleted = new Set(s.deleted || []);
+        edited = new Set(s.edited || []);
+        added = new Set(s.added || []);
+        return true;
+      }
+    } catch(e) {}
+    return false;
+  }
+
+  // Events
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-edit]')) openEdit(e.target.closest('[data-edit]').dataset.edit);
+    if (e.target.closest('[data-del]')) confirmDelete(e.target.closest('[data-del]').dataset.del);
+  });
+  $('search').addEventListener('input', render);
+  $('filterColl').addEventListener('change', render);
+  $('filterStatus').addEventListener('change', render);
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      view = btn.dataset.view;
+      render();
+    });
+  });
+  $('addBtn').addEventListener('click', openAdd);
+  $('exportBtn').addEventListener('click', exportProducts);
+  $('exportBtn2').addEventListener('click', exportProducts);
+  $('resetBtn').addEventListener('click', () => {
+    if (!confirm('Alle wijzigingen terugzetten?')) return;
+    products = JSON.parse(JSON.stringify(original));
+    deleted.clear(); edited.clear(); added.clear();
+    try { localStorage.removeItem('yalcin_admin'); } catch(e) {}
+    render();
+    populateCollFilter();
+  });
+  $('modalBg').addEventListener('click', e => { if (e.target === $('modalBg')) closeModal(); });
+  $('confirmBg').addEventListener('click', e => { if (e.target === $('confirmBg')) $('confirmBg').classList.add('hidden'); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); $('confirmBg').classList.add('hidden'); }
+  });
+
+  function populateCollFilter() {
+    const colls = [...new Set(products.map(p => p.collectionLabel).filter(Boolean))].sort();
+    $('filterColl').innerHTML = '<option value="">Alle categorieen</option>' +
+      colls.map(c => '<option>' + esc(c) + '</option>').join('');
+  }
+
+  // Init
+  async function init() {
+    if (!loadState()) {
+      try {
+        const res = await fetch('products.json');
+        const raw = await res.json();
+        products = raw.map((p, i) => ({
+          _uid: 'p' + i,
+          id: p.id, title: p.title || '', handle: p.handle || '',
+          collection: p.collection || '', collectionLabel: p.collectionLabel || '',
+          price: p.price || 0, variantId: p.variantId || 0,
+          img: (p.images && p.images[0]) ? p.images[0].url : '',
+          merk: p.specs?.merk || '', materiaal: p.specs?.materiaal || '',
+          kleur: p.specs?.kleur || '', afmetingen: p.specs?.afmetingen || '',
+          sku: p.specs?.sku || '',
+        }));
+      } catch(e) {
+        $('catalog').innerHTML = '<div class="empty">Kon producten niet laden.</div>';
+        return;
+      }
+    }
+    original = JSON.parse(JSON.stringify(products.filter(p => !added.has(p._uid))));
+    populateCollFilter();
+    render();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
