@@ -479,3 +479,8 @@ body.promo-closed .filter-bar { top: 68px; }
 @media (prefers-reduced-motion: reduce) { .nav-cart-btn.cart-bump, .cart-bubble.pop { animation: none; } }
 
 .color-none { padding: 10px; font-size: .82rem; color: var(--ink-faint); }
+
+.sort-panel { width: 200px; }
+.sort-opt { display: block; width: 100%; text-align: left; padding: 9px 10px; border: 0; border-radius: 6px; background: none; font-family: var(--body); font-size: .86rem; color: var(--ink); cursor: pointer; }
+.sort-opt:hover { background: var(--sand); }
+.sort-opt.on { color: var(--clay); font-weight: 600; }
