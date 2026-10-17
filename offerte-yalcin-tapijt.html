@@ -49,6 +49,19 @@
   .maandelijks li::before { content: ''; display: inline-block; width: 5px; height: 5px; background: #ef6a5a; border-radius: 50%; margin-right: 7px; vertical-align: middle; }
   .maandelijks .price { font-size: 0.95rem; font-weight: 700; color: #ef6a5a; margin-top: 8px; }
 
+  .pakketten { margin-bottom: 18px; }
+  .pakketten h2 { margin-bottom: 4px; }
+  .pakketten .kies { font-size: 0.76rem; color: #6a5d52; margin-bottom: 10px; }
+  .pakket-grid { display: flex; gap: 14px; }
+  .pakket { flex: 1; background: #f9f5ef; border: 1.5px solid #e6dccd; border-radius: 8px; padding: 12px 14px; position: relative; }
+  .pakket .box { display: inline-block; width: 14px; height: 14px; border: 1.5px solid #6a5d52; border-radius: 3px; vertical-align: -2px; margin-right: 8px; }
+  .pakket h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+  .pakket .sub { font-size: 0.72rem; font-style: italic; color: #6a5d52; margin-bottom: 8px; }
+  .pakket ul { list-style: none; padding: 0; margin-bottom: 8px; }
+  .pakket li { font-size: 0.76rem; padding: 2px 0; color: #6a5d52; }
+  .pakket li::before { content: ''; display: inline-block; width: 5px; height: 5px; background: #ef6a5a; border-radius: 50%; margin-right: 7px; vertical-align: middle; }
+  .pakket .price { font-size: 0.95rem; font-weight: 700; color: #ef6a5a; }
+  .pakket .pop { position: absolute; top: -9px; right: 12px; background: #2a2a2a; color: #fff; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
   .sign { display: flex; gap: 40px; margin-top: 28px; }
   .sign-block { flex: 1; }
   .sign-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6a5d52; font-weight: 600; margin-bottom: 32px; }
@@ -57,6 +70,7 @@
   .footer-bar { margin-top: 24px; padding-top: 10px; border-top: 2px solid #efe9e0; text-align: center; font-size: 0.68rem; color: #999; }
 
   @media print {
+    body { zoom: 0.84; }
     .page { padding: 28px 36px 20px; max-width: none; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
@@ -137,26 +151,41 @@
     </div>
   </div>
 
-  <div class="maandelijks">
-    <h3>Maandelijks servicepakket</h3>
-    <ul>
-      <li>Webhosting en domeinbeheer</li>
-      <li>SSL-certificaat en beveiligingsupdates</li>
-      <li>Technisch onderhoud en software-updates</li>
-      <li>Kleine tekstuele en visuele aanpassingen</li>
-      <li>Productwijzigingen in de webshop (toevoegen, verwijderen, prijsaanpassingen)</li>
-      <li>Maandelijkse back-up van alle bestanden</li>
-      <li>Uptime-monitoring en prestatie-optimalisatie</li>
-      <li>E-mailondersteuning bij vragen</li>
-    </ul>
-    <div class="price">&euro; 25,00 per maand incl. BTW</div>
+  <div class="pakketten">
+    <h2>Maandelijks abonnement &mdash; kies &eacute;&eacute;n pakket</h2>
+    <p class="kies">Kruis hieronder het gewenste pakket aan. Het gekozen pakket gaat in na oplevering.</p>
+    <div class="pakket-grid">
+      <div class="pakket">
+        <h3><span class="box"></span>Beheer Basis</h3>
+        <div class="sub">Je website technisch verzorgd en bereikbaar.</div>
+        <ul>
+          <li>Hosting, SSL en automatische back-ups</li>
+          <li>Dagelijkse controle en beveiligingsupdates</li>
+          <li>Google Analytics ingericht</li>
+          <li>Support per e-mail en telefoon, binnen 1 werkdag</li>
+        </ul>
+        <div class="price">&euro; 30,00 per maand excl. BTW</div>
+      </div>
+      <div class="pakket">
+        <span class="pop">Populairste keuze</span>
+        <h3><span class="box"></span>Beheer Groei</h3>
+        <div class="sub">Je website actueel houden en gericht verbeteren.</div>
+        <ul>
+          <li>Alles uit Beheer Basis</li>
+          <li>24/7 controle en beveiligingsupdates</li>
+          <li>Maandelijkse SEO- en AI-vindbaarheidscheck</li>
+          <li>Tot vijf kleine wijzigingen per maand</li>
+        </ul>
+        <div class="price">&euro; 95,00 per maand excl. BTW</div>
+      </div>
+    </div>
   </div>
 
   <div class="section">
     <h2>Voorwaarden</h2>
     <div class="note-box">
       <p>Het eenmalige bedrag van &euro; 2.500,00 incl. BTW wordt gefactureerd na oplevering van de website en webshop.</p>
-      <p>Het maandelijkse servicepakket van &euro; 25,00 incl. BTW gaat in na oplevering en wordt maandelijks gefactureerd. Opzegbaar per kalendermaand.</p>
+      <p>Het gekozen maandelijkse abonnement (Beheer Basis &euro; 30,00 of Beheer Groei &euro; 95,00 per maand excl. BTW) gaat in na oplevering en wordt maandelijks gefactureerd. Opzegbaar per kalendermaand.</p>
       <p>Deze offerte is 30 dagen geldig na bovenstaande datum.</p>
     </div>
   </div>
@@ -168,7 +197,7 @@
     </div>
     <div class="sign-block">
       <div class="sign-label">Voor akkoord, opdrachtgever</div>
-      <div class="sign-line">Naam &middot; Datum</div>
+      <div class="sign-line">Naam &middot; Datum &middot; Gekozen pakket: Basis / Groei</div>
     </div>
   </div>
 
