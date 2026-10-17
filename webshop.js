@@ -34,7 +34,7 @@ function renderCard(product) {
   card.innerHTML = `
     <div class="prod-img-wrap">
       ${img
-        ? `<img class="prod-img" src="${img.url}" alt="${img.alt || product.title}" loading="lazy">`
+        ? `<img class="prod-img" src="${img.url}" alt="${img.alt || product.title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;prod-img-ph&quot;>Afbeelding volgt</div>'">`
         : `<div class="prod-img-ph">Afbeelding volgt</div>`
       }
       ${product.collectionLabel
@@ -557,6 +557,7 @@ async function init() {
   try {
     const res = await fetch('products.json');
     allProducts = await res.json();
+    allProducts.forEach(p => { p.images = (p.images || []).filter(i => i && i.url); });
   } catch (err) {
     document.getElementById('productGrid').innerHTML = `
       <div class="shop-empty" style="grid-column:1/-1">

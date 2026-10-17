@@ -468,6 +468,14 @@ function renderProduct(product, allProducts) {
   document.getElementById('breadcrumbColl').href = `webshop.html?filter=${product.collection}`;
   document.getElementById('breadcrumbTitle').textContent = product.title;
   document.title = `${product.title} — Yalcin Tapijt & Woninginrichting`;
+  {
+    const d = `${product.title}${product.collectionLabel ? ' — ' + product.collectionLabel : ''} bij Yalcin Tapijt & Woninginrichting in Den Haag. Persoonlijk advies, vakkundige montage.`;
+    const set = (id, attr, v) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, v); };
+    set('pageDesc', 'content', d); set('ogDesc', 'content', d); set('ogTitle', 'content', document.title);
+    set('pageCanonical', 'href', 'https://www.yalcininterieur.nl/product?slug=' + encodeURIComponent(product.slug || product.handle));
+    const im = product.images[0]?.url;
+    if (im) set('ogImage', 'content', im.startsWith('http') ? im : 'https://www.yalcininterieur.nl/' + im);
+  }
   document.getElementById('pageTitle').textContent = `${product.title} — Yalcin Tapijt & Woninginrichting`;
   document.getElementById('pageDesc').content = `Bekijk ${product.title} bij Yalcin. ${specs.materiaal || ''} ${specs.afmetingen || ''}. Bestel online of kom langs in Den Haag.`;
 
@@ -852,6 +860,7 @@ async function initProduct() {
   try {
     const res = await fetch('products.json');
     products = await res.json();
+    products.forEach(p => { p.images = (p.images || []).filter(i => i && i.url); });
   } catch (e) {
     document.getElementById('productMain').innerHTML = '<div style="padding:80px;text-align:center;color:var(--ink-faint)">Product kon niet worden geladen.</div>';
     return;
