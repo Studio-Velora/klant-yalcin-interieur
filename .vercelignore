@@ -1,0 +1,6 @@
+# Interne bestanden die niet online horen (blijven wel in git)
+mail-yalcin-instructies.html
+offerte-yalcin-tapijt.html
+*.pdf
+*.md
+.claude
