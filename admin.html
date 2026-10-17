@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Productbeheer — Yalcin Tapijt & Woninginrichting</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,9 +124,59 @@
     .stats { gap: 8px; }
     .stat-card { padding: 10px 14px; min-width: 0; flex: 1; }
   }
+  body.locked > :not(#gate):not(script) { display: none !important; }
+  #gate { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: #f6f2ea; padding: 20px; z-index: 9999; }
+  body.locked #gate { display: flex; }
+  #gate form { background: #fff; border: 1px solid #e4ddd0; border-radius: 10px; padding: 28px; width: 100%; max-width: 340px; box-shadow: 0 8px 30px rgba(0,0,0,.08); }
+  #gate h2 { font-size: 1.15rem; margin-bottom: 4px; color: #2a2620; }
+  #gate p { font-size: .85rem; color: #7a7165; margin-bottom: 16px; }
+  #gate input { width: 100%; padding: 11px 12px; border: 1px solid #d6cdbd; border-radius: 6px; font: inherit; margin-bottom: 10px; }
+  #gate input:focus { outline: 2px solid #b5613a; outline-offset: 0; }
+  #gate button { width: 100%; padding: 11px; border: 0; border-radius: 6px; background: #b5613a; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  #gate .err { color: #b3261e; font-size: .82rem; min-height: 1.1em; margin-top: 8px; }
 </style>
+<script>
+  /* Wachtwoordscherm (alleen client-side, houdt nieuwsgierigen buiten; geen echte beveiliging) */
+  (function () {
+    try { if (sessionStorage.getItem('yalcin_admin_ok') === '1') return; } catch (e) {}
+    document.documentElement.classList.add('is-locked');
+    document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('locked'); });
+  })();
+</script>
 </head>
 <body>
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <form id="gateForm" autocomplete="off">
+    <h2 id="gateTitle">Productbeheer</h2>
+    <p>Voer het wachtwoord in om verder te gaan.</p>
+    <input type="password" id="gatePw" placeholder="Wachtwoord" autocomplete="current-password" required autofocus>
+    <button type="submit">Openen</button>
+    <div class="err" id="gateErr" role="alert"></div>
+  </form>
+</div>
+<script>
+(function () {
+  var HASH = 'e8d33b26c92264a0a608c534b7187b8cb40c8a6fb45d2c8d85df8fb3a16f6572', SALT = 'yalcin-admin-v1';
+  var form = document.getElementById('gateForm');
+  function unlock() {
+    try { sessionStorage.setItem('yalcin_admin_ok', '1'); } catch (e) {}
+    document.body.classList.remove('locked');
+  }
+  async function sha256(t) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t));
+    return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var err = document.getElementById('gateErr');
+    if (!window.crypto || !crypto.subtle) { err.textContent = 'Open deze pagina via https om in te loggen.'; return; }
+    var h = await sha256(SALT + document.getElementById('gatePw').value);
+    if (h === HASH) { unlock(); } else { err.textContent = 'Onjuist wachtwoord.'; document.getElementById('gatePw').select(); }
+  });
+})();
+</script>
+
 
 <div class="header">
   <div class="wrap header-inner">
