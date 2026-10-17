@@ -1,12 +1,13 @@
 /* =========================================================================
    Yalcin — Offerte wizard (multi-item per dienst)
    Vanilla JS, no build step.
-   Replace WEB3FORMS_KEY with your own access key to receive submissions.
+   Aanvragen worden verstuurd naar MAIL_TO via FormSubmit (formsubmit.co).
+   Bij de allereerste aanvraag stuurt FormSubmit een bevestigingsmail naar dat adres; die moet eenmalig worden bevestigd.
    ========================================================================= */
 (function () {
   "use strict";
 
-  var WEB3FORMS_KEY = ""; // <-- vul hier je Web3Forms access key in
+  var MAIL_TO = "info@yalcininterieur.nl";
 
   var SERVICES = {
     vloeren:         { label: "Vloeren",                  icon: "01", item: "Vloer",          addLabel: "Nog een vloer toevoegen",        addable: true },
@@ -325,11 +326,33 @@
       $$(".q-step-item").forEach(function (e) { e.classList.add("done"); e.classList.remove("active"); });
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    if (!WEB3FORMS_KEY) { setTimeout(done, 700); return; }
-    data.access_key = WEB3FORMS_KEY;
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data)
-    }).then(function (r) { return r.json(); }).then(done).catch(done);
+    var body = {
+      _subject: data.subject,
+      _template: "table",
+      _captcha: "false",
+      _replyto: data.email,
+      Diensten: data.diensten,
+      Details: data.details,
+      Planning: data.planning,
+      Budget: data.budget,
+      Opmerking: data.opmerking,
+      Naam: data.naam,
+      "E-mail": data.email,
+      Telefoon: data.telefoon,
+      Adres: data.adres,
+      Postcode: data.postcode,
+      Plaats: data.plaats
+    };
+    fetch("https://formsubmit.co/ajax/" + MAIL_TO, {
+      method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(body)
+    }).then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then(function (j) { if (j && (j.success === false || j.success === "false")) throw new Error("niet verstuurd"); done(); })
+      .catch(function () {
+        btn.disabled = false; btn.innerHTML = "Aanvraag versturen <span class=\"arr\">→</span>";
+        var err = $("#q-submit-error");
+        if (!err) { err = document.createElement("p"); err.id = "q-submit-error"; err.style.cssText = "color:#b3261e;font-size:.88rem;margin-top:12px"; btn.parentNode.appendChild(err); }
+        err.textContent = "Versturen is niet gelukt. Probeer het later opnieuw of bel ons op 070 390 7020.";
+      });
   }
 
   /* ---------------- init ---------------- */

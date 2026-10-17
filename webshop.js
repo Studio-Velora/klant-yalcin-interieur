@@ -413,14 +413,25 @@ function setCategory(filter, scroll) {
   }
 }
 
+/* Vaste sfeerfoto per categorie (productfoto's van leveranciers passen daar niet bij) */
+const CAT_PHOTOS = {
+  'pvc-vloeren':          ['assets/photo/pvc-vloer-woonkamer.jpg'],
+  'laminaat':             ['assets/photo/laminaat-woonkamer.jpg'],
+  'parket':               ['assets/photo/vloer.jpg'],
+  'gordijnen':            ['assets/photo/Firefly-2.jpg'],
+  'vloerkleden-tapijten': ['assets/photo/Firefly-3.jpg', 'center 85%']
+};
+
 function setupCategoryCards() {
   document.querySelectorAll('.cat-card').forEach(card => {
     const coll  = card.dataset.filter;
     const items = allProducts.filter(p => p.collection === coll);
-    const withImg = items.filter(p => p.images?.[0]?.url);
-    const pic = withImg.find(p => p.images[0].url.startsWith('assets/')) || withImg[0];
-    const imgUrl = pic ? pic.images[0].url : (coll === 'parket' ? 'assets/photo/gerenoveerde-trap-eiken.jpg' : '');
-    if (imgUrl) card.querySelector('.cat-img').style.backgroundImage = `url("${imgUrl}")`;
+    const pic = CAT_PHOTOS[coll];
+    if (pic) {
+      const el = card.querySelector('.cat-img');
+      el.style.backgroundImage = `url("${pic[0]}")`;
+      if (pic[1]) el.style.backgroundPosition = pic[1];
+    }
     card.querySelector('.cat-count').textContent = `${items.length} producten`;
     card.setAttribute('aria-pressed', 'false');
     card.addEventListener('click', () => setCategory(activeFilter === coll ? 'all' : coll, true));
