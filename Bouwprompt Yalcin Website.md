@@ -103,7 +103,7 @@ Linksonder, zachte slide-in na ~1s. Titel "Cookies", korte uitleg (alleen functi
 
 ## ECHTE GEGEVENS (gebruiken, niet verzinnen)
 - **Naam:** Yalcin Tapijt & Woninginrichting (tapijtenwinkel in Den Haag)
-- **Adres:** Apeldoornselaan 243, 3573 LJ Den Haag (provincie Zuid-Holland)
+- **Adres:** Apeldoornselaan 243, 2573 LJ Den Haag (provincie Zuid-Holland)
 - **Telefoon:** 070 390 7020
 - **Openingstijden:** ma–za, 09:00–18:00
 - **Waardering:** 5.013 reviews, overwegend 5 sterren (Google)
