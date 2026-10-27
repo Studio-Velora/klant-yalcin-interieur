@@ -3,8 +3,8 @@
     "id": 15721453355391,
     "title": "Agena",
     "handle": "agena",
-    "collection": "vloerkleden-tapijten",
-    "collectionLabel": "Vloerkleden & Tapijten",
+    "collection": "tapijt",
+    "collectionLabel": "Tapijt",
     "price": 249,
     "variantId": 57750300754303,
     "images": [
@@ -52,8 +52,8 @@
     "id": 15721453945215,
     "title": "Babylon",
     "handle": "babylon",
-    "collection": "vloerkleden-tapijten",
-    "collectionLabel": "Vloerkleden & Tapijten",
+    "collection": "tapijt",
+    "collectionLabel": "Tapijt",
     "price": 189,
     "variantId": 57750301344127,
     "images": [
@@ -97,8 +97,8 @@
     "id": 15721454043519,
     "title": "Badour",
     "handle": "badour",
-    "collection": "vloerkleden-tapijten",
-    "collectionLabel": "Vloerkleden & Tapijten",
+    "collection": "tapijt",
+    "collectionLabel": "Tapijt",
     "price": 279,
     "variantId": 57750301442431,
     "images": [

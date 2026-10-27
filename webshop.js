@@ -142,7 +142,7 @@ function openModal(product) {
   const price   = formatPrice(product.price);
 
   const descriptions = {
-    'vloerkleden-tapijten': 'Handgeselecteerd uit de Lifestyle Interior collectie. Warm van kleur, robuust van weefsel — gemaakt om jarenlang mooi te blijven. Verkrijgbaar in meerdere maten.',
+    'tapijt': 'Handgeselecteerd uit de Lifestyle Interior collectie. Warm van kleur, robuust van weefsel — gemaakt om jarenlang mooi te blijven.',
     'pvc-vloeren': 'Watervast, slijtvast en onderhoudsvriendelijk. Ideaal voor woonkamers, keukens en gangen. Verkrijgbaar inclusief vakkundige montage in Den Haag en omstreken.',
     'laminaat': 'Warme houtlook met de duurzaamheid van laminaat. Strak en eenvoudig te combineren met elk interieur. Inclusief montage en afwerking naar keuze.',
     'gordijnen': 'Stijlvolle gordijnen die uw interieur compleet maken. Verkrijgbaar in diverse stoffen, kleuren en confectiematen. Inclusief opmeten en montage.',
@@ -423,7 +423,7 @@ const CAT_PHOTOS = {
   'laminaat':             ['assets/photo/laminaat-woonkamer.jpg'],
   'parket':               ['assets/photo/vloer.jpg'],
   'gordijnen':            ['assets/photo/Firefly-2.jpg'],
-  'vloerkleden-tapijten': ['assets/photo/Firefly-3.jpg', 'center 85%']
+  'tapijt':               ['assets/photo/Firefly-3.jpg', 'center 85%']
 };
 
 function setupCategoryCards() {
