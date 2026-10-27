@@ -18,6 +18,7 @@ const PROD_COLL_LABELS = {
   'tapijt':               'Tapijt',
   'binnenzonwering':      'Binnenzonwering',
   'traprenovatie':        'Traprenovatie',
+  'vloerbedekking-voorraad': 'Op voorraad bij Yalcin',
 };
 
 /* ---- Description copy per collection ---- */
@@ -119,6 +120,18 @@ const DESCRIPTIONS = {
       <li>Inclusief stootborden en neusprofielen</li>
     </ul>
   `,
+  'vloerbedekking-voorraad': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem"><strong>${p.title}</strong> — direct leverbaar uit onze showroom in Den Haag. Geen wachttijd, scherpe prijs.</p>
+    <p>Deze vloer is op voorraad bij Yalcin en kan snel bij u thuis gelegd worden. U profiteert van directe beschikbaarheid en vakkundige montage door ons eigen team.</p>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Voordelen</h4>
+    <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
+      <li>Direct leverbaar uit voorraad</li>
+      <li>Scherpe voorraadprijs</li>
+      <li>Gratis inmeten op locatie</li>
+      <li>Vakkundige montage beschikbaar</li>
+      <li>Te bekijken in onze showroom</li>
+    </ul>
+  `,
 };
 
 const FAQS = {
@@ -171,6 +184,12 @@ const FAQS = {
     { q: "Kan elke trap gerenoveerd worden?", a: "Vrijwel elke trap is geschikt: rechte trappen, kwartslagen, bordessen en zelfs wenteltrappen. Onze monteur beoordeelt dit tijdens de gratis inmeting." },
     { q: "Welke materialen zijn beschikbaar?", a: "U kunt kiezen uit laminaat, PVC, of massief hout als overzetting. Elke optie is verkrijgbaar in diverse kleuren en dessins. Wij tonen u de mogelijkheden in onze showroom." },
     { q: "Moet de oude trapbekleding eerst verwijderd worden?", a: "In de meeste gevallen niet — de overzetting wordt over de bestaande trap geplaatst. Alleen als er losliggend tapijt of erg ongelijke bekleding zit, wordt dit eerst verwijderd." },
+  ],
+  'vloerbedekking-voorraad': [
+    { q: "Zijn deze vloeren echt direct leverbaar?", a: "Ja, alle producten in deze categorie zijn op voorraad in onze showroom in Den Haag. Na inmeten kunnen wij doorgaans binnen enkele dagen leveren en leggen." },
+    { q: "Waarom zijn deze vloeren scherper geprijsd?", a: "Dit zijn vloeren die wij in grotere hoeveelheden hebben ingekocht. Hierdoor kunnen wij een scherpe prijs bieden. De kwaliteit is gelijkwaardig aan ons reguliere assortiment." },
+    { q: "Kan ik de vloer eerst bekijken in de showroom?", a: "Uiteraard! Kom gerust langs in onze showroom aan de Apeldoornselaan 243 in Den Haag. U kunt alle voorraadproducten ter plekke bekijken en voelen." },
+    { q: "Is montage inbegrepen bij de prijs?", a: "De getoonde prijs is per vierkante meter of per pak. Montage kunt u er eenvoudig bij bestellen. Wij komen gratis inmeten en doen u een totaalvoorstel inclusief legkosten." },
   ],
 };
 

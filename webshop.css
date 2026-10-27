@@ -433,7 +433,7 @@ body.promo-closed .filter-bar { top: 68px; }
 .cat-pick { background: var(--paper); padding: clamp(28px, 4vw, 48px) 0 clamp(20px, 3vw, 32px); border-bottom: 1px solid var(--line); }
 .cat-pick-inner { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
 .cat-pick-title { font-family: var(--display); font-size: clamp(1.4rem, 2.6vw, 2rem); color: var(--ink); margin-bottom: clamp(16px, 2vw, 24px); }
-.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.4vw, 20px); }
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 20px); }
 .cat-card {
   display: flex; flex-direction: column; text-align: left; padding: 0;
   background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius);
@@ -484,3 +484,26 @@ body.promo-closed .filter-bar { top: 68px; }
 .sort-opt { display: block; width: 100%; text-align: left; padding: 9px 10px; border: 0; border-radius: 6px; background: none; font-family: var(--body); font-size: .86rem; color: var(--ink); cursor: pointer; }
 .sort-opt:hover { background: var(--sand); }
 .sort-opt.on { color: var(--clay); font-weight: 600; }
+
+/* ---- Sale / Op voorraad styling ---- */
+.ftab-sale { color: #b84033; font-weight: 700; }
+.ftab-sale.on { color: #b84033; border-bottom-color: #b84033; }
+.ftab-sale:hover { color: #b84033; }
+
+.cat-card-sale { border-color: #b84033; background: #fdf5f4; }
+.cat-card-sale:hover { box-shadow: 0 6px 24px rgba(184,64,51,.15); }
+.cat-card-sale.on { border-color: #b84033; box-shadow: 0 0 0 2px #b84033; }
+.cat-sale-badge {
+  display: inline-block; background: #b84033; color: #fff;
+  font-size: .6rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: .2em .6em; border-radius: 4px;
+  margin-left: 6px; vertical-align: middle;
+  font-family: var(--body);
+}
+.prod-badge-sale {
+  background: #b84033 !important; color: #fff;
+  font-size: .64rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+@media (max-width: 1000px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .cat-sale-badge { display: none; } }

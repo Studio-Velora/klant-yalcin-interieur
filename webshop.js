@@ -31,15 +31,19 @@ function renderCard(product) {
   card.dataset.coll = product.collection;
   card.setAttribute('role', 'listitem');
 
+  const isSale = product.collection === 'vloerbedekking-voorraad';
+
   card.innerHTML = `
     <div class="prod-img-wrap">
       ${img
         ? `<img class="prod-img" src="${img.url}" alt="${img.alt || product.title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;prod-img-ph&quot;>Afbeelding volgt</div>'">`
         : `<div class="prod-img-ph">Afbeelding volgt</div>`
       }
-      ${product.collectionLabel
-        ? `<span class="prod-badge" style="background:var(--ink);font-size:.6rem">${product.collectionLabel}</span>`
-        : ''}
+      ${isSale
+        ? `<span class="prod-badge prod-badge-sale">Direct leverbaar</span>`
+        : product.collectionLabel
+          ? `<span class="prod-badge" style="background:var(--ink);font-size:.6rem">${product.collectionLabel}</span>`
+          : ''}
       ${hasPrice ? `<button class="prod-quick-add" data-add="${product.id}" aria-label="Voeg ${product.title} toe aan winkelwagen">
         + In winkelwagen
       </button>` : ''}
@@ -146,7 +150,7 @@ function openModal(product) {
     'tapijt': 'Comfortabel tapijt voor een warme en geluidsarme vloer. Verkrijgbaar in diverse dessins en kwaliteiten. Inclusief legservice.',
     'binnenzonwering': 'Functionele en decoratieve binnenzonwering. Van plissé en jaloeziën tot houten shutters. Op maat gemaakt en vakkundig gemonteerd.',
     'traprenovatie': 'Geef uw trap een nieuwe look met onze traprenovatie-oplossingen. PVC of laminaat overzetting, snel geplaatst en onderhoudsvriendelijk.',
-    'cadeaubonnen': 'Verrras iemand met een cadeaubon van Yalcin Tapijt & Woninginrichting. Geldig op het gehele assortiment, van vloerkleden tot complete vloeren. 1 jaar geldig na aankoop.',
+    'vloerbedekking-voorraad': 'Direct leverbaar uit onze showroom in Den Haag. Deze vloeren zijn op voorraad en kunnen snel bij u thuis gelegd worden. Profiteer van scherpe prijzen en snelle levering.',
   };
   const desc = descriptions[product.collection] || 'Hoogwaardig materiaal uit onze curated collectie. Wilt u dit product zien of voelen? Kom langs in onze showroom in Den Haag.';
 
