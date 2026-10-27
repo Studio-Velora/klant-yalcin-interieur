@@ -390,7 +390,7 @@ body.promo-closed { --promo-h: 0px; }
 .footer .brand-tag { color: rgba(247,241,230,.55); border-color: rgba(247,241,230,.2); }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
   gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
