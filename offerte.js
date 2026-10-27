@@ -14,7 +14,6 @@
     traprenovatie:   { label: "Traprenovatie",            icon: "02", item: "Trap",           addLabel: "Nog een trap toevoegen",         addable: true },
     gordijnen:       { label: "Gordijnen",                icon: "03", item: "Raam / set",     addLabel: "Nog een raam toevoegen",         addable: true },
     raamdecoratie:   { label: "Raamdecoratie",            icon: "04", item: "Raam",           addLabel: "Nog een raam toevoegen",         addable: true },
-    woninginrichting:{ label: "Complete woninginrichting",icon: "05", item: "Woning",         addLabel: "",                               addable: false }
   };
 
   // Field label maps for the summary (order matters)
@@ -24,8 +23,7 @@
     trap_treden: "Aantal treden", trap_type: "Type trap", trap_afwerking: "Afwerking",
     trap_wangen: "Trapwangen", trap_stootborden: "Stootborden", trap_ondervloer: "Ondervloer", trap_extra: "Extra’s",
     gord_type: "Type", gord_ramen: "Aantal ramen", gord_rails: "Rails aanwezig", gord_maten: "Afmetingen",
-    raam_type: "Type", raam_aantal: "Aantal ramen", raam_bediening: "Bediening",
-    won_onderdelen: "Onderdelen", won_omschrijving: "Omschrijving"
+    raam_type: "Type", raam_aantal: "Aantal ramen", raam_bediening: "Bediening"
   };
 
   var STEP_NAMES = ["Dienst", "Details", "Planning", "Uw gegevens", "Overzicht"];
@@ -97,10 +95,6 @@
       return chipField("raam_type", "Welk type raamdecoratie?", "", ["Jaloezieën", "Shutters", "Rolgordijnen", "Plissé"], true, uid) +
         row(stepperField("raam_aantal", "Aantal ramen", "", 1, 1),
             chipField("raam_bediening", "Bediening", "", ["Handmatig", "Elektrisch", "Geen voorkeur"], false, uid));
-    }
-    if (service === "woninginrichting") {
-      return chipField("won_onderdelen", "Welke onderdelen?", "", ["Vloeren", "Trap", "Gordijnen", "Raamdecoratie", "Advies / styling"], true, uid) +
-        textareaField("won_omschrijving", "Vertel ons over de woning", "type, aantal ruimtes, wensen", "bijv. nieuwbouw appartement, 3 kamers, warme natuurlijke uitstraling…");
     }
     return "";
   }
@@ -362,6 +356,12 @@
     $$("[data-prev]").forEach(function (b) { b.addEventListener("click", prev); });
     wireChips($("#step-planning"));
     var sub = $("#q-submit"); if (sub) sub.addEventListener("click", submit);
+    var params = new URLSearchParams(window.location.search);
+    var productParam = params.get("product");
+    if (productParam) {
+      var opm = $('[name="planning_opm"]');
+      if (opm) opm.value = "Betreft product: " + productParam;
+    }
     showStep(0);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

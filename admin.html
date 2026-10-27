@@ -408,41 +408,60 @@
     updateChangesBanner();
   }
 
-  function imgPreviewHtml(src) {
-    if (src) return '<img class="modal-img" id="mImgPreview" src="' + esc(src) + '" alt="" onerror="this.outerHTML=\'<div class=modal-noimg id=mImgPreview>Geen foto</div>\'">';
-    return '<div class="modal-noimg" id="mImgPreview">Geen foto</div>';
+  function imgPreviewHtml(src, idx) {
+    var id = 'mImgPreview' + (idx != null ? idx : '');
+    if (src) return '<img class="modal-img" id="' + id + '" src="' + esc(src) + '" alt="" style="max-height:120px;margin-bottom:6px" onerror="this.outerHTML=\'<div class=modal-noimg id=' + id + ' style=height:60px>Geen foto</div>\'">';
+    return '<div class="modal-noimg" id="' + id + '" style="height:60px">Geen foto</div>';
   }
 
-  function updateImgPreview() {
-    var url = $('mImg').value.trim();
-    var el = $('mImgPreview');
+  function updateImgPreview(idx) {
+    var inputs = document.querySelectorAll('.mImgUrl');
+    var input = inputs[idx];
+    if (!input) return;
+    var url = input.value.trim();
+    var el = $('mImgPreview' + idx);
     if (!el) return;
     if (url) {
-      el.outerHTML = '<img class="modal-img" id="mImgPreview" src="' + esc(url) + '" alt="" onerror="this.outerHTML=\'<div class=modal-noimg id=mImgPreview>Geen foto</div>\'">';
+      el.outerHTML = '<img class="modal-img" id="mImgPreview' + idx + '" src="' + esc(url) + '" alt="" style="max-height:120px;margin-bottom:6px" onerror="this.outerHTML=\'<div class=modal-noimg id=mImgPreview' + idx + ' style=height:60px>Geen foto</div>\'">';
     } else {
-      el.outerHTML = '<div class="modal-noimg" id="mImgPreview">Geen foto</div>';
+      el.outerHTML = '<div class="modal-noimg" id="mImgPreview' + idx + '" style="height:60px">Geen foto</div>';
     }
   }
 
-  function setupFileUpload() {
-    var fileInput = $('mFile');
-    if (!fileInput) return;
-    fileInput.addEventListener('change', function() {
-      var file = this.files[0];
-      if (!file) return;
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $('mImg').value = e.target.result;
-        updateImgPreview();
-      };
-      reader.readAsDataURL(file);
+  function setupImageSlots() {
+    document.querySelectorAll('.mImgUrl').forEach(function(input) {
+      input.addEventListener('change', function() { updateImgPreview(parseInt(this.dataset.idx)); });
+      input.addEventListener('blur', function() { updateImgPreview(parseInt(this.dataset.idx)); });
+    });
+    document.querySelectorAll('.mImgFile').forEach(function(fileInput) {
+      fileInput.addEventListener('change', function() {
+        var idx = parseInt(this.dataset.idx);
+        var file = this.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var urlInput = document.querySelectorAll('.mImgUrl')[idx];
+          if (urlInput) urlInput.value = e.target.result;
+          updateImgPreview(idx);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+    document.querySelectorAll('.mImgRemove').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.idx);
+        var urlInput = document.querySelectorAll('.mImgUrl')[idx];
+        if (urlInput) urlInput.value = '';
+        updateImgPreview(idx);
+        this.remove();
+      });
     });
   }
 
   function formFieldsHtml(p) {
     var colls = [...new Set(products.map(x => x.collectionLabel).filter(Boolean))].sort();
     var isEdit = !!p._uid;
-    var img = p.img || '';
+    var imgs = (p.imgs && p.imgs.length) ? p.imgs : (p.img ? [p.img] : []);
     var title = p.title || '';
     var price = p.price || 0;
     var collLabel = p.collectionLabel || '';
@@ -455,15 +474,22 @@
     var teZien = p.teZienInWinkel || false;
     var m2 = p.m2PerPak || '';
 
-    return '<div style="margin-bottom:16px">' +
-        imgPreviewHtml(img) +
-        '<label>Afbeelding URL</label>' +
-        '<input type="text" id="mImg" value="' + esc(img) + '">' +
-        '<label>Of upload een bestand</label>' +
-        '<input type="file" id="mFile" accept="image/*">' +
-      '</div>' +
+    var imgsHtml = '';
+    for (var i = 0; i < 3; i++) {
+      var url = imgs[i] || '';
+      var n = i + 1;
+      imgsHtml += '<div class="img-slot" style="margin-bottom:12px;padding:10px;border:1px solid #e5e0d8;border-radius:8px">' +
+        '<label style="font-weight:600;font-size:.82rem">Foto ' + n + (i === 0 ? ' (hoofdfoto)' : '') + '</label>' +
+        imgPreviewHtml(url, i) +
+        '<input type="text" class="mImgUrl" data-idx="' + i + '" value="' + esc(url) + '" placeholder="URL of upload hieronder">' +
+        '<input type="file" class="mImgFile" data-idx="' + i + '" accept="image/*" style="margin-top:4px">' +
+        (url ? '<button type="button" class="mImgRemove" data-idx="' + i + '" style="margin-top:4px;font-size:.78rem;color:#b84033;background:none;border:none;cursor:pointer;padding:0">Verwijderen</button>' : '') +
+      '</div>';
+    }
+
+    return '<div style="margin-bottom:16px">' + imgsHtml + '</div>' +
       '<label>Productnaam</label>' +
-      '<input type="text" id="mTitle" value="' + esc(title) + '"' + (!isEdit ? ' placeholder="Bijv. Wollen vloerkleed Sahara"' : '') + '>' +
+      '<input type="text" id="mTitle" value="' + esc(title) + '"' + (!isEdit ? ' placeholder="Bijv. PVC Click Eiken Natuur"' : '') + '>' +
       '<div class="modal-row">' +
         '<div><label>Prijs (euro)</label><input type="number" id="mPrice" value="' + price + '" step="0.01" min="0"></div>' +
         '<div><label>Categorie</label><select id="mColl">' + colls.map(c => '<option' + (c === collLabel ? ' selected' : '') + '>' + esc(c) + '</option>').join('') + '<option value="__new">+ Nieuwe categorie</option></select></div>' +
@@ -494,10 +520,16 @@
       collLabel = prompt('Naam van de nieuwe categorie:');
       if (!collLabel) return null;
     }
+    var imgUrls = [];
+    document.querySelectorAll('.mImgUrl').forEach(function(input) {
+      var v = input.value.trim();
+      if (v) imgUrls.push(v);
+    });
     return {
       title: $('mTitle').value.trim(),
       price: parseFloat($('mPrice').value) || 0,
-      img: $('mImg').value.trim(),
+      img: imgUrls[0] || '',
+      imgs: imgUrls,
       merk: $('mMerk').value.trim(),
       materiaal: $('mMat').value.trim(),
       kleur: $('mKleur').value.trim(),
@@ -524,8 +556,7 @@
       '</div>';
 
     $('modalBg').classList.remove('hidden');
-    $('mImg').addEventListener('change', updateImgPreview);
-    setupFileUpload();
+    setupImageSlots();
 
     $('mCancel').onclick = closeModal;
     $('mSave').onclick = function() {
@@ -552,8 +583,7 @@
       '</div>';
 
     $('modalBg').classList.remove('hidden');
-    $('mImg').addEventListener('change', updateImgPreview);
-    setupFileUpload();
+    setupImageSlots();
 
     $('mCancel').onclick = closeModal;
     $('mSave').onclick = function() {
@@ -605,7 +635,7 @@
         id: p.id, title: p.title, handle: p.handle || p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
         collection: p.collection, collectionLabel: p.collectionLabel,
         price: p.price, variantId: p.variantId || 0,
-        images: p.img ? [{ url: p.img, alt: p.title + ' — productfoto' }] : [],
+        images: (p.imgs && p.imgs.length) ? p.imgs.map(function(url, i) { return { url: url, alt: p.title + ' — productfoto' + (i > 0 ? ' ' + (i+1) : '') }; }) : (p.img ? [{ url: p.img, alt: p.title + ' — productfoto' }] : []),
         specs: {}
       };
       if (p.merk) obj.specs.merk = p.merk;
@@ -722,6 +752,7 @@
           collection: p.collection || '', collectionLabel: p.collectionLabel || '',
           price: p.price || 0, variantId: p.variantId || 0,
           img: (p.images && p.images[0]) ? p.images[0].url : '',
+          imgs: p.images ? p.images.map(x => x.url).slice(0, 3) : [],
           merk: p.specs?.merk || '', materiaal: p.specs?.materiaal || '',
           kleur: p.specs?.kleur || '', afmetingen: p.specs?.afmetingen || '',
           sku: p.specs?.sku || '',

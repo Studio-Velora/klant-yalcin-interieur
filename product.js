@@ -10,12 +10,11 @@ function fmt(amount) {
 }
 
 const PROD_COLL_LABELS = {
-  'vloerkleden-tapijten': 'Vloerkleden & Tapijten',
+  'tapijt':               'Tapijt',
   'pvc-vloeren':          'PVC Vloeren',
   'laminaat':             'Laminaat',
   'gordijnen':            'Gordijnen',
   'parket':               'Parket',
-  'tapijt':               'Tapijt',
   'binnenzonwering':      'Binnenzonwering',
   'traprenovatie':        'Traprenovatie',
   'vloerbedekking-voorraad': 'Op voorraad bij Yalcin',
@@ -23,18 +22,17 @@ const PROD_COLL_LABELS = {
 
 /* ---- Description copy per collection ---- */
 const DESCRIPTIONS = {
-  'vloerkleden-tapijten': (p) => `
-    <p class="lead" style="margin-bottom:1.4rem">De <strong>${p.title}</strong> is een premium vloerkleed uit de Lifestyle Interior collectie — handgeselecteerd op kwaliteit, kleur en duurzaamheid. Dit kleed combineert esthetiek met functionaliteit en voegt direct warmte en karakter toe aan elke ruimte.</p>
+  'tapijt': (p) => `
+    <p class="lead" style="margin-bottom:1.4rem">Het <strong>${p.title}</strong> tapijt uit de Lifestyle Interior collectie is handgeselecteerd op kwaliteit, kleur en duurzaamheid. Dit tapijt combineert esthetiek met functionaliteit en voegt direct warmte en karakter toe aan elke ruimte.</p>
     <p>Met zijn zorgvuldig geweven structuur en warme kleurpalet past de ${p.title} naadloos in moderne, Scandinavische én klassieke interieurs. Het materiaal — ${p.specs?.materiaal || 'hoogwaardig synthetisch'} — is gekozen om jarenlang mooi te blijven, ook bij intensief gebruik.</p>
-    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Waarom dit kleed?</h4>
+    <h4 style="font-family:var(--display);font-size:1.3rem;color:var(--ink);margin:1.6rem 0 .8rem">Waarom dit tapijt?</h4>
     <ul style="padding-left:1.2rem;color:var(--ink-soft);line-height:2">
       <li>Ideaal voor ${p.specs?.ruimte || 'de woonkamer'} — ook bij druk gebruik</li>
       <li>Eenvoudig te onderhouden — zelfreinigende vezels</li>
       <li>Geschikt voor ${p.specs?.geschiktVoer || 'vloerverwarming'}</li>
-      <li>Verkrijgbaar in meerdere maten op aanvraag</li>
-      <li>Gratis professionele neerlegging door ons team</li>
+      <li>Gratis professionele plaatsing door ons team</li>
     </ul>
-    <p style="margin-top:1.4rem">Twijfelt u of dit kleed past bij uw interieur? Vraag een gratis staal aan of kom langs in onze showroom aan de Apeldoornselaan in Den Haag.</p>
+    <p style="margin-top:1.4rem">Twijfelt u? Vraag een gratis staal aan of kom langs in onze showroom aan de Apeldoornselaan in Den Haag.</p>
   `,
   'pvc-vloeren': (p) => `
     <p class="lead" style="margin-bottom:1.4rem">De <strong>${p.title}</strong> PVC vloer combineert tijdloze uitstraling met uitzonderlijke duurzaamheid. Watervast, krasbestendig en ideaal voor drukke ruimtes — van de woonkamer tot de keuken.</p>
@@ -135,12 +133,11 @@ const DESCRIPTIONS = {
 };
 
 const FAQS = {
-  'vloerkleden-tapijten': [
-    { q: "In welke maten is dit kleed verkrijgbaar?", a: "Dit kleed is standaard verkrijgbaar in de aangegeven afmeting. Andere maten zijn vaak op aanvraag mogelijk. Neem contact op via 070 390 7020 of kom langs in onze showroom." },
-    { q: "Is dit kleed geschikt voor vloerverwarming?", a: "De meeste kleden uit onze collectie zijn geschikt voor vloerverwarming. Controleer de specificaties of vraag ons om advies. Als vuistregel geldt: maximaal 28°C oppervlaktetemperatuur." },
+  'tapijt': [
+    { q: "In welke afmetingen is dit tapijt verkrijgbaar?", a: "Dit tapijt is standaard verkrijgbaar in de aangegeven afmeting. Andere maten zijn vaak op aanvraag mogelijk. Neem contact op via 070 390 7020 of kom langs in onze showroom." },
+    { q: "Is dit tapijt geschikt voor vloerverwarming?", a: "De meeste tapijten uit onze collectie zijn geschikt voor vloerverwarming. Controleer de specificaties of vraag ons om advies. Als vuistregel geldt: maximaal 28°C oppervlaktetemperatuur." },
     { q: "Kan ik een staal aanvragen?", a: "Ja! U kunt gratis een staal aanvragen via onze offertepagina of telefonisch. Zo kunt u de kleur en textuur thuis bekijken voordat u beslist." },
-    { q: "Hoe onderhoud ik dit kleed?", a: "Stofzuig regelmatig op een lage stand. Behandel vlekken direct met een vochtige doek en dep — nooit wrijven. Voor dieptereiniging adviseren wij een professioneel tapijtreinigingsbedrijf." },
-    { q: "Leveren jullie ook een antisliponderlaag?", a: "Ja, bij ons kunt u ook een kwalitatieve antisliponderlaag bestellen, speciaal voor gebruik op laminaat of PVC vloeren. Vraag ernaar bij uw bestelling." },
+    { q: "Hoe onderhoud ik dit tapijt?", a: "Stofzuig regelmatig op een lage stand. Behandel vlekken direct met een vochtige doek en dep — nooit wrijven. Voor dieptereiniging adviseren wij een professioneel tapijtreinigingsbedrijf." },
   ],
   'pvc-vloeren': [
     { q: "Is deze PVC vloer geschikt voor alle ondergronden?", a: "Onze PVC vloeren zijn geschikt op meeste vlakke en droge ondergronden. Bij oneffenheden adviseren wij eerst te egaliseren. Wij doen altijd een gratis inmeting en controleren de ondergrond ter plekke." },
@@ -561,9 +558,9 @@ function renderProduct(product, allProducts) {
 
           ${buyHtml}
 
-          <button class="btn-quote" onclick="location.href='offerte.html'">
+          <button class="btn-quote" onclick="location.href='offerte.html?product='+encodeURIComponent('${product.title}')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Offerte aanvragen voor grotere hoeveelheden
+            Offerte aanvragen
           </button>
 
           <div class="payment-strip">
@@ -799,7 +796,7 @@ function renderProduct(product, allProducts) {
   `;
 
   /* FAQ */
-  const faqs = FAQS[product.collection] || FAQS['vloerkleden-tapijten'];
+  const faqs = FAQS[product.collection] || FAQS['tapijt'];
   document.getElementById('tab-faq').innerHTML = `
     <div class="faq-list">
       ${faqs.map(faq => `
