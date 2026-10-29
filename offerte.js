@@ -69,6 +69,11 @@
 
   /* ---------------- item fields per service ---------------- */
   function itemFields(service, uid) {
+    var base = itemFieldsBase(service, uid);
+    if (!base) return base;
+    return base + textareaField("item_opm", "Aanvullende toelichting", "alles wat u nog kwijt wilt", "bijv. kleurwensen, merk, bijzonderheden aan de ruimte of het raam…");
+  }
+  function itemFieldsBase(service, uid) {
     if (service === "vloeren") {
       return chipField("vloer_type", "Welk type vloer?", "", ["PVC", "Laminaat", "Tapijt", "Weet ik nog niet"], true, uid) +
         row(stepperField("vloer_ruimtes", "Aantal ruimtes", "", 1, 1),
