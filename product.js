@@ -874,7 +874,7 @@ async function initProduct() {
 
   let products;
   try {
-    const res = await fetch('products.json');
+    const res = await fetch('products.json?v=12');
     products = await res.json();
     products.forEach(p => { p.images = (p.images || []).filter(i => i && i.url); });
   } catch (e) {
