@@ -11,14 +11,6 @@
       {
         "url": "assets/products/agena.jpg",
         "alt": "Agena — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Agena1.jpg?v=1781385523",
-        "alt": "Agena"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Agena2.jpg?v=1781386976",
-        "alt": "Agena"
       }
     ],
     "specs": {
@@ -150,10 +142,6 @@
       {
         "url": "assets/products/connect.jpg",
         "alt": "Connect — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Connect-1.jpg?v=1781387157",
-        "alt": "Connect"
       }
     ],
     "specs": {
@@ -203,14 +191,6 @@
       {
         "url": "assets/products/dahlia.jpg",
         "alt": "Dahlia — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Dahlia_-_20_Avocado_-1.jpg?v=1781387184",
-        "alt": "Dahlia"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Dahlia_-_20_Avocado_-3.jpg?v=1781387192",
-        "alt": "Dahlia"
       }
     ],
     "specs": {
@@ -252,14 +232,6 @@
       {
         "url": "assets/products/daisy.jpg",
         "alt": "Daisy — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Daisy_-_31_Steel_Blue_-_7.jpg?v=1781387170",
-        "alt": "Daisy"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Daisy_-_31_Steel_Blue_-_3.jpg?v=1781387178",
-        "alt": "Daisy"
       }
     ],
     "specs": {
@@ -354,10 +326,6 @@
       {
         "url": "assets/products/spotless.jpg",
         "alt": "Spotless — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Spotless_2.jpg?v=1781387164",
-        "alt": "Spotless"
       }
     ],
     "specs": {
@@ -722,8 +690,8 @@
     "variantId": 69550560631365,
     "images": [
       {
-        "url": "",
-        "alt": "Plank Miami 8-649 — afbeelding volgt"
+        "url": "assets/products/plank-miami-8-649.jpg",
+        "alt": "Plank Miami 8-649 — productfoto"
       }
     ],
     "specs": {
@@ -757,8 +725,8 @@
     "variantId": 60676071643990,
     "images": [
       {
-        "url": "",
-        "alt": "Parket Vloeren — afbeelding volgt"
+        "url": "assets/products/parket-vloeren.jpg",
+        "alt": "Parket Vloeren — productfoto"
       }
     ],
     "specs": {
@@ -792,8 +760,8 @@
     "variantId": 60298963354936,
     "images": [
       {
-        "url": "",
-        "alt": "Parket Visgraat Vloeren — afbeelding volgt"
+        "url": "assets/products/parket-visgraat-vloeren.jpg",
+        "alt": "Parket Visgraat Vloeren — productfoto"
       }
     ],
     "specs": {
@@ -827,8 +795,8 @@
     "variantId": 65573508934942,
     "images": [
       {
-        "url": "",
-        "alt": "Parket Hongaarse Punt Vloeren — afbeelding volgt"
+        "url": "assets/products/parket-hongaarse-punt-vloeren.jpg",
+        "alt": "Parket Hongaarse Punt Vloeren — productfoto"
       }
     ],
     "specs": {
@@ -1024,12 +992,8 @@
     "variantId": 0,
     "images": [
       {
-        "url": "assets/products/connect.jpg",
-        "alt": "Connect — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Connect-1.jpg?v=1781387157",
-        "alt": "Connect"
+        "url": "assets/products/pvc-click-eiken-natuur.jpg",
+        "alt": "PVC Click Eiken Natuur — productfoto"
       }
     ],
     "specs": {
@@ -1077,12 +1041,8 @@
     "variantId": 0,
     "images": [
       {
-        "url": "assets/products/eiken-val-cama.jpg",
-        "alt": "Eiken Val Cama — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Eiken_Val_Cama.jpg?v=1781387202",
-        "alt": "Eiken Val Cama"
+        "url": "assets/products/laminaat-rustiek-grijs.jpg",
+        "alt": "Laminaat Rustiek Grijs — productfoto"
       }
     ],
     "specs": {
@@ -1126,16 +1086,12 @@
     "handle": "pvc-tegel-betonlook",
     "collection": "vloerbedekking-voorraad",
     "collectionLabel": "Op voorraad bij Yalcin",
-    "price": 35.0,
+    "price": 35,
     "variantId": 0,
     "images": [
       {
-        "url": "assets/products/spotless.jpg",
-        "alt": "Spotless — productfoto"
-      },
-      {
-        "url": "https://cdn.shopify.com/s/files/1/1012/1104/6271/files/Spotless_2.jpg?v=1781387164",
-        "alt": "Spotless"
+        "url": "assets/products/pvc-tegel-betonlook.jpg",
+        "alt": "PVC Tegel Betonlook — productfoto"
       }
     ],
     "specs": {

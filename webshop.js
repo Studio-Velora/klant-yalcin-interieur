@@ -423,7 +423,8 @@ const CAT_PHOTOS = {
   'laminaat':             ['assets/photo/laminaat-woonkamer.jpg'],
   'parket':               ['assets/photo/vloer.jpg'],
   'gordijnen':            ['assets/photo/Firefly-2.jpg'],
-  'tapijt':               ['assets/photo/Firefly-3.jpg', 'center 85%']
+  'tapijt':               ['assets/photo/Firefly-3.jpg', 'center 85%'],
+  'vloerbedekking-voorraad': ['assets/products/pvc-click-eiken-natuur.jpg']
 };
 
 function setupCategoryCards() {
@@ -559,7 +560,7 @@ async function init() {
   updateCartUI();
 
   try {
-    const res = await fetch('products.json');
+    const res = await fetch('products.json?v=12');
     allProducts = await res.json();
     allProducts.forEach(p => { p.images = (p.images || []).filter(i => i && i.url); });
   } catch (err) {
