@@ -13,9 +13,8 @@ Website met webshop en projecten voor Yalcin Tapijt & Woninginrichting.
 - `index.html`, `webshop.html`, `product.html`, `projecten/`: pagina's
 - `products.json`: productgegevens van de webshop
 - `admin.html`: beheer
-- `offerte*.html`, `*.pdf`, `Bouwprompt*.md`, `mail-yalcin-instructies.html`: interne stukken, staan via `.vercelignore` niet online
 - `assets/`, `uploads/`: afbeeldingen (niet doorlezen)
 
-Deze repo is tijdelijk public vanwege Vercel. Interne stukken (offertes, instructies) zijn dus zichtbaar op GitHub. Zet hier geen nieuwe interne documenten bij.
+Deze repo is tijdelijk public vanwege Vercel. Zet hier nooit offertes, prijzen of andere interne stukken in; die horen niet in een klant-repo.
 
 Handboek voor het hele bouwproces: repo `Studio-Velora/website-bouw-proces`. Openstaande teamtaken: `Studio-Velora/team-taken`.
