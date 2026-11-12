@@ -6,7 +6,7 @@ Website met webshop en projecten voor Yalcin Tapijt & Woninginrichting.
 |---|---|
 | Soort | Klantsite |
 | Stack | Statische HTML, CSS en JavaScript, geen build-stap |
-| Hosting | Vercel (statisch, `vercel.json`). Wordt verhuisd naar Cloudflare, zie taak 01 in `team-taken`. |
+| Hosting | Vercel (statisch, `vercel.json`). Wordt verhuisd naar Cloudflare, zie taak 01 in `systeem-team-taken`. |
 
 ## Waar staat wat
 
@@ -17,4 +17,4 @@ Website met webshop en projecten voor Yalcin Tapijt & Woninginrichting.
 
 Deze repo is tijdelijk public vanwege Vercel. Zet hier nooit offertes, prijzen of andere interne stukken in; die horen niet in een klant-repo.
 
-Handboek voor het hele bouwproces: repo `Studio-Velora/website-bouw-proces`. Openstaande teamtaken: `Studio-Velora/team-taken`.
+Handboek voor het hele bouwproces: repo `Studio-Velora/systeem-website-bouw-proces`. Openstaande teamtaken: `Studio-Velora/systeem-team-taken`.
